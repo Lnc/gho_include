@@ -16,8 +16,6 @@
 #ifndef GHO_H
 #define GHO_H
 
-#include <string>
-
 
 /*! @mainpage gho: Generic Header-Only C Library
  * 
