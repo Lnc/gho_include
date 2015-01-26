@@ -358,8 +358,8 @@ void gho_c_str_ignore_line_from_c_str_delimiter(const char** c_str,
 namespace gho
 {
   /**
-   * @brief Convert a c_str into a std::string
-   * @param[in] c_str     A C string
+   * @brief Convert a gho_c_str_t (a C string) into a std::string
+   * @param[in] c_str A C string
    * @return a std::string with c_str value
    */
   std::string to_std(const char* const c_str) {

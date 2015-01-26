@@ -404,3 +404,21 @@ void gho_string_ignore_line_from_c_str_delimiter(const char** c_str,
   gho_string_t tmp = gho_string_get_line_from_c_str_delimiter(c_str, delimiter);
   gho_string_destroy(&tmp);
 }
+
+// C++
+
+#if defined(__cplusplus)
+
+namespace gho
+{
+  /**
+   * @brief Convert a gho_string_t into a std::string
+   * @param[in] gho_string A gho string
+   * @return a std::string with gho_string value
+   */
+  std::string to_std(const gho_string_t & gho_string) {
+    return std::string(gho_string.c_str);
+  }
+}
+
+#endif
