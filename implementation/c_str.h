@@ -170,6 +170,19 @@ bool gho_c_str_equal(const char* const a, const char* const b) {
   return (strcmp(a, b) == 0);
 }
 
+/**
+ * \brief Compare two C string
+ * \param[in] a A C string
+ * \param[in] b A C string
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_c_str_compare(const char* const a, const char* const b) {
+  int c = strcmp(a, b);
+  if (c < 0) { c = -1; }
+  else if (c > 0) { c = 1; }
+  return c;
+}
+
 // Size
 
 /**

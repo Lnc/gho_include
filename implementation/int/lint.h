@@ -165,6 +165,18 @@ bool gho_lint_equal(const gho_lint* const a, const gho_lint* const b) {
   return *a == *b;
 }
 
+/**
+ * \brief Compare two gho_lint
+ * \param[in] a A gho_lint
+ * \param[in] b A gho_lint
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_lint_compare(const gho_lint* const a, const gho_lint* const b) {
+  if (*a < *b) { return -1; }
+  else if (*a > *b) { return 1; }
+  else { return 0; }
+}
+
 // Conversion
 
 /**

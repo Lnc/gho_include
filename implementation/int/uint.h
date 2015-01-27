@@ -161,6 +161,18 @@ bool gho_uint_equal(const gho_uint* const a, const gho_uint* const b) {
   return *a == *b;
 }
 
+/**
+ * \brief Compare two gho_uint
+ * \param[in] a A gho_uint
+ * \param[in] b A gho_uint
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_uint_compare(const gho_uint* const a, const gho_uint* const b) {
+  if (*a < *b) { return -1; }
+  else if (*a > *b) { return 1; }
+  else { return 0; }
+}
+
 // Conversion
 
 /**

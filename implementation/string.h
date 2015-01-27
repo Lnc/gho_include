@@ -199,9 +199,19 @@ bool gho_string_equal(const gho_string_t* const a,
  * \param[in] b A C string
  * \return true if the gho_string and the C string are equals, false otherwise
  */
-bool gho_string_equal_c_str(const gho_string_t* const a,
-                            const char* const b) {
+bool gho_string_equal_c_str(const gho_string_t* const a, const char* const b) {
   return gho_c_str_equal(a->c_str, b);
+}
+
+/**
+ * \brief Compare two gho_string
+ * \param[in] a A gho_string
+ * \param[in] b A gho_string
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_string_compare(const gho_string_t* const a,
+                       const gho_string_t* const b) {
+  return gho_c_str_compare(a->c_str, b->c_str);
 }
 
 // Conversion

@@ -58,6 +58,8 @@ static inline
 char* gho_c_str_copy(const char* const c_str);
 static inline
 bool gho_c_str_equal(const char* const a, const char* const b);
+static inline
+int gho_c_str_compare(const char* const a, const char* const b);
 
 // Size
 static inline

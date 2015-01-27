@@ -165,6 +165,18 @@ bool gho_int_equal(const int* const a, const int* const b) {
   return *a == *b;
 }
 
+/**
+ * \brief Compare two int
+ * \param[in] a A int
+ * \param[in] b A int
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_int_compare(const int* const a, const int* const b) {
+  if (*a < *b) { return -1; }
+  else if (*a > *b) { return 1; }
+  else { return 0; }
+}
+
 // Conversion
 
 /**

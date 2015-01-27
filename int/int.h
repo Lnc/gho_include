@@ -58,6 +58,8 @@ static inline
 void gho_int_copy_(const int* const i, int* copy);
 static inline
 bool gho_int_equal(const int* const a, const int* const b);
+static inline
+int gho_int_compare(const int* const a, const int* const b);
 
 // Conversion
 static inline

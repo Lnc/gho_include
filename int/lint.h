@@ -62,6 +62,8 @@ static inline
 void gho_lint_copy_(const gho_lint* const i, gho_lint* copy);
 static inline
 bool gho_lint_equal(const gho_lint* const a, const gho_lint* const b);
+static inline
+int gho_lint_compare(const gho_lint* const a, const gho_lint* const b);
 
 // Conversion
 static inline

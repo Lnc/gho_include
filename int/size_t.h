@@ -59,6 +59,8 @@ static inline
 void gho_size_t_copy_(const size_t* const i, size_t* copy);
 static inline
 bool gho_size_t_equal(const size_t* const a, const size_t* const b);
+static inline
+int gho_size_t_compare(const size_t* const a, const size_t* const b);
 
 // Conversion
 static inline

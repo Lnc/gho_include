@@ -161,6 +161,18 @@ bool gho_size_t_equal(const size_t* const a, const size_t* const b) {
   return *a == *b;
 }
 
+/**
+ * \brief Compare two size_t
+ * \param[in] a A size_t
+ * \param[in] b A size_t
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_size_t_compare(const size_t* const a, const size_t* const b) {
+  if (*a < *b) { return -1; }
+  else if (*a > *b) { return 1; }
+  else { return 0; }
+}
+
 // Conversion
 
 /**

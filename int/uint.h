@@ -61,6 +61,8 @@ static inline
 void gho_uint_copy_(const gho_uint* const i, gho_uint* copy);
 static inline
 bool gho_uint_equal(const gho_uint* const a, const gho_uint* const b);
+static inline
+int gho_uint_compare(const gho_uint* const a, const gho_uint* const b);
 
 // Conversion
 static inline

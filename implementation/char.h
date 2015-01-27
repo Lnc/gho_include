@@ -154,6 +154,18 @@ bool gho_char_equal(const char* const a, const char* const b) {
   return *a == *b;
 }
 
+/**
+ * \brief Compare two char
+ * \param[in] a A char
+ * \param[in] b A char
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_char_compare(const char* const a, const char* const b) {
+  if (*a < *b) { return -1; }
+  else if (*a > *b) { return 1; }
+  else { return 0; }
+}
+
 // Conversion
 
 /**

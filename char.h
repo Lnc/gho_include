@@ -58,6 +58,8 @@ static inline
 void gho_char_copy_(const char* const c, char* copy);
 static inline
 bool gho_char_equal(const char* const a, const char* const b);
+static inline
+int gho_char_compare(const char* const a, const char* const b);
 
 // Conversion
 static inline
