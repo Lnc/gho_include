@@ -209,7 +209,6 @@ static inline
 void gho_vector_T_sort(gho_vector_T_t* vector);
 #endif
 
-
 #include "implementation/vector_T.h"
 
 
