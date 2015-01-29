@@ -74,6 +74,7 @@ void gho_string_copy_(const gho_string_t* const string, gho_string_t* copy);
 static inline
 bool gho_string_equal(const gho_string_t* const a,
                       const gho_string_t* const b);
+static inline
 bool gho_string_equal_c_str(const gho_string_t* const a, const char* const b);
 static inline
 int gho_string_compare(const gho_string_t* const a,
