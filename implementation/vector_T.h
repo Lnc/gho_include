@@ -94,7 +94,6 @@ void gho_vector_T_reset(gho_vector_T_t* vector) {
   *vector = gho_vector_T_create();
 }
 
-
 // Output
 
 /**
@@ -243,6 +242,37 @@ int gho_vector_T_compare(const gho_vector_T_t* const a,
 }
 #endif
 
+// Conversion
+
+/**
+ * \brief Convert a gho_vector_T into a gho_string
+ * \param[in] vector A gho_vector_T
+ * \return the gho_string from the gho_vector_T
+ */
+gho_string_t gho_vector_T_to_string(const gho_vector_T_t* const vector) {
+  gho_string_t r = gho_string_create();
+  gho_vector_T_sprint(&r.c_str, vector);
+  return r;
+}
+
+/**
+ * \brief Convert a gho_vector_T into a gho_any
+ * \param[in] vector A gho_vector_T
+ * \return the gho_any from the gho_vector_T
+ */
+gho_any_t gho_vector_T_to_any(const gho_vector_T_t* const vector) {
+  gho_any_t r = gho_any_create();
+  r.size_of_struct = sizeof(gho_vector_T_t);
+  gho_vector_T_t* p = gho_alloc(gho_vector_T_t); gho_vector_T_copy_(vector, p);
+  r.any = p; p = NULL;
+  r.destroy_fct = (gho_destroy_fct_t)gho_vector_T_destroy;
+  r.fprinti_fct = (gho_fprinti_fct_t)gho_vector_T_fprinti;
+  r.sprinti_fct = (gho_sprinti_fct_t)gho_vector_T_sprinti;
+  r.copy_fct = (gho_copy_fct_t)gho_vector_T_copy_;
+  r.equal_fct = (gho_equal_fct_t)gho_vector_T_equal;
+  r.to_string_fct = (gho_to_string_fct_t)gho_vector_T_to_string;
+  return r;
+}
 
 // Size
 
@@ -306,7 +336,6 @@ void gho_vector_T_resize(gho_vector_T_t* vector, const size_t n) {
   }
 }
 
-
 // Get & Set
 
 /**
@@ -330,7 +359,6 @@ void gho_vector_T_set(gho_vector_T_t* vector, const size_t i,
   gho_T_destroy(&vector->array[i]);
   vector->array[i] = gho_T_copy(value);
 }
-
 
 // Add
 
@@ -410,7 +438,6 @@ void gho_vector_T_remove_last(gho_vector_T_t* vector) {
   --vector->size;
 }
 
-
 // Algorithm
 
 /**
@@ -438,36 +465,3 @@ void gho_vector_T_sort(gho_vector_T_t* vector) {
         (compare_fct_t)gho_T_compare);
 }
 #endif
-
-
-// Conversion
-
-/**
- * \brief Convert a gho_vector_T into a gho_string
- * \param[in] vector A gho_vector_T
- * \return the gho_string from the gho_vector_T
- */
-gho_string_t gho_vector_T_to_string(const gho_vector_T_t* const vector) {
-  gho_string_t r = gho_string_create();
-  gho_vector_T_sprint(&r.c_str, vector);
-  return r;
-}
-
-/**
- * \brief Convert a gho_vector_T into a gho_any
- * \param[in] vector A gho_vector_T
- * \return the gho_any from the gho_vector_T
- */
-gho_any_t gho_vector_T_to_any(const gho_vector_T_t* const vector) {
-  gho_any_t r = gho_any_create();
-  r.size_of_struct = sizeof(gho_vector_T_t);
-  gho_vector_T_t* p = gho_alloc(gho_vector_T_t); gho_vector_T_copy_(vector, p);
-  r.any = p; p = NULL;
-  r.destroy_fct = (gho_destroy_fct_t)gho_vector_T_destroy;
-  r.fprinti_fct = (gho_fprinti_fct_t)gho_vector_T_fprinti;
-  r.sprinti_fct = (gho_sprinti_fct_t)gho_vector_T_sprinti;
-  r.copy_fct = (gho_copy_fct_t)gho_vector_T_copy_;
-  r.equal_fct = (gho_equal_fct_t)gho_vector_T_equal;
-  r.to_string_fct = (gho_to_string_fct_t)gho_vector_T_to_string;
-  return r;
-}

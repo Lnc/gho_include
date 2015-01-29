@@ -49,10 +49,6 @@
   #error "Please define gho_T_equal before include <gho/vector_T.h>"
 #endif
 
-#ifndef gho_T_to_string
-  #error "Please define gho_T_to_string before include <gho/vector_T.h>"
-#endif
-
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -225,7 +221,6 @@ void gho_vector_T_sort(gho_vector_T_t* vector);
 #ifdef gho_T_compare
   #undef gho_T_compare
 #endif
-#undef gho_T_to_string
 
 #undef concat_name_helper
 #undef concat_name

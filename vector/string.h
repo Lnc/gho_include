@@ -45,9 +45,6 @@
 // int gho_T_compare(const T* const a, const T* const b);
 #define gho_T_compare gho_string_compare
 
-// gho_string_t gho_T_to_string(const T* const t);
-#define gho_T_to_string gho_string_to_string
-
 #include "../vector_T.h"
 
 
