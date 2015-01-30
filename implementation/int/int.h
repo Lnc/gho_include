@@ -54,7 +54,7 @@ void gho_int_reset(int* i) {
  * \brief Print a int in a file with indentation
  * \param[in] file   A C file
  * \param[in] i      A int
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_int_fprinti(FILE* file, const int* const i,
                      const unsigned int indent) {
@@ -76,14 +76,14 @@ void gho_int_fprint(FILE* file, const int* const i) {
  * \param[in] i A int
  */
 void gho_int_print(const int* const i) {
-  printf("%i", *i);
+  gho_int_fprint(stdout, i);
 }
 
 /**
  * \brief Print a int in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] i      A int
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_int_sprinti(char** c_str, const int* const i,
                      const unsigned int indent) {

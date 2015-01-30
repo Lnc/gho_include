@@ -51,7 +51,7 @@ void gho_char_reset(char* c) {
  * \brief Print a char in a file with indentation
  * \param[in] file   A C file
  * \param[in] c      A char
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_char_fprinti(FILE* file, const char* const c,
                       const unsigned int indent) {
@@ -80,7 +80,7 @@ void gho_char_print(const char* const c) {
  * \brief Print a char in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] c      A char
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_char_sprinti(char** c_str, const char* const c,
                       const unsigned int indent) {

@@ -110,7 +110,7 @@ void gho_matrix_T_reset(gho_matrix_T_t* matrix) {
  * \brief Print a gho_matrix_T in a file with indentation
  * \param[in] file   A C file
  * \param[in] matrix A gho_matrix_T
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_matrix_T_fprinti(FILE* file, const gho_matrix_T_t* const matrix,
                           const unsigned int indent) {
@@ -153,7 +153,7 @@ void gho_matrix_T_print(const gho_matrix_T_t* const matrix) {
  * \brief Print a gho_matrix_T in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] matrix A gho_matrix_T
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_matrix_T_sprinti(char** c_str, const gho_matrix_T_t* const matrix,
                           const unsigned int indent) {

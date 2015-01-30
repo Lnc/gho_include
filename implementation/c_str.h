@@ -67,7 +67,7 @@ void gho_c_str_reset(char** c_str) {
  * @brief Print a C string in a file with indentation
  * @param[in] file   A C file
  * @param[in] c_str  A C string
- * @param[in] indent indentation (number of spaces)
+ * @param[in] indent Indentation (number of spaces)
  */
 void gho_c_str_fprinti(FILE* file, const char* const c_str,
                        const unsigned int indent) {
@@ -96,7 +96,7 @@ void gho_c_str_print(const char* const c_str) {
  * @brief Print a C string in a C string with indentation
  * @param[in] out    A C string
  * @param[in] c_str  A C string
- * @param[in] indent indentation (number of spaces)
+ * @param[in] indent Indentation (number of spaces)
  */
 void gho_c_str_sprinti(char** out, const char* const c_str,
                        const unsigned int indent) {

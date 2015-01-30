@@ -100,7 +100,7 @@ void gho_vector_T_reset(gho_vector_T_t* vector) {
  * \brief Print a gho_vector_T in a file with indentation
  * \param[in] file   A C file
  * \param[in] vector A gho_vector_T
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_vector_T_fprinti(FILE* file, const gho_vector_T_t* const vector,
                           const unsigned int indent) {
@@ -135,7 +135,7 @@ void gho_vector_T_print(const gho_vector_T_t* const vector) {
  * \brief Print a gho_vector_T in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] vector A gho_vector_T
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_vector_T_sprinti(char** c_str, const gho_vector_T_t* const vector,
                           const unsigned int indent) {

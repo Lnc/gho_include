@@ -54,7 +54,7 @@ void gho_size_t_reset(size_t* i) {
  * \brief Print a size_t in a file with indentation
  * \param[in] file   A C file
  * \param[in] i      A size_t
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_size_t_fprinti(FILE* file, const size_t* const i,
                         const unsigned int indent) {
@@ -76,14 +76,14 @@ void gho_size_t_fprint(FILE* file, const size_t* const i) {
  * \param[in] i A size_t
  */
 void gho_size_t_print(const size_t* const i) {
-  printf("%lu", *i);
+  gho_size_t_fprint(stdout, i);
 }
 
 /**
  * \brief Print a size_t in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] i      A size_t
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_size_t_sprinti(char** c_str, const size_t* const i,
                         const unsigned int indent) {

@@ -21,7 +21,7 @@
 /**
  * @brief Print indentation in a file
  * @param[in] file   A C file
- * @param[in] indent indentation (number of spaces)
+ * @param[in] indent Indentation (number of spaces)
  */
 void gho_fprinti(FILE* file, const unsigned int indent) {
   for (size_t i = 0; i < indent; ++i) { fprintf(file, " "); }
@@ -30,7 +30,7 @@ void gho_fprinti(FILE* file, const unsigned int indent) {
 /**
  * @brief Print indentation in a C string
  * @param[in] c_str  A C string
- * @param[in] indent indentation (number of spaces)
+ * @param[in] indent Indentation (number of spaces)
  */
 void gho_sprinti(char** c_str, const unsigned int indent) {
   for (size_t i = 0; i < indent; ++i) { gho_c_str_add_char(c_str, ' '); }

@@ -54,7 +54,7 @@ void gho_llint_reset(gho_llint* i) {
  * \brief Print a long long int in a file with indentation
  * \param[in] file   A C file
  * \param[in] i      A long long int
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_llint_fprinti(FILE* file, const gho_llint* const i,
                       const unsigned int indent) {
@@ -76,14 +76,14 @@ void gho_llint_fprint(FILE* file, const gho_llint* const i) {
  * \param[in] i A long long int
  */
 void gho_llint_print(const gho_llint* const i) {
-  printf("%lli", *i);
+  gho_llint_fprint(stdout, i);
 }
 
 /**
  * \brief Print a long long int in a C string with indentation
  * \param[in] c_str  A C string
  * \param[in] i      A long long int
- * \param[in] indent indentation (number of spaces)
+ * \param[in] indent Indentation (number of spaces)
  */
 void gho_llint_sprinti(char** c_str, const gho_llint* const i,
                       const unsigned int indent) {
