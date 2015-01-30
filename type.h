@@ -38,6 +38,7 @@ typedef enum {
   GHO_TYPE_C_STR,
   
   // gho
+  GHO_TYPE_GHO_START_AND_SIZE,
   GHO_TYPE_GHO_STRING,
   
   // OpenScop
