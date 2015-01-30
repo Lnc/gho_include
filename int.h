@@ -19,6 +19,7 @@
 #include "int/int.h"
 #include "int/lint.h"
 #include "int/llint.h"
+#include "int/mpz_t.h"
 #include "int/size_t.h"
 #include "int/uint.h"
 
