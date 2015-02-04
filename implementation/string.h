@@ -342,8 +342,16 @@ gho_string_t gho_string_get_line(FILE* file) {
  * \return the first line in the file
  */
 void gho_string_ignore_line(FILE* file) {
-  gho_string_t tmp = gho_string_get_line(file);
-  gho_string_destroy(&tmp);
+  gho_c_str_ignore_line(file);
+}
+
+/**
+ * \brief Peek a line from a file
+ * \param[in] file A C file
+ * \return the first line in the file
+ */
+gho_string_t gho_string_peek_line(FILE* file) {
+  return gho_string_peek_line_delimiter(file, '\n');
 }
 
 /**
@@ -366,8 +374,20 @@ gho_string_t gho_string_get_line_delimiter(FILE* file, const char delimiter) {
  * \return the first line in the file until the delimiter is found
  */
 void gho_string_ignore_line_delimiter(FILE* file, const char delimiter) {
-  gho_string_t tmp = gho_string_get_line_delimiter(file, delimiter);
-  gho_string_destroy(&tmp);
+  gho_c_str_ignore_line_delimiter(file, delimiter);
+}
+
+/**
+ * \brief Peek a line from a file until a delimiter
+ * \param[in] file      A C file
+ * \param[in] delimiter The delimiter
+ * \return the first line in the file until the delimiter is found
+ */
+gho_string_t gho_string_peek_line_delimiter(FILE* file, const char delimiter) {
+  gho_string_t r = gho_string_create();
+  char* c_str_line = gho_c_str_peek_line_delimiter(file, delimiter);
+  gho_string_absorb_c_str_(&r, &c_str_line);
+  return r;
 }
 
 /**
@@ -385,8 +405,16 @@ gho_string_t gho_string_get_line_from_c_str(const char** c_str) {
  * \return the first line in the C string
  */
 void gho_string_ignore_line_from_c_str(const char** c_str) {
-  gho_string_t tmp = gho_string_get_line_from_c_str(c_str);
-  gho_string_destroy(&tmp);
+  gho_c_str_get_line_from_c_str(c_str);
+}
+
+/**
+ * \brief Peek a line from a C string
+ * \param[in] c_str A C string
+ * \return the first line in the C string
+ */
+gho_string_t gho_string_peek_line_from_c_str(const char** c_str) {
+  return gho_string_peek_line_from_c_str_delimiter(c_str, '\n');
 }
 
 /**
@@ -411,8 +439,21 @@ gho_string_t gho_string_get_line_from_c_str_delimiter(const char** c_str,
  */
 void gho_string_ignore_line_from_c_str_delimiter(const char** c_str,
                                                  const char delimiter) {
-  gho_string_t tmp = gho_string_get_line_from_c_str_delimiter(c_str, delimiter);
-  gho_string_destroy(&tmp);
+  gho_c_str_get_line_from_c_str_delimiter(c_str, delimiter);
+}
+
+/**
+ * \brief Peek a line from a C string until a delimiter
+ * \param[in] c_str     A C string
+ * \param[in] delimiter The delimiter
+ * \return the first line in the C string until the delimiter is found
+ */
+gho_string_t gho_string_peek_line_from_c_str_delimiter(const char** c_str,
+                                                       const char delimiter) {
+  gho_string_t r = gho_string_create();
+  char* c_str_line = gho_c_str_peek_line_from_c_str_delimiter(c_str, delimiter);
+  gho_string_absorb_c_str_(&r, &c_str_line);
+  return r;
 }
 
 // C++

@@ -85,19 +85,28 @@ char* gho_c_str_get_line(FILE* file);
 static inline
 void gho_c_str_ignore_line(FILE* file);
 static inline
+char* gho_c_str_peek_line(FILE* file);
+static inline
 char* gho_c_str_get_line_delimiter(FILE* file, const char delimiter);
 static inline
 void gho_c_str_ignore_line_delimiter(FILE* file, const char delimiter);
 static inline
+char* gho_c_str_peek_line_delimiter(FILE* file, const char delimiter);
+static inline
 char* gho_c_str_get_line_from_c_str(const char** c_str);
 static inline
 void gho_c_str_ignore_line_from_c_str(const char** c_str);
+static inline
+char* gho_c_str_peek_line_from_c_str(const char** c_str);
 static inline
 char* gho_c_str_get_line_from_c_str_delimiter(const char** c_str,
                                               const char delimiter);
 static inline
 void gho_c_str_ignore_line_from_c_str_delimiter(const char** c_str,
                                                 const char delimiter);
+static inline
+char* gho_c_str_peek_line_from_c_str_delimiter(const char** c_str,
+                                               const char delimiter);
 
 #include "implementation/c_str.h"
 

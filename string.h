@@ -119,19 +119,28 @@ gho_string_t gho_string_get_line(FILE* file);
 static inline
 void gho_string_ignore_line(FILE* file);
 static inline
+gho_string_t gho_string_peek_line(FILE* file);
+static inline
 gho_string_t gho_string_get_line_delimiter(FILE* file, const char delimiter);
 static inline
 void gho_string_ignore_line_delimiter(FILE* file, const char delimiter);
 static inline
+gho_string_t gho_string_peek_line_delimiter(FILE* file, const char delimiter);
+static inline
 gho_string_t gho_string_get_line_from_c_str(const char** c_str);
 static inline
 void gho_string_ignore_line_from_c_str(const char** c_str);
+static inline
+gho_string_t gho_string_peek_line_from_c_str(const char** c_str);
 static inline
 gho_string_t gho_string_get_line_from_c_str_delimiter(const char** c_str,
                                                       const char delimiter);
 static inline
 void gho_string_ignore_line_from_c_str_delimiter(const char** c_str,
                                                 const char delimiter);
+static inline
+gho_string_t gho_string_peek_line_from_c_str_delimiter(const char** c_str,
+                                                       const char delimiter);
 
 #include "implementation/string.h"
 
