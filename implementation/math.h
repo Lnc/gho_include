@@ -33,6 +33,9 @@ gho_mpz_t gho_mpz_abs(const gho_mpz_t i) {
 // http://en.wikipedia.org/wiki/Greatest_common_divisor
 // https://proofwiki.org/wiki/GCD_for_Negative_Integers
 
+static inline
+int gho_int_gcd_without_abs(const int a, const int b);
+
 /**
  * @brief Almost greatest common divisor of int (result can be negative)
  * @param[in] a A int
@@ -53,6 +56,9 @@ int gho_int_gcd(const int a, const int b) {
   return (b != 0) ? gho_int_gcd_without_abs(b, a % b) : a;
 }
 
+static inline
+gho_lint gho_lint_gcd_without_abs(const gho_lint a, const gho_lint b);
+
 /**
  * @brief Almost greatest common divisor of gho_lint (result can be negative)
  * @param[in] a A gho_lint
@@ -72,6 +78,9 @@ gho_lint gho_lint_gcd_without_abs(const gho_lint a, const gho_lint b) {
 gho_lint gho_lint_gcd(const gho_lint a, const gho_lint b) {
   return (b != 0) ? gho_lint_gcd_without_abs(b, a % b) : a;
 }
+
+static inline
+gho_llint gho_llint_gcd_without_abs(const gho_llint a, const gho_llint b);
 
 /**
  * @brief Almost greatest common divisor of gho_llint (result can be negative)
