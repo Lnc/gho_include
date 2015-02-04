@@ -41,6 +41,7 @@ void gho_ulint_fprinti(FILE* file, const gho_ulint* const i,
                       const unsigned int indent);
 static inline
 void gho_ulint_fprint(FILE* file, const gho_ulint* const i);
+static inline
 void gho_ulint_print(const gho_ulint* const i);
 static inline
 void gho_ulint_sprinti(char** c_str, const gho_ulint* const i,
