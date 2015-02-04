@@ -178,13 +178,36 @@ bool gho_mpz_equal(const gho_mpz_t* const a, const gho_mpz_t* const b) {
 }
 
 /**
+ * \brief Equality between a gho_mpz and a gho_lint
+ * \param[in] a A gho_mpz
+ * \param[in] b A gho_lint
+ * \return true if the gho_mpz and the gho_lint are equals, false otherwise
+ */
+bool gho_mpz_equal_li(const gho_mpz_t* const a, const gho_lint b) {
+  return gho_mpz_compare_li(a, b) == 0;
+}
+
+/**
  * \brief Compare two gho_mpz
  * \param[in] a A gho_mpz
  * \param[in] b A gho_mpz
  * \return -1 if a < b, 0 if a == b, 1 if a > b
  */
 int gho_mpz_compare(const gho_mpz_t* const a, const gho_mpz_t* const b) {
-  int c = mpz_cmp(a->i, b->i);
+  const int c = mpz_cmp(a->i, b->i);
+  if (c < 0) { return -1; }
+  else if (c > 0) { return 1; }
+  else { return 0; }
+}
+
+/**
+ * \brief Compare a gho_mpz and a gho_lint
+ * \param[in] a A gho_mpz
+ * \param[in] b A gho_lint
+ * \return -1 if a < b, 0 if a == b, 1 if a > b
+ */
+int gho_mpz_compare_li(const gho_mpz_t* const a, const gho_lint b) {
+  const int c = mpz_cmp_si(a->i, b);
   if (c < 0) { return -1; }
   else if (c > 0) { return 1; }
   else { return 0; }
@@ -210,7 +233,7 @@ gho_string_t gho_mpz_to_string(const gho_mpz_t* const i) {
  */
 gho_any_t gho_mpz_to_any(const gho_mpz_t* const i) {
   gho_any_t r = gho_any_create();
-  r.type = GHO_TYPE_GMP_MPZ_T;
+  r.type = GHO_TYPE_GHO_MPZ_T;
   r.size_of_struct = sizeof(gho_mpz_t);
   gho_mpz_t* p = gho_alloc(gho_mpz_t); gho_mpz_copy_(i, p);
   r.any = p; p = NULL;
@@ -220,5 +243,44 @@ gho_any_t gho_mpz_to_any(const gho_mpz_t* const i) {
   r.copy_fct = (gho_copy_fct_t)gho_mpz_copy_;
   r.equal_fct = (gho_equal_fct_t)gho_mpz_equal;
   r.to_string_fct = (gho_to_string_fct_t)gho_mpz_to_string;
+  return r;
+}
+
+// Set
+
+/**
+ * \brief a = b
+ * \param[in] a A gho_mpz
+ * \param[in] b A gho_lint
+ */
+void gho_mpz_set_li(gho_mpz_t a, const gho_lint b) {
+  mpz_set_si(a.i, b);
+}
+
+// Arithmetic
+
+/**
+ * \brief Return a + b
+ * \param[in] a A gho_mpz
+ * \param[in] b A gho_lint
+ * \return a + b
+ */
+gho_mpz_t gho_mpz_add_li(const gho_mpz_t a, const gho_lint b) {
+  gho_mpz_t r = gho_mpz_create();
+  if (b >= 0) { mpz_add_ui(r.i, a.i, (gho_ulint)b); }
+  else { mpz_sub_ui(r.i, a.i, (gho_ulint)-b); }
+  return r;
+}
+
+/**
+ * \brief Return floor(a / b)
+ * \param[in] a A gho_mpz
+ * \param[in] b A gho_lint
+ * \return floor(a / b)
+ */
+gho_mpz_t gho_mpz_floor_div_li(const gho_mpz_t a, const gho_lint b) {
+  gho_mpz_t r = gho_mpz_create();
+  if (b >= 0) { mpz_fdiv_q_ui(r.i, a.i, (gho_ulint)b); }
+  else { mpz_fdiv_q_ui(r.i, a.i, (gho_ulint)-b); mpz_neg(r.i, r.i); }
   return r;
 }

@@ -26,6 +26,8 @@
 
 #include "../string.h"
 #include "../any.h"
+#include "lint.h"
+#include "ulint.h"
 
 
 /**
@@ -75,13 +77,29 @@ void gho_mpz_copy_(const gho_mpz_t* const i, gho_mpz_t* copy);
 static inline
 bool gho_mpz_equal(const gho_mpz_t* const a, const gho_mpz_t* const b);
 static inline
+bool gho_mpz_equal_li(const gho_mpz_t* const a, const gho_lint b);
+static inline
 int gho_mpz_compare(const gho_mpz_t* const a, const gho_mpz_t* const b);
+static inline
+int gho_mpz_compare_li(const gho_mpz_t* const a, const gho_lint b);
 
 // Conversion
 static inline
 gho_string_t gho_mpz_to_string(const gho_mpz_t* const i);
 static inline
 gho_any_t gho_mpz_to_any(const gho_mpz_t* const i);
+
+// Set
+
+static inline
+void gho_mpz_set_li(gho_mpz_t a, const gho_lint b);
+
+// Arithmetic
+
+static inline
+gho_mpz_t gho_mpz_add_li(const gho_mpz_t a, const gho_lint b);
+static inline
+gho_mpz_t gho_mpz_floor_div_li(const gho_mpz_t a, const gho_lint b);
 
 #include "../implementation/int/mpz_t.h"
 
