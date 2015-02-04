@@ -31,4 +31,14 @@
 #define gho_array_realloc(pointer, type, n) \
   pointer = (type*)realloc(pointer, sizeof(type) * n)
 
+// Swap
+
+#define gho_swap(T, a, b) \
+  { \
+    T tmp; \
+    tmp = a; \
+    a = b; \
+    b = tmp; \
+  }
+
 #endif
