@@ -24,6 +24,8 @@
 
 #define T_t gho_lint
 
+#define gho_type_matrix_T GHO_TYPE_MATRIX_LINT
+
 // T gho_T_create();
 #define gho_T_create gho_lint_create
 

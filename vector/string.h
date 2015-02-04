@@ -24,6 +24,8 @@
 
 #define T_t gho_string_t
 
+#define gho_type_vector_T GHO_TYPE_VECTOR_STRING
+
 // T gho_T_create();
 #define gho_T_create gho_string_create
 

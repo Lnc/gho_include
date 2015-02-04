@@ -24,6 +24,8 @@
 
 #define T_t int
 
+#define gho_type_vector_T GHO_TYPE_VECTOR_INT
+
 // T gho_T_create();
 #define gho_T_create gho_int_create
 

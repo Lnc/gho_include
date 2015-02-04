@@ -24,6 +24,8 @@
 
 #define T_t size_t
 
+#define gho_type_vector_T GHO_TYPE_VECTOR_SIZE_T
+
 // T gho_T_create();
 #define gho_T_create gho_size_t_create
 

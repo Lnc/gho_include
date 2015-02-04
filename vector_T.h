@@ -25,6 +25,10 @@
   #error "Please define T_t before include <gho/vector_T.h>"
 #endif
 
+#ifndef gho_type_vector_T
+  #error "Please define gho_type_vector_T before include <gho/matrix_T.h>"
+#endif
+
 #ifndef gho_T_create
   #error "Please define gho_T_create before include <gho/vector_T.h>"
 #endif
@@ -54,6 +58,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#include "type.h"
 #include "any.h"
 
 
@@ -70,14 +75,17 @@
  */
 typedef struct {
   
-  /// \brief Array of T
-  T_t* array;
+  /// \brief Type
+  gho_type_t type;
   
   /// \brief Size of the array
   size_t size;
   
   /// \brief capacity of the array
   size_t capacity;
+  
+  /// \brief Array of T
+  T_t* array;
   
 } gho_vector_T_t;
 
@@ -211,6 +219,7 @@ void gho_vector_T_sort(gho_vector_T_t* vector);
 #undef gho_vector_T
 #undef gho_vector_T_t
 #undef T_t
+#undef gho_type_vector_T
 
 #undef gho_T_create
 #undef gho_T_destroy

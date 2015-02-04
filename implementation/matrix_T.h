@@ -26,6 +26,7 @@
  */
 gho_matrix_T_t gho_matrix_T_create() {
   gho_matrix_T_t matrix;
+  matrix.type = gho_type_matrix_T;
   matrix.nb_row = 0u;
   matrix.nb_col = 0u;
   matrix.array = gho_array_alloc(T_t*, matrix.nb_row);
@@ -41,6 +42,7 @@ gho_matrix_T_t gho_matrix_T_create() {
 gho_matrix_T_t gho_matrix_T_create_n_m(const size_t nb_row,
                                        const size_t nb_col) {
   gho_matrix_T_t matrix;
+  matrix.type = gho_type_matrix_T;
   matrix.nb_row = nb_row;
   matrix.nb_col = nb_col;
   matrix.array = gho_array_alloc(T_t*, matrix.nb_row);
@@ -65,6 +67,7 @@ gho_matrix_T_t gho_matrix_T_create_n_m_copy(
                                        const size_t nb_row, const size_t nb_col,
                                        const T_t* const default_value) {
   gho_matrix_T_t matrix;
+  matrix.type = gho_type_matrix_T;
   matrix.nb_row = nb_row;
   matrix.nb_col = nb_col;
   matrix.array = gho_array_alloc(T_t*, matrix.nb_row);

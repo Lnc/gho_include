@@ -29,6 +29,7 @@
  */
 gho_vector_T_t gho_vector_T_create() {
   gho_vector_T_t vector;
+  vector.type = gho_type_vector_T;
   vector.size = 0u;
   vector.capacity = 10u;
   vector.array = gho_array_alloc(T_t, vector.capacity);
@@ -42,6 +43,7 @@ gho_vector_T_t gho_vector_T_create() {
  */
 gho_vector_T_t gho_vector_T_create_n(const size_t n) {
   gho_vector_T_t vector;
+  vector.type = gho_type_vector_T;
   vector.size = n;
   vector.capacity = vector.size;
   vector.array = gho_array_alloc(T_t, vector.capacity);
@@ -61,6 +63,7 @@ gho_vector_T_t gho_vector_T_create_n(const size_t n) {
 gho_vector_T_t gho_vector_T_create_n_copy(const size_t n,
                                           const T_t* const default_value) {
   gho_vector_T_t vector;
+  vector.type = gho_type_vector_T;
   vector.size = n;
   vector.capacity = vector.size;
   vector.array = gho_array_alloc(T_t, vector.capacity);
@@ -228,7 +231,7 @@ bool gho_vector_T_equal_n(const gho_vector_T_t* const a,
  */
 int gho_vector_T_compare(const gho_vector_T_t* const a,
                          const gho_vector_T_t* const b) {
-  const size_t size = gho_min(a->size, b->size);
+  const size_t size = gho_T_min(a->size, b->size);
   
   for (size_t i = 0; i < size; ++i) {
     int r = gho_T_compare(&a->array[i], &b->array[i]);

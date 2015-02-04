@@ -25,6 +25,10 @@
   #error "Please define T_t before include <gho/matrix_T.h>"
 #endif
 
+#ifndef gho_type_matrix_T
+  #error "Please define gho_type_matrix_T before include <gho/matrix_T.h>"
+#endif
+
 #ifndef gho_T_create
   #error "Please define gho_T_create before include <gho/matrix_T.h>"
 #endif
@@ -69,14 +73,17 @@
  */
 typedef struct {
   
-  /// \brief Array of array of T
-  T_t** array;
+  /// \brief Type
+  gho_type_t type;
   
   /// \brief Number of rows
   size_t nb_row;
   
   /// \brief Number of columns
   size_t nb_col;
+  
+  /// \brief Array of array of T
+  T_t** array;
   
 } gho_matrix_T_t;
 
@@ -194,6 +201,7 @@ void gho_matrix_T_remove_col(gho_matrix_T_t* matrix, const size_t j);
 #undef gho_matrix_T
 #undef gho_matrix_T_t
 #undef T_t
+#undef gho_type_matrix_T
 
 #undef gho_T_create
 #undef gho_T_destroy
