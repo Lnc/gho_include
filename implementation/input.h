@@ -13,6 +13,7 @@
 // limitations under the License.
 
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <ctype.h>
 
