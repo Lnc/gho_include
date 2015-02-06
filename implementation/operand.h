@@ -122,11 +122,12 @@ void gho_operand_copy_(const gho_operand_t* const op, gho_operand_t* copy) {
 
 #include "operand/type_error.h"
 #include "operand/assignment.h"
+#include "operand/binary_operators.h"
 #include "operand/binary_operators_with_immediate.h"
 #include "operand/comparison_operators_with_0_and_1.h"
 #include "operand/conversion_to_operand.h"
 #include "operand/other_functions.h"
-#include "operand/binary_operators.h"
+#include "operand/output.h"
 #include "operand/comparison_operators.h"
 #include "operand/conversion_to_integer.h"
 #include "operand/mathematical_functions.h"

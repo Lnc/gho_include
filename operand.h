@@ -45,12 +45,25 @@ void gho_operand_destroy(gho_operand_t* op);
 static inline
 void gho_operand_reset(gho_operand_t* op);
 
+// Output
+static inline
+void gho_operand_fprinti(FILE* file, const gho_operand_t* const op,
+                         const unsigned int indent);
+static inline
+void gho_operand_fprint(FILE* file, const gho_operand_t* const op);
+static inline
+void gho_operand_print(const gho_operand_t* const op);
+static inline
+void gho_operand_sprinti(char** c_str, const gho_operand_t* const op,
+                        const unsigned int indent);
+static inline
+void gho_operand_sprint(char** c_str, const gho_operand_t* const op);
+
 // Copy
 static inline
 gho_operand_t gho_operand_copy(const gho_operand_t* const op);
 static inline
 void gho_operand_copy_(const gho_operand_t* const op, gho_operand_t* copy);
-
 
 // Binary operators: + - * / % pow gcd
 static inline
