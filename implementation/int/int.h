@@ -110,9 +110,9 @@ void gho_int_sprint(char** c_str, const int* const i) {
  * \return the int read
  */
 int gho_int_fread(FILE* file) {
+  gho_read_whitespace(file);
   int r;
   fscanf(file, "%i", &r);
-  gho_read_whitespace(file);
   return r;
 }
 
@@ -122,6 +122,7 @@ int gho_int_fread(FILE* file) {
  * \return the int read
  */
 int gho_int_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   int r = atoi(*c_str);
   if (**c_str != '\0' && *(*c_str + 1) != '\0' &&
       **c_str == '-' && isdigit(*(*c_str + 1))) {
@@ -130,7 +131,6 @@ int gho_int_sread(const char** c_str) {
   while (**c_str != '\0' && isspace(**c_str) == 0 && isdigit(**c_str)) {
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   return r;
 }
 

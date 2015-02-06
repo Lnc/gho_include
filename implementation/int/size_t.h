@@ -110,9 +110,9 @@ void gho_size_t_sprint(char** c_str, const size_t* const i) {
  * \return the size_t read
  */
 size_t gho_size_t_fread(FILE* file) {
+  gho_read_whitespace(file);
   size_t r;
   fscanf(file, "%lu", &r);
-  gho_read_whitespace(file);
   return r;
 }
 
@@ -122,11 +122,11 @@ size_t gho_size_t_fread(FILE* file) {
  * \return the size_t read
  */
 size_t gho_size_t_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   size_t r = (size_t)atoi(*c_str);
   while (**c_str != '\0' && isspace(**c_str) == 0 && isdigit(**c_str)) {
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   return r;
 }
 

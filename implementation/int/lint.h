@@ -110,9 +110,9 @@ void gho_lint_sprint(char** c_str, const gho_lint* const i) {
  * \return the long int read
  */
 gho_lint gho_lint_fread(FILE* file) {
+  gho_read_whitespace(file);
   gho_lint r;
   fscanf(file, "%li", &r);
-  gho_read_whitespace(file);
   return r;
 }
 
@@ -122,6 +122,7 @@ gho_lint gho_lint_fread(FILE* file) {
  * \return the long int read
  */
 gho_lint gho_lint_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   gho_lint r = (gho_lint)atoi(*c_str);
   if (**c_str != '\0' && *(*c_str + 1) != '\0' &&
       **c_str == '-' && isdigit(*(*c_str + 1))) {
@@ -130,7 +131,6 @@ gho_lint gho_lint_sread(const char** c_str) {
   while (**c_str != '\0' && isspace(**c_str) == 0 && isdigit(**c_str)) {
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   return r;
 }
 

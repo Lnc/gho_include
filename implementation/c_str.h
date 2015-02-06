@@ -121,6 +121,7 @@ void gho_c_str_sprint(char** out, const char* const c_str) {
  * @return the C string read
  */
 char* gho_c_str_fread(FILE* file) {
+  gho_read_whitespace(file);
   char* r = gho_c_str_create();
   while (true) {
     const char c = (char)fgetc(file);
@@ -128,7 +129,6 @@ char* gho_c_str_fread(FILE* file) {
     if (isspace(c) != 0) { break; }
     gho_c_str_add_char(&r, c);
   }
-  gho_read_whitespace(file);
   return r;
 }
 
@@ -138,12 +138,12 @@ char* gho_c_str_fread(FILE* file) {
  * @return the C string read
  */
 char* gho_c_str_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   char* r = gho_c_str_create();
   while (**c_str != '\0' && isspace(**c_str) == 0) {
     gho_c_str_add_char(&r, **c_str);
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   return r;
 }
 

@@ -110,9 +110,9 @@ void gho_uint_sprint(char** c_str, const gho_uint* const i) {
  * \return the unsigned int read
  */
 gho_uint gho_uint_fread(FILE* file) {
+  gho_read_whitespace(file);
   gho_uint r;
   fscanf(file, "%u", &r);
-  gho_read_whitespace(file);
   return r;
 }
 
@@ -122,11 +122,11 @@ gho_uint gho_uint_fread(FILE* file) {
  * \return the unsigned int read
  */
 gho_uint gho_uint_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   gho_uint r = (gho_uint)atoi(*c_str);
   while (**c_str != '\0' && isspace(**c_str) == 0 && isdigit(**c_str)) {
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   return r;
 }
 

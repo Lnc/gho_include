@@ -127,11 +127,11 @@ void gho_start_and_size_sprint(char** c_str,
  */
 gho_start_and_size_t gho_start_and_size_fread(FILE* file) {
   gho_start_and_size_t r;
-  gho_char_fread(file); gho_read_whitespace(file); // "{ "
+  gho_read_whitespace(file); gho_char_fread(file); // "{ "
   r.start = gho_size_t_fread(file);
-  gho_char_fread(file); gho_read_whitespace(file); // ", "
+  gho_read_whitespace(file); gho_char_fread(file); // ", "
   r.size = gho_size_t_fread(file);
-  gho_char_fread(file); gho_read_whitespace(file); // "}"
+  gho_read_whitespace(file); gho_char_fread(file); // "}"
   return r;
 }
 
@@ -142,11 +142,11 @@ gho_start_and_size_t gho_start_and_size_fread(FILE* file) {
  */
 gho_start_and_size_t gho_start_and_size_sread(const char** c_str) {
   gho_start_and_size_t r;
-  gho_char_sread(c_str); gho_read_whitespace_from_c_str(c_str); // "{ "
+  gho_read_whitespace_from_c_str(c_str); gho_char_sread(c_str); // "{ "
   r.start = gho_size_t_sread(c_str);
-  gho_char_sread(c_str); gho_read_whitespace_from_c_str(c_str); // ", "
+  gho_read_whitespace_from_c_str(c_str); gho_char_sread(c_str); // ", "
   r.size = gho_size_t_sread(c_str);
-  gho_char_sread(c_str); gho_read_whitespace_from_c_str(c_str); // "}"
+  gho_read_whitespace_from_c_str(c_str); gho_char_sread(c_str); // "}"
   return r;
 }
 

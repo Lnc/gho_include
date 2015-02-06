@@ -114,9 +114,9 @@ void gho_mpz_sprint(char** c_str, const gho_mpz_t* const i) {
  * \return the gho_mpz read
  */
 gho_mpz_t gho_mpz_fread(FILE* file) {
+  gho_read_whitespace(file);
   gho_mpz_t i = gho_mpz_create();
   mpz_inp_str(i.i, file, 10);
-  gho_read_whitespace(file);
   return i;
 }
 
@@ -126,6 +126,7 @@ gho_mpz_t gho_mpz_fread(FILE* file) {
  * \return the gho_mpz read
  */
 gho_mpz_t gho_mpz_sread(const char** c_str) {
+  gho_read_whitespace_from_c_str(c_str);
   gho_mpz_t i = gho_mpz_create();
   char* tmp = gho_c_str_create();
   if (**c_str != '\0' && *(*c_str + 1) != '\0' &&
@@ -137,7 +138,6 @@ gho_mpz_t gho_mpz_sread(const char** c_str) {
     gho_c_str_add_char(&tmp, **c_str);
     ++(*c_str);
   }
-  gho_read_whitespace_from_c_str(c_str);
   mpz_set_str(i.i, tmp, 10);
   gho_c_str_destroy(&tmp);
   return i;
