@@ -334,6 +334,7 @@ void gho_c_str_ignore_line_delimiter(FILE* file, const char delimiter) {
 char* gho_c_str_peek_line_delimiter(FILE* file, const char delimiter) {
   char* r = gho_c_str_get_line_delimiter(file, delimiter);
   const size_t r_size = gho_c_str_size(r);
+  ungetc('\n', file);
   for (size_t i = 0; i < r_size; ++i) {
     ungetc(r[r_size - i - 1], file);
   }
@@ -407,6 +408,7 @@ char* gho_c_str_peek_line_from_c_str_delimiter(const char** c_str,
                                                const char delimiter) {
   char* r = gho_c_str_get_line_from_c_str_delimiter(c_str, delimiter);
   const size_t r_size = gho_c_str_size(r);
+  --(*c_str);
   for (size_t i = 0; i < r_size; ++i) {
     --(*c_str);
   }
