@@ -20,6 +20,8 @@
 
 // gho_operand_type_error_N
 
+// gho_operand_t
+
 static inline
 void gho_operand_type_error_1(const char* const fonction_name,
                               const gho_operand_t a);
@@ -34,9 +36,9 @@ void gho_operand_type_error_3(const char* const fonction_name,
                               const gho_operand_t c);
 
 /**
- * \brief Display error for one gho_operand
+ * \brief Display error for one gho_operand_t
  * \param[in] fonction_name Name of the function
- * \param[in] a             A gho_operand
+ * \param[in] a             A gho_operand_t
  */
 void gho_operand_type_error_1(const char* const fonction_name,
                               const gho_operand_t a) {
@@ -46,10 +48,10 @@ void gho_operand_type_error_1(const char* const fonction_name,
 }
 
 /**
- * \brief Display error for two gho_operand
+ * \brief Display error for two gho_operand_t
  * \param[in] fonction_name Name of the function
- * \param[in] a             A gho_operand
- * \param[in] b             A gho_operand
+ * \param[in] a             A gho_operand_t
+ * \param[in] b             A gho_operand_t
  */
 void gho_operand_type_error_2(const char* const fonction_name,
                               const gho_operand_t a,
@@ -60,16 +62,73 @@ void gho_operand_type_error_2(const char* const fonction_name,
 }
 
 /**
- * \brief Display error for three gho_operand
+ * \brief Display error for three gho_operand_t
  * \param[in] fonction_name Name of the function
- * \param[in] a             A gho_operand
- * \param[in] b             A gho_operand
- * \param[in] c             A gho_operand
+ * \param[in] a             A gho_operand_t
+ * \param[in] b             A gho_operand_t
+ * \param[in] c             A gho_operand_t
  */
 void gho_operand_type_error_3(const char* const fonction_name,
                               const gho_operand_t a,
                               const gho_operand_t b,
                               const gho_operand_t c) {
+  fprintf(stderr, "TODO: %s is not implemented for types (%i, %i, %i)\n",
+                  fonction_name, a.type, b.type, c.type);
+  exit(1);
+}
+
+// gho_coperand_t
+
+static inline
+void gho_coperand_type_error_1(const char* const fonction_name,
+                               const gho_coperand_t a);
+static inline
+void gho_coperand_type_error_2(const char* const fonction_name,
+                               const gho_coperand_t a,
+                               const gho_coperand_t b);
+static inline
+void gho_coperand_type_error_3(const char* const fonction_name,
+                               const gho_coperand_t a,
+                               const gho_coperand_t b,
+                               const gho_coperand_t c);
+
+/**
+ * \brief Display error for one gho_coperand_t
+ * \param[in] fonction_name Name of the function
+ * \param[in] a             A gho_coperand_t
+ */
+void gho_coperand_type_error_1(const char* const fonction_name,
+                               const gho_coperand_t a) {
+  fprintf(stderr, "TODO: %s is not implemented for type (%i)\n",
+                  fonction_name, a.type);
+  exit(1);
+}
+
+/**
+ * \brief Display error for two gho_coperand_t
+ * \param[in] fonction_name Name of the function
+ * \param[in] a             A gho_coperand_t
+ * \param[in] b             A gho_coperand_t
+ */
+void gho_coperand_type_error_2(const char* const fonction_name,
+                               const gho_coperand_t a,
+                               const gho_coperand_t b) {
+  fprintf(stderr, "TODO: %s is not implemented for types (%i, %i)\n",
+                  fonction_name, a.type, b.type);
+  exit(1);
+}
+
+/**
+ * \brief Display error for three gho_coperand_t
+ * \param[in] fonction_name Name of the function
+ * \param[in] a             A gho_coperand_t
+ * \param[in] b             A gho_coperand_t
+ * \param[in] c             A gho_coperand_t
+ */
+void gho_coperand_type_error_3(const char* const fonction_name,
+                               const gho_coperand_t a,
+                               const gho_coperand_t b,
+                               const gho_coperand_t c) {
   fprintf(stderr, "TODO: %s is not implemented for types (%i, %i, %i)\n",
                   fonction_name, a.type, b.type, c.type);
   exit(1);

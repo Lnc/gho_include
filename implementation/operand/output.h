@@ -16,6 +16,7 @@
 
 // Output
 
+// gho_operand_t
 
 /**
  * \brief Print a gho_operand_t in a file with indentation
@@ -25,32 +26,8 @@
  */
 void gho_operand_fprinti(FILE* file, const gho_operand_t* const op,
                          const unsigned int indent) {
-  // int
-  if (op->type == GHO_TYPE_INT) {
-    gho_int_fprinti(file, (int*)(op->p), indent);
-  }
-  
-  // gho_lint
-  else if (op->type == GHO_TYPE_LINT) {
-    gho_lint_fprinti(file, (gho_lint*)(op->p), indent);
-  }
-  
-  // gho_llint
-  else if (op->type == GHO_TYPE_LLINT) {
-    gho_llint_fprinti(file, (gho_llint*)(op->p), indent);
-  }
-  
-  #ifdef gho_with_gmp
-  // gho_mpz_t
-  else if (op->type == GHO_TYPE_GHO_MPZ_T) {
-    gho_mpz_fprinti(file, (gho_mpz_t*)(op->p), indent);
-  }
-  #endif
-  
-  // Other
-  else {
-    gho_operand_type_error_1("gho_operand_fprinti", *op);
-  }
+  const gho_coperand_t cop = gho_coperand_type(op->p, op->type);
+  gho_coperand_fprinti(file, &cop, indent);
 }
 
 /**
@@ -62,10 +39,9 @@ void gho_operand_fprint(FILE* file, const gho_operand_t* const op) {
   gho_operand_fprinti(file, op, 0);
 }
 
-
 /**
  * \brief Print a gho_operand_t in stdout
- * \param[in] string A gho_operand_t
+ * \param[in] cop A gho_operand_t
  */
 void gho_operand_print(const gho_operand_t* const op) {
   gho_operand_fprint(stdout, op);
@@ -79,32 +55,8 @@ void gho_operand_print(const gho_operand_t* const op) {
  */
 void gho_operand_sprinti(char** c_str, const gho_operand_t* const op,
                         const unsigned int indent) {
-  // int
-  if (op->type == GHO_TYPE_INT) {
-    gho_int_sprinti(c_str, (int*)(op->p), indent);
-  }
-  
-  // gho_lint
-  else if (op->type == GHO_TYPE_LINT) {
-    gho_lint_sprinti(c_str, (gho_lint*)(op->p), indent);
-  }
-  
-  // gho_llint
-  else if (op->type == GHO_TYPE_LLINT) {
-    gho_llint_sprinti(c_str, (gho_llint*)(op->p), indent);
-  }
-  
-  #ifdef gho_with_gmp
-  // gho_mpz_t
-  else if (op->type == GHO_TYPE_GHO_MPZ_T) {
-    gho_mpz_sprinti(c_str, (gho_mpz_t*)(op->p), indent);
-  }
-  #endif
-  
-  // Other
-  else {
-    gho_operand_type_error_1("gho_operand_fprinti", *op);
-  }
+  const gho_coperand_t cop = gho_coperand_type(op->p, op->type);
+  gho_coperand_sprinti(c_str, &cop, indent);
 }
 
 /**
@@ -114,4 +66,104 @@ void gho_operand_sprinti(char** c_str, const gho_operand_t* const op,
  */
 void gho_operand_sprint(char** c_str, const gho_operand_t* const op) {
   gho_operand_sprinti(c_str, op, 0);
+}
+
+// gho_coperand_t
+
+/**
+ * \brief Print a gho_coperand_t in a file with indentation
+ * \param[in] file   A C file
+ * \param[in] cop    A gho_coperand_t
+ * \param[in] indent Indentation (number of spaces)
+ */
+void gho_coperand_fprinti(FILE* file, const gho_coperand_t* const cop,
+                          const unsigned int indent) {
+  // int
+  if (cop->type == GHO_TYPE_INT) {
+    gho_int_fprinti(file, (const int*)(cop->p), indent);
+  }
+  
+  // gho_lint
+  else if (cop->type == GHO_TYPE_LINT) {
+    gho_lint_fprinti(file, (const gho_lint*)(cop->p), indent);
+  }
+  
+  // gho_llint
+  else if (cop->type == GHO_TYPE_LLINT) {
+    gho_llint_fprinti(file, (const gho_llint*)(cop->p), indent);
+  }
+  
+  #ifdef gho_with_gmp
+  // gho_mpz_t
+  else if (cop->type == GHO_TYPE_GHO_MPZ_T) {
+    gho_mpz_fprinti(file, (const gho_mpz_t*)(cop->p), indent);
+  }
+  #endif
+  
+  // Other
+  else {
+    gho_coperand_type_error_1("gho_coperand_fprinti", *cop);
+  }
+}
+
+/**
+ * \brief Print a gho_coperand_t in a file
+ * \param[in] file A C file
+ * \param[in] cop  A gho_coperand_t
+ */
+void gho_coperand_fprint(FILE* file, const gho_coperand_t* const cop) {
+  gho_coperand_fprinti(file, cop, 0);
+}
+
+/**
+ * \brief Print a gho_coperand_t in stdout
+ * \param[in] cop A gho_coperand_t
+ */
+void gho_coperand_print(const gho_coperand_t* const cop) {
+  gho_coperand_fprint(stdout, cop);
+}
+
+/**
+ * \brief Print a gho_coperand_t in a C string with indentation
+ * \param[in] c_str  A C string
+ * \param[in] cop    A gho_coperand_t
+ * \param[in] indent Indentation (number of spaces)
+ */
+void gho_coperand_sprinti(char** c_str, const gho_coperand_t* const cop,
+                          const unsigned int indent) {
+  // int
+  if (cop->type == GHO_TYPE_INT) {
+    gho_int_sprinti(c_str, (const int*)(cop->p), indent);
+  }
+  
+  // gho_lint
+  else if (cop->type == GHO_TYPE_LINT) {
+    gho_lint_sprinti(c_str, (const gho_lint*)(cop->p), indent);
+  }
+  
+  // gho_llint
+  else if (cop->type == GHO_TYPE_LLINT) {
+    gho_llint_sprinti(c_str, (const gho_llint*)(cop->p), indent);
+  }
+  
+  #ifdef gho_with_gmp
+  // gho_mpz_t
+  else if (cop->type == GHO_TYPE_GHO_MPZ_T) {
+    gho_mpz_sprinti(c_str, (const gho_mpz_t*)(cop->p), indent);
+  }
+  #endif
+  
+  // Other
+  else {
+    gho_coperand_type_error_1("gho_coperand_fprinti", *cop);
+  }
+}
+
+/**
+ * \brief Print a gho_coperand_t in a C string
+ * \param[in] c_str A C string
+ * \param[in] cop   A gho_coperand_t
+ */
+void gho_coperand_sprint(char** c_str, const gho_coperand_t* const cop) {
+  gho_coperand_sprinti(c_str, cop, 0);
 }

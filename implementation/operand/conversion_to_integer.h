@@ -15,94 +15,118 @@
 
 // Conversion to integer
 
+// gho_operand_t
+
 /**
- * \brief Convert a gho_operand into a gho_llint
- * \param[in] i A gho_operand
- * \return the gho_llint from the gho_operand
+ * \brief Convert a gho_operand_t into a gho_llint
+ * \param[in] i A gho_operand_t
+ * \return the gho_llint from the gho_operand_t
  */
 gho_llint gho_operand_to_lli(gho_operand_t i) {
+  const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
+  return gho_coperand_to_lli(cop);
+}
+
+/**
+ * \brief Convert a gho_operand_t into a gho_lint
+ * \param[in] i A gho_operand_t
+ * \return the gho_lint from the gho_operand_t
+ */
+gho_lint gho_operand_to_li(gho_operand_t i) {
+  const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
+  return gho_coperand_to_li(cop);
+}
+
+// gho_coperand_t
+
+/**
+ * \brief Convert a gho_coperand_t into a gho_llint
+ * \param[in] i A gho_coperand_t
+ * \return the gho_llint from the gho_coperand_t
+ */
+gho_llint gho_coperand_to_lli(gho_coperand_t i) {
   
   // int
   if (i.type == GHO_TYPE_INT) {
-    return *(int*)(i.p);
+    return *(const int*)(i.p);
   }
   
   // gho_lint
   else if (i.type == GHO_TYPE_LINT) {
-    return *(gho_lint*)(i.p);
+    return *(const gho_lint*)(i.p);
   }
   
   // gho_llint
   else if (i.type == GHO_TYPE_LLINT) {
-    return *(gho_llint*)(i.p);
+    return *(const gho_llint*)(i.p);
   }
   
   #ifdef gho_with_gmp
   // gho_mpz_t
   else if (i.type == GHO_TYPE_GHO_MPZ_T) {
     #ifndef NDEBUG
-    if (mpz_fits_slong_p(((gho_mpz_t*)(i.p))->i) == false) {
-      fprintf(stderr, "ERROR: gho_operand_to_lli(gho_mpz_t) overflow!\n");
+    if (mpz_fits_slong_p(((const gho_mpz_t*)(i.p))->i) == false) {
+      fprintf(stderr, "ERROR: gho_coperand_to_lli(gho_mpz_t) overflow!\n");
       exit(1);
     }
     #endif
-    return mpz_get_si(((gho_mpz_t*)(i.p))->i);
+    return mpz_get_si(((const gho_mpz_t*)(i.p))->i);
   }
   #endif
   
   // Other
   else {
-    gho_operand_type_error_1("gho_operand_to_lli", i);
+    gho_coperand_type_error_1("gho_coperand_to_lli", i);
   }
 }
 
 /**
- * \brief Convert a gho_operand into a gho_lint
- * \param[in] i A gho_operand
- * \return the gho_lint from the gho_operand
+ * \brief Convert a gho_coperand_t into a gho_lint
+ * \param[in] i A gho_coperand_t
+ * \return the gho_lint from the gho_coperand_t
  */
-gho_lint gho_operand_to_li(gho_operand_t i) {
+gho_lint gho_coperand_to_li(gho_coperand_t i) {
   
   // int
   if (i.type == GHO_TYPE_INT) {
-    return *(int*)(i.p);
+    return *(const int*)(i.p);
   }
   
   // gho_lint
   else if (i.type == GHO_TYPE_LINT) {
-    return *(gho_lint*)(i.p);
+    return *(const gho_lint*)(i.p);
   }
   
   // gho_llint
   else if (i.type == GHO_TYPE_LLINT) {
     #ifndef NDEBUG
-    if (*(gho_llint*)(i.p) > LONG_MAX) {
-      fprintf(stderr, "ERROR: gho_operand_to_li(gho_llint) overflow!\n");
+    if (*(const gho_llint*)(i.p) > LONG_MAX) {
+      fprintf(stderr, "ERROR: gho_coperand_to_li(gho_llint) overflow!\n");
       exit(1);
     }
-    else if (*(gho_llint*)(i.p) < LONG_MIN) {
-      fprintf(stderr, "ERROR: gho_operand_to_li(gho_llint) underflow!\n");
+    else if (*(const gho_llint*)(i.p) < LONG_MIN) {
+      fprintf(stderr, "ERROR: gho_coperand_to_li(gho_llint) underflow!\n");
       exit(1);
     }
     #endif
-    return *(gho_llint*)(i.p);
+    return *(const gho_llint*)(i.p);
   }
   
   #ifdef gho_with_gmp
   // gho_mpz_t
   else if (i.type == GHO_TYPE_GHO_MPZ_T) {
     #ifndef NDEBUG
-    if (mpz_fits_slong_p(((gho_mpz_t*)(i.p))->i) == false) {
-      fprintf(stderr, "ERROR: gho_operand_to_lli(gho_mpz_t) overflow!\n");
+    if (mpz_fits_slong_p(((const gho_mpz_t*)(i.p))->i) == false) {
+      fprintf(stderr, "ERROR: gho_coperand_to_li(gho_mpz_t) overflow!\n");
       exit(1);
     }
     #endif
-    return mpz_get_si(((gho_mpz_t*)(i.p))->i);
+    return mpz_get_si(((const gho_mpz_t*)(i.p))->i);
   }
   #endif
   
   // Other
   else {
-    gho_operand_type_error_1("gho_operand_to_li", i);
+    gho_coperand_type_error_1("gho_coperand_to_li", i);
   }
 }

@@ -733,7 +733,7 @@ void gho_mul(gho_operand_t r, const gho_operand_t i) {
 void gho_div_exact(gho_operand_t r, const gho_operand_t i) {
   
   #ifndef NDEBUG
-  if (gho_is_0(i)) {
+  if (gho_op_is_0(i)) {
     fprintf(stderr, "ERROR: gho_div_exact(r, i): i can not be equal to 0!\n");
     exit(1);
   }
@@ -779,7 +779,7 @@ void gho_div_exact(gho_operand_t r, const gho_operand_t i) {
 void gho_floor_div_q(gho_operand_t r, const gho_operand_t i) {
   
   #ifndef NDEBUG
-  if (gho_is_0(i)) {
+  if (gho_op_is_0(i)) {
     fprintf(stderr, "ERROR: gho_floor_div_q(r, i): i can not be equal to 0!\n");
     exit(1);
   }
@@ -925,7 +925,7 @@ void gho_floor_div_q(gho_operand_t r, const gho_operand_t i) {
 void gho_floor_div_r(gho_operand_t r, const gho_operand_t i) {
   
   #ifndef NDEBUG
-  if (gho_is_0(i)) {
+  if (gho_op_is_0(i)) {
     fprintf(stderr, "ERROR: gho_floor_div_r(r, i): i can not be equal to 0!\n");
     exit(1);
   }
@@ -1081,20 +1081,20 @@ void gho_mod(gho_operand_t r, const gho_operand_t i) {
 void gho_pow(gho_operand_t r, const gho_operand_t i) {
   
   #ifndef NDEBUG
-  if (gho_is_negatif(i)) {
+  if (gho_op_is_negatif(i)) {
     fprintf(stderr, "ERROR: gho_pow(r, i): i can not be lesser than 0!\n");
     exit(1);
   }
   #endif
   
   // i == 0
-  if (gho_is_0(i)) {
+  if (gho_op_is_0(i)) {
     gho_set_1(r);
     return;
   }
   
   // i == 1
-  if (gho_is_0(i)) {
+  if (gho_op_is_0(i)) {
     return;
   }
   

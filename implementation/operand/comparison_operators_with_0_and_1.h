@@ -15,113 +15,228 @@
 
 // Comparison operators: ==0 >0 <0 ==1 ==-1 ==i !=i <i <=i >i >=i
 
+// gho_operand_t
+
 /**
  * \brief i == 0
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
  * \return i == 0
  */
-bool gho_is_0(const gho_operand_t i) {
-  return gho_equal_lli(i, 0);
+bool gho_op_is_0(const gho_operand_t i) {
+  return gho_op_equal_lli(i, 0);
 }
 
 /**
  * \brief i > 0
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
  * \return i > 0
  */
-bool gho_is_positif(const gho_operand_t i) {
-  return gho_greater_lli(i, 0);
+bool gho_op_is_positif(const gho_operand_t i) {
+  return gho_op_greater_lli(i, 0);
 }
 
 /**
  * \brief i < 0
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
  * \return i < 0
  */
-bool gho_is_negatif(const gho_operand_t i) {
-  return gho_lesser_lli(i, 0);
+bool gho_op_is_negatif(const gho_operand_t i) {
+  return gho_op_lesser_lli(i, 0);
 }
 
 /**
  * \brief i == 1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
  * \return i == 1
  */
-bool gho_is_1(const gho_operand_t i) {
-  return gho_equal_lli(i, 1);
+bool gho_op_is_1(const gho_operand_t i) {
+  return gho_op_equal_lli(i, 1);
 }
 
 /**
  * \brief i == -1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
  * \return i == -1
  */
-bool gho_is_minus_1(const gho_operand_t i) {
-  return gho_equal_lli(i, -1);
+bool gho_op_is_minus_1(const gho_operand_t i) {
+  return gho_op_equal_lli(i, -1);
 }
 
 /**
  * \brief a == b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a == b
  */
-bool gho_equal_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_equal_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
 }
 
 /**
  * \brief a != b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a != b
  */
-bool gho_not_equal_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_not_equal_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_not_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_not_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
 }
 
 /**
  * \brief a < b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a < b
  */
-bool gho_lesser_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_lesser_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_lesser(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_lesser(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
 }
 
 /**
  * \brief a <= b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a <= b
  */
-bool gho_lesser_or_equal_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_lesser_or_equal_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_lesser_or_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_lesser_or_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
 }
 
 /**
  * \brief a > b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a > b
  */
-bool gho_greater_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_greater_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_greater(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_greater(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
 }
 
 /**
  * \brief a >= b
- * \param[in] a A gho_operand
+ * \param[in] a A gho_operand_t
  * \param[in] b A gho_llint
  * \return a >= b
  */
-bool gho_greater_or_equal_lli(const gho_operand_t a, const gho_llint b) {
+bool gho_op_greater_or_equal_lli(const gho_operand_t a, const gho_llint b) {
   gho_llint tmp = b;
-  return gho_greater_or_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+  return gho_op_greater_or_equal(a, gho_operand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+// gho_coperand_t
+
+/**
+ * \brief i == 0
+ * \param[in] i A gho_coperand_t
+ * \return i == 0
+ */
+bool gho_cop_is_0(const gho_coperand_t i) {
+  return gho_cop_equal_lli(i, 0);
+}
+
+/**
+ * \brief i > 0
+ * \param[in] i A gho_coperand_t
+ * \return i > 0
+ */
+bool gho_cop_is_positif(const gho_coperand_t i) {
+  return gho_cop_greater_lli(i, 0);
+}
+
+/**
+ * \brief i < 0
+ * \param[in] i A gho_coperand_t
+ * \return i < 0
+ */
+bool gho_cop_is_negatif(const gho_coperand_t i) {
+  return gho_cop_lesser_lli(i, 0);
+}
+
+/**
+ * \brief i == 1
+ * \param[in] i A gho_coperand_t
+ * \return i == 1
+ */
+bool gho_cop_is_1(const gho_coperand_t i) {
+  return gho_cop_equal_lli(i, 1);
+}
+
+/**
+ * \brief i == -1
+ * \param[in] i A gho_coperand_t
+ * \return i == -1
+ */
+bool gho_cop_is_minus_1(const gho_coperand_t i) {
+  return gho_cop_equal_lli(i, -1);
+}
+
+/**
+ * \brief a == b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a == b
+ */
+bool gho_cop_equal_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_equal(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+/**
+ * \brief a != b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a != b
+ */
+bool gho_cop_not_equal_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_not_equal(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+/**
+ * \brief a < b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a < b
+ */
+bool gho_cop_lesser_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_lesser(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+/**
+ * \brief a <= b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a <= b
+ */
+bool gho_cop_lesser_or_equal_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_lesser_or_equal(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+/**
+ * \brief a > b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a > b
+ */
+bool gho_cop_greater_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_greater(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
+}
+
+/**
+ * \brief a >= b
+ * \param[in] a A gho_coperand_t
+ * \param[in] b A gho_llint
+ * \return a >= b
+ */
+bool gho_cop_greater_or_equal_lli(const gho_coperand_t a, const gho_llint b) {
+  gho_llint tmp = b;
+  return gho_cop_greater_or_equal(a, gho_coperand_type(&tmp, GHO_TYPE_LLINT));
 }

@@ -36,7 +36,7 @@ void gho_pow_10_round(gho_operand_t i);
  */
 void gho_abs(gho_operand_t i) {
   
-  if (gho_is_negatif(i)) { gho_oppose(i); }
+  if (gho_op_is_negatif(i)) { gho_oppose(i); }
 
   // Other
   /*else*/ {
