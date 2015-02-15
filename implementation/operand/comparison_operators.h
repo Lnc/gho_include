@@ -130,20 +130,20 @@ bool gho_cop_equal(const gho_coperand_t a, const gho_coperand_t b) {
   #endif
   
   // gho_llint & int
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_INT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_INT) {
     return *(const gho_llint*)(a.p) == *(const int*)(b.p);
   }
   // gho_llint & gho_lint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LINT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_LINT) {
     return *(const gho_llint*)(a.p) == *(const gho_lint*)(b.p);
   }
   // gho_llint & gho_llint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LLINT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_LLINT) {
     return *(const gho_llint*)(a.p) == *(const gho_llint*)(b.p);
   }
   #ifdef gho_with_gmp
   // gho_llint & gho_mpz_t
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_GHO_MPZ_T) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_GHO_MPZ_T) {
     const gho_lint tmp = gho_coperand_to_lli(a);
     return mpz_cmp_si((*(const gho_mpz_t*)(b.p)).i, tmp) == 0;
   }
@@ -151,20 +151,20 @@ bool gho_cop_equal(const gho_coperand_t a, const gho_coperand_t b) {
   
   #ifdef gho_with_gmp
   // gho_mpz_t & int
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_INT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_INT) {
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, *(const int*)(b.p)) == 0;
   }
   // gho_mpz_t & gho_lint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LINT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_LINT) {
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, *(const gho_lint*)(b.p)) == 0;
   }
   // gho_mpz_t & gho_llint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LLINT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_LLINT) {
     const gho_lint tmp = gho_coperand_to_lli(b);
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, tmp) == 0;
   }
   // gho_mpz_t & gho_mpz_t
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_GHO_MPZ_T) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_GHO_MPZ_T) {
     return mpz_cmp((*(const gho_mpz_t*)(a.p)).i, (*(const gho_mpz_t*)(b.p)).i) == 0;
   }
   #endif
@@ -173,6 +173,7 @@ bool gho_cop_equal(const gho_coperand_t a, const gho_coperand_t b) {
   else {
     gho_coperand_type_error_2("gho_cop_equal", a, b);
   }
+  return false;
 }
 
 /**
@@ -232,20 +233,20 @@ bool gho_cop_lesser(const gho_coperand_t a, const gho_coperand_t b) {
   #endif
   
   // gho_llint & int
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_INT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_INT) {
     return *(const gho_llint*)(a.p) < *(const int*)(b.p);
   }
   // gho_llint & gho_lint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LINT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_LINT) {
     return *(const gho_llint*)(a.p) < *(const gho_lint*)(b.p);
   }
   // gho_llint & gho_llint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LLINT) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_LLINT) {
     return *(const gho_llint*)(a.p) < *(const gho_llint*)(b.p);
   }
   #ifdef gho_with_gmp
   // gho_llint & gho_mpz_t
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_GHO_MPZ_T) {
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_GHO_MPZ_T) {
     const gho_lint tmp = gho_coperand_to_lli(a);
     return mpz_cmp_si((*(const gho_mpz_t*)(b.p)).i, tmp) > 0;
   }
@@ -253,20 +254,20 @@ bool gho_cop_lesser(const gho_coperand_t a, const gho_coperand_t b) {
   
   #ifdef gho_with_gmp
   // gho_mpz_t & int
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_INT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_INT) {
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, *(const int*)(b.p)) < 0;
   }
   // gho_mpz_t & gho_lint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LINT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_LINT) {
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, *(const gho_lint*)(b.p)) < 0;
   }
   // gho_mpz_t & gho_llint
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LLINT) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_LLINT) {
     const gho_lint tmp = gho_coperand_to_lli(b);
     return mpz_cmp_si((*(const gho_mpz_t*)(a.p)).i, tmp) < 0;
   }
   // gho_mpz_t & gho_mpz_t
-  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_GHO_MPZ_T) {
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_GHO_MPZ_T) {
     return mpz_cmp((*(const gho_mpz_t*)(a.p)).i, (*(const gho_mpz_t*)(b.p)).i) < 0;
   }
   #endif
@@ -275,6 +276,7 @@ bool gho_cop_lesser(const gho_coperand_t a, const gho_coperand_t b) {
   else {
     gho_coperand_type_error_2("gho_cop_lesser", a, b);
   }
+  return false;
 }
 
 /**

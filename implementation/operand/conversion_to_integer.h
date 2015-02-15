@@ -78,6 +78,7 @@ gho_llint gho_coperand_to_lli(gho_coperand_t i) {
   else {
     gho_coperand_type_error_1("gho_coperand_to_lli", i);
   }
+  return 0;
 }
 
 /**
@@ -129,4 +130,5 @@ gho_lint gho_coperand_to_li(gho_coperand_t i) {
   else {
     gho_coperand_type_error_1("gho_coperand_to_li", i);
   }
+  return 0;
 }
