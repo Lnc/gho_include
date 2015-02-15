@@ -106,6 +106,9 @@ static inline
 void gho_string_add_char(gho_string_t* string, const char to_be_added);
 static inline
 void gho_string_add_c_str(gho_string_t* string, const char* const to_be_added);
+static inline
+void gho_string_add_char_i(gho_string_t* string, const char to_be_added,
+                           const size_t i);
 
 // Remove
 static inline

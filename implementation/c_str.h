@@ -229,6 +229,26 @@ void gho_c_str_add_char(char** c_str, const char to_be_added) {
   (*c_str)[size_old + 1] = '\0';
 }
 
+/**
+ * @brief Add a char at index i
+ * @param[in] c_str       A C string
+ * @param[in] to_be_added The char to be added
+ */
+void gho_c_str_add_char_i(char** c_str, const char to_be_added,
+                          const size_t i) {
+  if (i >= gho_c_str_size(*c_str)) {
+    fprintf(stderr, "ERROR: gho_c_str_add_char_i: out of range!\n");
+    exit(1);
+  }
+  else {
+    gho_c_str_add_char(c_str, ' ');
+    for (size_t j = i; j < gho_c_str_size(*c_str) - 1; ++j) {
+      (*c_str)[j + 1] = (*c_str)[j];
+    }
+    (*c_str)[i] = to_be_added;
+  }
+}
+
 // Remove
 
 /**

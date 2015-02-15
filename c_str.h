@@ -72,6 +72,9 @@ static inline
 void gho_c_str_add(char** c_str, const char* const to_be_added);
 static inline
 void gho_c_str_add_char(char** c_str, const char to_be_added);
+static inline
+void gho_c_str_add_char_i(char** c_str, const char to_be_added,
+                          const size_t i);
 
 // Remove
 static inline
