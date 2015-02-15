@@ -22,6 +22,7 @@
 
 #include "type.h"
 #include "int.h"
+#include "string.h"
 
 
 /**
@@ -107,6 +108,14 @@ static inline
 gho_coperand_t gho_coperand_copy(const gho_coperand_t* const cop);
 static inline
 void gho_coperand_copy_(const gho_coperand_t* const cop, gho_coperand_t* copy);
+
+// Conversion
+// gho_operand_t
+static inline
+gho_string_t gho_operand_to_string(const gho_operand_t* const i);
+// gho_coperand_t
+static inline
+gho_string_t gho_coperand_to_string(const gho_coperand_t* const i);
 
 // Binary operators: + - * / % pow gcd
 static inline

@@ -175,6 +175,33 @@ void gho_coperand_copy_(const gho_coperand_t* const cop, gho_coperand_t* copy) {
   copy->p = cop->p;
 }
 
+// Conversion
+
+// gho_operand_t
+
+/**
+ * \brief Convert a gho_operand_t into a gho_string_t
+ * \param[in] i A gho_operand_t
+ * \return the gho_string_t from the gho_operand_t
+ */
+gho_string_t gho_operand_to_string(const gho_operand_t* const i) {
+  gho_string_t r = gho_string_create();
+  gho_operand_sprint(&r.c_str, i);
+  return r;
+}
+
+// gho_coperand_t
+
+/**
+ * \brief Convert a gho_coperand_t into a gho_string_t
+ * \param[in] i A gho_coperand_t
+ * \return the gho_string_t from the gho_coperand_t
+ */
+gho_string_t gho_coperand_to_string(const gho_coperand_t* const i) {
+  gho_string_t r = gho_string_create();
+  gho_coperand_sprint(&r.c_str, i);
+  return r;
+}
 
 #include "operand/type_error.h"
 #include "operand/assignment.h"
