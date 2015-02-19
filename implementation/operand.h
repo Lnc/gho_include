@@ -52,10 +52,12 @@ void gho_operand_destroy(gho_operand_t* op) {
     gho_llint_destroy((gho_llint*)(op->p));
   }
   
+  #ifdef gho_with_gmp
   // gho_mpz_t
   else if (op->type == GHO_TYPE_GHO_MPZ_T) {
     gho_mpz_destroy((gho_mpz_t*)(op->p));
   }
+  #endif
   
   free(op->p);
   
@@ -144,11 +146,13 @@ void gho_operand_copy_(const gho_operand_t* const op, gho_operand_t* copy) {
     *(gho_llint*)copy->p = gho_llint_copy((gho_llint*)(op->p));
   }
   
+  #ifdef gho_with_gmp
   // gho_mpz_t
   else if (copy->type == GHO_TYPE_GHO_MPZ_T) {
     copy->p = gho_alloc(gho_mpz_t);
     *(gho_mpz_t*)copy->p = gho_mpz_copy((gho_mpz_t*)(op->p));
   }
+  #endif
 }
 
 // gho_coperand_t
