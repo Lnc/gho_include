@@ -311,11 +311,15 @@ static inline
 gho_llint gho_operand_to_lli(gho_operand_t i);
 static inline
 gho_lint gho_operand_to_li(gho_operand_t i);
+static inline
+size_t gho_operand_to_size_t(gho_operand_t i);
 // gho_coperand_t
 static inline
 gho_llint gho_coperand_to_lli(gho_coperand_t i);
 static inline
 gho_lint gho_coperand_to_li(gho_coperand_t i);
+static inline
+size_t gho_coperand_to_size_t(gho_coperand_t i);
 
 #include "implementation/operand.h"
 

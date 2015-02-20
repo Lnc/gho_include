@@ -37,6 +37,16 @@ gho_lint gho_operand_to_li(gho_operand_t i) {
   return gho_coperand_to_li(cop);
 }
 
+/**
+ * \brief Convert a gho_operand_t into a size_t
+ * \param[in] i A gho_operand_t
+ * \return the size_t from the gho_operand_t
+ */
+size_t gho_operand_to_size_t(gho_operand_t i) {
+  const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
+  return gho_coperand_to_size_t(cop);
+}
+
 // gho_coperand_t
 
 /**
@@ -131,4 +141,20 @@ gho_lint gho_coperand_to_li(gho_coperand_t i) {
     gho_coperand_type_error_1("gho_coperand_to_li", i);
   }
   return 0;
+}
+
+/**
+ * \brief Convert a gho_coperand_t into a size_t
+ * \param[in] i A gho_coperand_t
+ * \return the size_t from the gho_coperand_t
+ */
+size_t gho_coperand_to_size_t(gho_coperand_t i) {
+  const gho_llint lli = gho_coperand_to_lli(i);
+  #ifndef NDEBUG
+  if (lli < 0) {
+    fprintf(stderr, "ERROR: gho_coperand_to_size_t(i): i < 0!\n");
+    exit(1);
+  }
+  #endif
+  return (size_t)lli;
 }
