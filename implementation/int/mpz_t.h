@@ -35,6 +35,17 @@ gho_mpz_t gho_mpz_create() {
 }
 
 /**
+ * \brief Return a new gho_mpz from a GMP mpz_t
+ * \param[in] gmp_mpz A GMP mpz_t
+ * \return a new gho_mpz from a GMP mpz_t
+ */
+gho_mpz_t gho_mpz_create_from_gmp(const mpz_t* const gmp_mpz) {
+  gho_mpz_t i;
+  mpz_init_set(i.i, *gmp_mpz);
+  return i;
+}
+
+/**
  * \brief Destroy a gho_mpz
  * \param[in] i A gho_mpz
  */
