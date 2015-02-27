@@ -115,6 +115,24 @@ static inline
 void gho_string_remove(gho_string_t* string, const size_t i);
 static inline
 void gho_string_remove_last(gho_string_t* string);
+static inline
+void gho_string_remove_between(gho_string_t* string,
+                               const size_t first, const size_t last);
+static inline
+void gho_string_remove_until(gho_string_t* string, const size_t i);
+static inline
+void gho_string_remove_after(gho_string_t* string, const size_t i);
+
+// Find
+static inline
+size_t gho_string_find(const gho_string_t* const string,
+                       const gho_string_t* const value);
+static inline
+size_t gho_string_find_c_str(const gho_string_t* const string,
+                             const char* const value);
+static inline
+size_t gho_string_find_char(const gho_string_t* const string,
+                            const char value);
 
 // Get line
 static inline

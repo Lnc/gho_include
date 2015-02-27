@@ -17,6 +17,7 @@
 #include <string.h>
 
 #include "../c_str.h"
+#include "../math.h"
 
 
 // Create & destroy
@@ -333,6 +334,76 @@ void gho_string_remove(gho_string_t* string, const size_t i) {
  */
 void gho_string_remove_last(gho_string_t* string) {
   gho_c_str_remove_last(&string->c_str);
+}
+
+/**
+ * \brief Remove all char between first and last (not included) indices
+ * \param[in] string A gho_string_t
+ * \param[in] first  First index
+ * \param[in] last   Last index (not included)
+ */
+void gho_string_remove_between(gho_string_t* string,
+                               const size_t first, const size_t last) {
+  const size_t size = gho_string_size(string);
+  const size_t first_real = gho_T_min(gho_T_min(first, last), size);
+  const size_t last_real = gho_T_min(gho_T_max(first, last), size);
+  for (size_t i = 0; i < last_real - first_real; ++i) {
+    gho_string_remove(string, first_real);
+  }
+}
+
+/**
+ * \brief Remove all char until a index (not included)
+ * \param[in] string A gho_string_t
+ * \param[in] i      Index (not included)
+ */
+void gho_string_remove_until(gho_string_t* string, const size_t i) {
+  gho_string_remove_between(string, 0, i);
+}
+
+/**
+ * \brief Remove all char after a index
+ * \param[in] string A gho_string_t
+ * \param[in] i      Index
+ */
+void gho_string_remove_after(gho_string_t* string, const size_t i) {
+  const size_t size = gho_string_size(string);
+  gho_string_remove_between(string, i, size);
+}
+
+// Find
+
+/**
+ * \brief Find a value in a gho_string_t
+ * \param[in] string A gho_string_t
+ * \param[in] value  The string to be found
+ * \return the index of the value found, the size of the string if not found
+ */
+size_t gho_string_find(const gho_string_t* const string,
+                       const gho_string_t* const value) {
+  return gho_string_find_c_str(string, value->c_str);
+}
+
+/**
+ * \brief Find a value in a gho_string_t
+ * \param[in] string A gho_string_t
+ * \param[in] value  The C string to be found
+ * \return the index of the value found, the size of the string if not found
+ */
+size_t gho_string_find_c_str(const gho_string_t* const string,
+                             const char* const value) {
+  return gho_c_str_find(string->c_str, value);
+}
+
+/**
+ * \brief Find a value in a gho_string_t
+ * \param[in] string A gho_string_t
+ * \param[in] value  The char to be found
+ * \return the index of the value found, the size of the string if not found
+ */
+size_t gho_string_find_char(const gho_string_t* const string,
+                            const char value) {
+  return gho_c_str_find_char(string->c_str, value);
 }
 
 // Get line
