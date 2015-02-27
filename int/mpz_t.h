@@ -45,6 +45,8 @@ typedef struct {
 static inline
 gho_mpz_t gho_mpz_create();
 static inline
+gho_mpz_t gho_mpz_create_from_gmp(const mpz_t* const gmp_mpz);
+static inline
 void gho_mpz_destroy(gho_mpz_t* i);
 static inline
 void gho_mpz_reset(gho_mpz_t* i);
