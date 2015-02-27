@@ -82,6 +82,12 @@ void gho_c_str_remove(char** c_str, const size_t i);
 static inline
 void gho_c_str_remove_last(char** c_str);
 
+// Find
+static inline
+size_t gho_c_str_find(const char* const c_str, const char* const value);
+static inline
+size_t gho_c_str_find_char(const char* const c_str, const char value);
+
 // Get line
 static inline
 char* gho_c_str_get_line(FILE* file);
