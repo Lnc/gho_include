@@ -38,6 +38,12 @@
 // void gho_T_sprint(char** c_str, const T* const t);
 #define gho_T_sprint gho_uint_sprint
 
+// T gho_T_fread(FILE* file);
+#define gho_T_fread gho_uint_fread
+
+// T gho_T_sread(char**);
+#define gho_T_sread gho_uint_sread
+
 // T gho_T_copy(const T* const t);
 #define gho_T_copy gho_uint_copy
 

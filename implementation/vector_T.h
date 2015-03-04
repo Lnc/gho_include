@@ -17,6 +17,7 @@
 
 #include "../memory.h"
 #include "../c_str.h"
+#include "../char.h"
 #include "../output.h"
 #include "../math.h"
 
@@ -160,6 +161,66 @@ void gho_vector_T_sprinti(char** c_str, const gho_vector_T_t* const vector,
 void gho_vector_T_sprint(char** c_str, const gho_vector_T_t* const vector) {
   gho_vector_T_sprinti(c_str, vector, 0);
 }
+
+// Input
+
+#ifdef gho_T_fread
+/**
+ * @brief Read a gho_vector_T from a file
+ * @param[in] file A C file
+ * @return the gho_vector_T read
+ */
+gho_vector_T_t gho_vector_T_fread(FILE* file) {
+  gho_vector_T_t r = gho_vector_T_create();
+  gho_read_whitespace(file);
+  gho_char_fread(file); // '{'
+  gho_read_whitespace(file);
+  while (gho_char_fpeek(file) != '}') {
+    // T
+    T_t tmp = gho_T_fread(file);
+    gho_vector_T_add(&r, &tmp);
+    gho_T_destroy(&tmp);
+    // ,
+    gho_read_whitespace(file);
+    if (gho_char_fpeek(file) == ',') {
+      gho_char_fread(file); // ','
+      gho_read_whitespace(file);
+    }
+  }
+  gho_read_whitespace(file);
+  gho_char_fread(file); // '}'
+  return r;
+}
+#endif
+
+#ifdef gho_T_sread
+/**
+ * @brief Read a gho_vector_T from a C string
+ * @param[in] c_str A C string
+ * @return the gho_vector_T read
+ */
+gho_vector_T_t gho_vector_T_sread(const char** c_str) {
+  gho_vector_T_t r = gho_vector_T_create();
+  gho_read_whitespace_from_c_str(c_str);
+  gho_char_sread(c_str); // '{'
+  gho_read_whitespace_from_c_str(c_str);
+  while (gho_char_speek(c_str) != '}') {
+    // T
+    T_t tmp = gho_T_sread(c_str);
+    gho_vector_T_add(&r, &tmp);
+    gho_T_destroy(&tmp);
+    // ,
+    gho_read_whitespace_from_c_str(c_str);
+    if (gho_char_speek(c_str) == ',') {
+      gho_char_sread(c_str); // ','
+      gho_read_whitespace_from_c_str(c_str);
+    }
+  }
+  gho_read_whitespace_from_c_str(c_str);
+  gho_char_sread(c_str); // '}'
+  return r;
+}
+#endif
 
 // Copy & comparisons
 

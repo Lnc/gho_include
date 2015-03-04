@@ -121,11 +121,23 @@ void gho_vector_T_fprint(FILE* file, const gho_vector_T_t* const vector);
 static inline
 void gho_vector_T_print(const gho_vector_T_t* const vector);
 static inline
-void gho_vector_T_sprinti(char** c_str,const gho_vector_T_t* const vector,
+void gho_vector_T_sprinti(char** c_str, const gho_vector_T_t* const vector,
                           const unsigned int indent);
 static inline
 void gho_vector_T_sprint(char** c_str,
                          const gho_vector_T_t* const vector);
+
+// Input
+#define gho_vector_T_fread concat_name(gho_vector_T COMMA fread)
+#define gho_vector_T_sread concat_name(gho_vector_T COMMA sread)
+#ifdef gho_T_fread
+static inline
+gho_vector_T_t gho_vector_T_fread(FILE* file);
+#endif
+#ifdef gho_T_sread
+static inline
+gho_vector_T_t gho_vector_T_sread(const char** c_str);
+#endif
 
 // Copy & comparisons
 #define gho_vector_T_copy concat_name(gho_vector_T COMMA copy)
@@ -225,6 +237,12 @@ void gho_vector_T_sort(gho_vector_T_t* vector);
 #undef gho_T_destroy
 #undef gho_T_fprint
 #undef gho_T_sprint
+#ifdef gho_T_fread
+  #undef gho_T_fread
+#endif
+#ifdef gho_T_sread
+  #undef gho_T_sread
+#endif
 #undef gho_T_copy
 #undef gho_T_equal
 #ifdef gho_T_compare
