@@ -25,8 +25,8 @@
 // Create & destroy
 
 /**
- * \brief Return a new gho_mpz
- * \return a new gho_mpz
+ * \brief Return a new gho_mpz_t
+ * \return a new gho_mpz_t
  */
 gho_mpz_t gho_mpz_create() {
   gho_mpz_t i;
@@ -35,9 +35,9 @@ gho_mpz_t gho_mpz_create() {
 }
 
 /**
- * \brief Return a new gho_mpz from a GMP mpz_t
+ * \brief Return a new gho_mpz_t from a GMP mpz_t
  * \param[in] gmp_mpz A GMP mpz_t
- * \return a new gho_mpz from a GMP mpz_t
+ * \return a new gho_mpz_t from a GMP mpz_t
  */
 gho_mpz_t gho_mpz_create_from_gmp(const mpz_t* const gmp_mpz) {
   gho_mpz_t i;
@@ -46,16 +46,16 @@ gho_mpz_t gho_mpz_create_from_gmp(const mpz_t* const gmp_mpz) {
 }
 
 /**
- * \brief Destroy a gho_mpz
- * \param[in] i A gho_mpz
+ * \brief Destroy a gho_mpz_t
+ * \param[in] i A gho_mpz_t
  */
 void gho_mpz_destroy(gho_mpz_t* i) {
   mpz_clear(i->i);
 }
 
 /**
- * \brief Reset a gho_mpz
- * \param[in] i A gho_mpz
+ * \brief Reset a gho_mpz_t
+ * \param[in] i A gho_mpz_t
  */
 void gho_mpz_reset(gho_mpz_t* i) {
   gho_mpz_destroy(i);
@@ -65,9 +65,9 @@ void gho_mpz_reset(gho_mpz_t* i) {
 // Output
 
 /**
- * \brief Print a gho_mpz in a file with indentation
+ * \brief Print a gho_mpz_t in a file with indentation
  * \param[in] file   A C file
- * \param[in] i      A gho_mpz
+ * \param[in] i      A gho_mpz_t
  * \param[in] indent Indentation (number of spaces)
  */
 void gho_mpz_fprinti(FILE* file, const gho_mpz_t* const i,
@@ -77,26 +77,26 @@ void gho_mpz_fprinti(FILE* file, const gho_mpz_t* const i,
 }
 
 /**
- * \brief Print a gho_mpz in a file
+ * \brief Print a gho_mpz_t in a file
  * \param[in] file A C file
- * \param[in] i    A gho_mpz
+ * \param[in] i    A gho_mpz_t
  */
 void gho_mpz_fprint(FILE* file, const gho_mpz_t* const i) {
   gho_mpz_fprinti(file, i, 0);
 }
 
 /**
- * \brief Print a gho_mpz in stdout
- * \param[in] i A gho_mpz
+ * \brief Print a gho_mpz_t in stdout
+ * \param[in] i A gho_mpz_t
  */
 void gho_mpz_print(const gho_mpz_t* const i) {
   gho_mpz_fprint(stdout, i);
 }
 
 /**
- * \brief Print a gho_mpz in a C string with indentation
+ * \brief Print a gho_mpz_t in a C string with indentation
  * \param[in] c_str  A C string
- * \param[in] i      A gho_mpz
+ * \param[in] i      A gho_mpz_t
  * \param[in] indent Indentation (number of spaces)
  */
 void gho_mpz_sprinti(char** c_str, const gho_mpz_t* const i,
@@ -109,9 +109,9 @@ void gho_mpz_sprinti(char** c_str, const gho_mpz_t* const i,
 }
 
 /**
- * \brief Print a gho_mpz in a C string
+ * \brief Print a gho_mpz_t in a C string
  * \param[in] c_str  A C string
- * \param[in] i      A gho_mpz
+ * \param[in] i      A gho_mpz_t
  */
 void gho_mpz_sprint(char** c_str, const gho_mpz_t* const i) {
   gho_mpz_sprinti(c_str, i, 0);
@@ -120,9 +120,9 @@ void gho_mpz_sprint(char** c_str, const gho_mpz_t* const i) {
 // Input
 
 /**
- * \brief Read a gho_mpz from a file
+ * \brief Read a gho_mpz_t from a file
  * \param[in] file A C file
- * \return the gho_mpz read
+ * \return the gho_mpz_t read
  */
 gho_mpz_t gho_mpz_fread(FILE* file) {
   gho_read_whitespace(file);
@@ -132,9 +132,9 @@ gho_mpz_t gho_mpz_fread(FILE* file) {
 }
 
 /**
- * \brief Read a gho_mpz from a C string
+ * \brief Read a gho_mpz_t from a C string
  * \param[in] c_str A C string
- * \return the gho_mpz read
+ * \return the gho_mpz_t read
  */
 gho_mpz_t gho_mpz_sread(const char** c_str) {
   gho_read_whitespace_from_c_str(c_str);
@@ -157,9 +157,9 @@ gho_mpz_t gho_mpz_sread(const char** c_str) {
 // Copy & comparisons
 
 /**
- * \brief Copy a gho_mpz
- * \param[in] i A gho_mpz
- * \return the gho_mpz copied
+ * \brief Copy a gho_mpz_t
+ * \param[in] i A gho_mpz_t
+ * \return the gho_mpz_t copied
  */
 gho_mpz_t gho_mpz_copy(const gho_mpz_t* const i) {
   gho_mpz_t r;
@@ -168,9 +168,9 @@ gho_mpz_t gho_mpz_copy(const gho_mpz_t* const i) {
 }
 
 /**
- * \brief Copy a gho_mpz
- * \param[in] i    A gho_mpz
- * \param[in] copy A pointer on an not initialized gho_mpz
+ * \brief Copy a gho_mpz_t
+ * \param[in] i    A gho_mpz_t
+ * \param[in] copy A pointer on an not initialized gho_mpz_t
  * \warning Do not use this function, use gho_llint_copy
  */
 void gho_mpz_copy_(const gho_mpz_t* const i, gho_mpz_t* copy) {
@@ -179,29 +179,29 @@ void gho_mpz_copy_(const gho_mpz_t* const i, gho_mpz_t* copy) {
 }
 
 /**
- * \brief Equality between two gho_mpz
- * \param[in] a A gho_mpz
- * \param[in] b A gho_mpz
- * \return true if the gho_mpz are equals, false otherwise
+ * \brief Equality between two gho_mpz_t
+ * \param[in] a A gho_mpz_t
+ * \param[in] b A gho_mpz_t
+ * \return true if the gho_mpz_t are equals, false otherwise
  */
 bool gho_mpz_equal(const gho_mpz_t* const a, const gho_mpz_t* const b) {
   return gho_mpz_compare(a, b) == 0;
 }
 
 /**
- * \brief Equality between a gho_mpz and a gho_lint
- * \param[in] a A gho_mpz
+ * \brief Equality between a gho_mpz_t and a gho_lint
+ * \param[in] a A gho_mpz_t
  * \param[in] b A gho_lint
- * \return true if the gho_mpz and the gho_lint are equals, false otherwise
+ * \return true if the gho_mpz_t and the gho_lint are equals, false otherwise
  */
 bool gho_mpz_equal_li(const gho_mpz_t* const a, const gho_lint b) {
   return gho_mpz_compare_li(a, b) == 0;
 }
 
 /**
- * \brief Compare two gho_mpz
- * \param[in] a A gho_mpz
- * \param[in] b A gho_mpz
+ * \brief Compare two gho_mpz_t
+ * \param[in] a A gho_mpz_t
+ * \param[in] b A gho_mpz_t
  * \return -1 if a < b, 0 if a == b, 1 if a > b
  */
 int gho_mpz_compare(const gho_mpz_t* const a, const gho_mpz_t* const b) {
@@ -212,8 +212,8 @@ int gho_mpz_compare(const gho_mpz_t* const a, const gho_mpz_t* const b) {
 }
 
 /**
- * \brief Compare a gho_mpz and a gho_lint
- * \param[in] a A gho_mpz
+ * \brief Compare a gho_mpz_t and a gho_lint
+ * \param[in] a A gho_mpz_t
  * \param[in] b A gho_lint
  * \return -1 if a < b, 0 if a == b, 1 if a > b
  */
@@ -227,9 +227,9 @@ int gho_mpz_compare_li(const gho_mpz_t* const a, const gho_lint b) {
 // Conversion
 
 /**
- * \brief Convert a gho_mpz into a gho_string
- * \param[in] i A gho_mpz
- * \return the gho_string from the gho_mpz
+ * \brief Convert a gho_mpz_t into a gho_string
+ * \param[in] i A gho_mpz_t
+ * \return the gho_string from the gho_mpz_t
  */
 gho_string_t gho_mpz_to_string(const gho_mpz_t* const i) {
   gho_string_t r = gho_string_create();
@@ -238,9 +238,9 @@ gho_string_t gho_mpz_to_string(const gho_mpz_t* const i) {
 }
 
 /**
- * \brief Convert a gho_mpz into a gho_any
- * \param[in] i A gho_mpz
- * \return the gho_any from the gho_mpz
+ * \brief Convert a gho_mpz_t into a gho_any
+ * \param[in] i A gho_mpz_t
+ * \return the gho_any from the gho_mpz_t
  */
 gho_any_t gho_mpz_to_any(const gho_mpz_t* const i) {
   gho_any_t r = gho_any_create();
@@ -261,18 +261,29 @@ gho_any_t gho_mpz_to_any(const gho_mpz_t* const i) {
 
 /**
  * \brief a = b
- * \param[in] a A gho_mpz
+ * \param[in] a A gho_mpz_t
  * \param[in] b A gho_lint
  */
-void gho_mpz_set_li(gho_mpz_t a, const gho_lint b) {
-  mpz_set_si(a.i, b);
+void gho_mpz_set_li(gho_mpz_t* a, const gho_lint b) {
+  mpz_set_si(a->i, b);
+}
+
+// Swap
+
+/**
+ * \brief Swap a and b
+ * \param[in] a A gho_mpz_t
+ * \param[in] b A gho_mpz_t
+ */
+void gho_mpz_swap(gho_mpz_t* a, gho_mpz_t* b) {
+  mpz_swap(a->i, b->i);
 }
 
 // Arithmetic
 
 /**
  * \brief Return a + b
- * \param[in] a A gho_mpz
+ * \param[in] a A gho_mpz_t
  * \param[in] b A gho_lint
  * \return a + b
  */
@@ -285,7 +296,7 @@ gho_mpz_t gho_mpz_add_li(const gho_mpz_t a, const gho_lint b) {
 
 /**
  * \brief Return floor(a / b)
- * \param[in] a A gho_mpz
+ * \param[in] a A gho_mpz_t
  * \param[in] b A gho_lint
  * \return floor(a / b)
  */

@@ -92,12 +92,14 @@ static inline
 gho_any_t gho_mpz_to_any(const gho_mpz_t* const i);
 
 // Set
-
 static inline
-void gho_mpz_set_li(gho_mpz_t a, const gho_lint b);
+void gho_mpz_set_li(gho_mpz_t* a, const gho_lint b);
+
+// Swap
+static inline
+void gho_mpz_swap(gho_mpz_t* a, gho_mpz_t* b);
 
 // Arithmetic
-
 static inline
 gho_mpz_t gho_mpz_add_li(const gho_mpz_t a, const gho_lint b);
 static inline
