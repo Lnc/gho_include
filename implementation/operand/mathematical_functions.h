@@ -103,7 +103,7 @@ void gho_log2(gho_operand_t i) {
   // gho_mpz_t
   else if (i.type == GHO_TYPE_GHO_MPZ_T) {
     gho_mpz_t tmp = gho_mpz_log2(*(gho_mpz_t*)(i.p));
-    gho_swap(gho_mpz_t, tmp, *(gho_mpz_t*)(i.p));
+    gho_T_swap(gho_mpz_t, tmp, *(gho_mpz_t*)(i.p));
     gho_mpz_destroy(&tmp);
   }
   #endif
@@ -139,7 +139,7 @@ void gho_log10(gho_operand_t i) {
   // gho_mpz_t
   else if (i.type == GHO_TYPE_GHO_MPZ_T) {
     gho_mpz_t tmp = gho_mpz_log10(*(gho_mpz_t*)(i.p));
-    gho_swap(gho_mpz_t, tmp, *(gho_mpz_t*)(i.p));
+    gho_T_swap(gho_mpz_t, tmp, *(gho_mpz_t*)(i.p));
     gho_mpz_destroy(&tmp);
   }
   #endif

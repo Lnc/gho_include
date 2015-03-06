@@ -272,6 +272,8 @@ void gho_pow_10_round(gho_operand_t i);
 // Other functions: is_divisible size_in_base
 // gho_operand_t
 static inline
+void gho_op_swap(const gho_operand_t a, const gho_operand_t b);
+static inline
 bool gho_op_is_divisible(const gho_operand_t a, const gho_operand_t b);
 static inline
 size_t gho_op_size_in_base_2(gho_operand_t i);

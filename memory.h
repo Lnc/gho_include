@@ -33,7 +33,7 @@
 
 // Swap
 
-#define gho_swap(T, a, b) \
+#define gho_T_swap(T, a, b) \
   { \
     T tmp; \
     tmp = a; \

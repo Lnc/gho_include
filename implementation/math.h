@@ -224,14 +224,14 @@ gho_mpz_t gho_mpz_log2(const gho_mpz_t i) {
     // v /= 2;
     {
       gho_mpz_t tmp = gho_mpz_floor_div_li(v, 2);
-      gho_swap(gho_mpz_t, v, tmp)
+      gho_T_swap(gho_mpz_t, v, tmp)
       gho_mpz_destroy(&tmp);
     }
     // ++n;
     gho_mpz_add_li(n, 1);
   }
   // n = ((n == 0) ? 1 : n);
-  if (gho_mpz_equal_li(&n, 1)) { gho_mpz_set_li(n, 1); }
+  if (gho_mpz_equal_li(&n, 1)) { gho_mpz_set_li(&n, 1); }
   // Destroy and return
   gho_mpz_destroy(&v);
   return n;
@@ -251,14 +251,14 @@ gho_mpz_t gho_mpz_log10(const gho_mpz_t i) {
     // v /= 10;
     {
       gho_mpz_t tmp = gho_mpz_floor_div_li(v, 10);
-      gho_swap(gho_mpz_t, v, tmp);
+      gho_T_swap(gho_mpz_t, v, tmp);
       gho_mpz_destroy(&tmp);
     }
     // ++n;
     gho_mpz_add_li(n, 1);
   }
   // n = ((n == 0) ? 1 : n);
-  if (gho_mpz_equal_li(&n, 1)) { gho_mpz_set_li(n, 1); }
+  if (gho_mpz_equal_li(&n, 1)) { gho_mpz_set_li(&n, 1); }
   // Destroy and return
   gho_mpz_destroy(&v);
   return n;

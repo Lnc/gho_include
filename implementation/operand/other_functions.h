@@ -17,6 +17,42 @@
 
 // gho_operand_t
 
+
+/**
+ * \brief Swap a and b
+ * \param[in] a A gho_operand_t
+ * \param[in] b A gho_operand_t
+ */
+void gho_op_swap(const gho_operand_t a, const gho_operand_t b) {
+  
+  // int & int
+  if (a.type == GHO_TYPE_INT && b.type == GHO_TYPE_INT) {
+    gho_T_swap(int, *(int*)(a.p), *(int*)(b.p));
+  }
+  
+  // gho_lint & gho_lint
+  else if (a.type == GHO_TYPE_LINT && b.type == GHO_TYPE_LINT) {
+    gho_T_swap(gho_lint, *(gho_lint*)(a.p), *(gho_lint*)(b.p));
+  }
+  
+  // gho_llint & gho_llint
+  else if (a.type == GHO_TYPE_LLINT && b.type == GHO_TYPE_LLINT) {
+    gho_T_swap(gho_llint, *(gho_lint*)(a.p), *(gho_lint*)(b.p));
+  }
+  
+  #ifdef gho_with_gmp
+  // gho_mpz_t & gho_mpz_t
+  else if (a.type == GHO_TYPE_GHO_MPZ_T && b.type == GHO_TYPE_GHO_MPZ_T) {
+    gho_mpz_swap((gho_mpz_t*)(a.p), (gho_mpz_t*)(b.p));
+  }
+  #endif
+  
+  // Other
+  else {
+    gho_operand_type_error_2("gho_op_swap", a, b);
+  }
+}
+
 /**
  * \brief a % b == 0
  * \param[in] a A gho_operand_t
