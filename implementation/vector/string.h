@@ -22,8 +22,7 @@
  */
 void gho_vector_string_add_c_str(gho_vector_string_t* vector,
                                  const char* const to_be_added) {
-  gho_string_t string = gho_string_create();
-  gho_string_add_c_str(&string, to_be_added);
+  gho_string_t string = gho_string_create_from_c_str(to_be_added);
   gho_vector_string_add(vector, &string);
   gho_string_destroy(&string);
 }
@@ -37,8 +36,7 @@ void gho_vector_string_add_c_str(gho_vector_string_t* vector,
 void gho_vector_string_insert_c_str(gho_vector_string_t* vector,
                                     const char* const to_be_added,
                                     const size_t i) {
-  gho_string_t string = gho_string_create();
-  gho_string_add_c_str(&string, to_be_added);
+  gho_string_t string = gho_string_create_from_c_str(to_be_added);
   gho_vector_string_insert(vector, &string, i);
   gho_string_destroy(&string);
 }
