@@ -424,7 +424,7 @@ void gho_vector_T_set(gho_vector_T_t* vector, const size_t i,
   vector->array[i] = gho_T_copy(value);
 }
 
-// Add
+// Add, Insert & Remove
 
 /**
  * \brief Add a T at the end
@@ -442,15 +442,6 @@ void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added) {
 }
 
 /**
- * \brief Add a T at the end
- * \param[in] vector      A gho_vector_T
- * \param[in] to_be_added The T to be added
- */
-void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added) {
-  gho_vector_T_add(vector, &to_be_added);
-}
-
-/**
  * \brief Add a gho_vector_T at the end
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The gho_vector_T to be added
@@ -465,6 +456,32 @@ void gho_vector_T_add_vector(gho_vector_T_t* vector,
   } else {
     gho_vector_T_reserve(vector, vector->size + to_be_added->size);
     gho_vector_T_add_vector(vector, to_be_added);
+  }
+}
+
+/**
+ * \brief Insert a T
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be inserted
+ * \param[in] i           Index where the T will be inserted
+ */
+void gho_vector_T_insert(gho_vector_T_t* vector,
+                         const T_t* const to_be_added, const size_t i) {
+  if (i > vector->size) {
+    fprintf(stderr, "ERROR: gho_vector_T_insert: invalid index!\n");
+    exit(1);
+  }
+  if (vector->size + 1 <= vector->capacity) {
+    for (size_t j = vector->size + 1; j > i + 1; --j) {
+      gho_T_destroy(&vector->array[j - 1]);
+      vector->array[j - 1] = gho_T_copy(&vector->array[j - 2]);
+    }
+    gho_T_destroy(&vector->array[i]);
+    vector->array[i] = gho_T_copy(to_be_added);
+    ++vector->size;
+  } else {
+    gho_vector_T_reserve(vector, vector->capacity + 10);
+    gho_vector_T_insert(vector, to_be_added, i);
   }
 }
 

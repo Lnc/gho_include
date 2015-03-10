@@ -197,19 +197,20 @@ static inline
 void gho_vector_T_set(gho_vector_T_t* vector, const size_t i,
                       const T_t* const value);
 
-// Add & remove
+// Add, Insert & Remove
 #define gho_vector_T_add concat_name(gho_vector_T COMMA add)
-#define gho_vector_T_add_ concat_name(gho_vector_T COMMA add_)
 #define gho_vector_T_add_vector concat_name(gho_vector_T COMMA add_vector)
+#define gho_vector_T_insert concat_name(gho_vector_T COMMA insert)
 #define gho_vector_T_remove concat_name(gho_vector_T COMMA remove)
 #define gho_vector_T_remove_last concat_name(gho_vector_T COMMA remove_last)
 static inline
 void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added);
 static inline
-void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added);
-static inline
 void gho_vector_T_add_vector(gho_vector_T_t* vector,
                              const gho_vector_T_t* const to_be_added);
+static inline
+void gho_vector_T_insert(gho_vector_T_t* vector,
+                         const T_t* const to_be_added, const size_t i);
 static inline
 void gho_vector_T_remove(gho_vector_T_t* vector, const size_t i);
 static inline

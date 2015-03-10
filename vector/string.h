@@ -50,11 +50,15 @@
 #include "../vector_T.h"
 
 
-// Add
+// Add, Insert & Remove
 
 static inline
 void gho_vector_string_add_c_str(gho_vector_string_t* vector,
                                  const char* const to_be_added);
+static inline
+void gho_vector_string_insert_c_str(gho_vector_string_t* vector,
+                                    const char* const to_be_added,
+                                    const size_t i);
 
 #include "../implementation/vector/string.h"
 

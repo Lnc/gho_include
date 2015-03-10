@@ -13,6 +13,8 @@
 // limitations under the License.
 
 
+// Add, Insert & Remove
+
 /**
  * \brief Add a C string at the end
  * \param[in] vector      A gho_vector_string
@@ -23,5 +25,20 @@ void gho_vector_string_add_c_str(gho_vector_string_t* vector,
   gho_string_t string = gho_string_create();
   gho_string_add_c_str(&string, to_be_added);
   gho_vector_string_add(vector, &string);
+  gho_string_destroy(&string);
+}
+
+/**
+ * \brief Insert a C string
+ * \param[in] vector      A gho_vector_string
+ * \param[in] to_be_added The C string to be inserted
+ * \param[in] i           Index where the T will be inserted
+ */
+void gho_vector_string_insert_c_str(gho_vector_string_t* vector,
+                                    const char* const to_be_added,
+                                    const size_t i) {
+  gho_string_t string = gho_string_create();
+  gho_string_add_c_str(&string, to_be_added);
+  gho_vector_string_insert(vector, &string, i);
   gho_string_destroy(&string);
 }
