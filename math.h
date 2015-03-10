@@ -18,60 +18,10 @@
 
 #include <math.h>
 
+#include "math_T.h"
 #include "int/lint.h"
 #include "int/llint.h"
 #include "int/mpz_t.h"
-
-
-// min & max
-
-/**
- * \brief Return the smallest of a and b
- * \param[in] a A value
- * \param[in] b A value
- * \return the smallest value
- */
-#define gho_T_min(a, b) \
-  (((a) < (b)) ? (a) : (b))
-
-/**
- * \brief Return the largest of a and b
- * \param[in] a A value
- * \param[in] b A value
- * \return the largest value
- */
-#define gho_T_max(a, b) \
-  (((a) > (b)) ? (a) : (b))
-
-// ceil div & floor div
-
-/**
- * \brief Return ceil((double)n / (double)d)
- * \param[in] n Numerator
- * \param[in] d Denominator
- * \return ceil((double)n / (double)d)
- */
-#define gho_T_ceil_div(n, d) \
-  ceil(((double)(n)) / ((double)(d)))
-
-/**
- * \brief Return floor((double)n / (double)d)
- * \param[in] n Numerator
- * \param[in] d Denominator
- * \return floor((double)n / (double)d)
- */
-#define gho_T_floor_div(n, d) \
-  floor(((double)(n)) / ((double)(d)))
-
-// abs
-
-/**
- * \brief Return the absolute value of a T
- * \param[in] i A value
- * \return the absolute value of i
- */
-#define gho_T_abs(i) \
-  (((i) < 0) ? (-i) : (i))
 
 #ifdef gho_with_gmp
 static inline

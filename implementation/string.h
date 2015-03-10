@@ -17,7 +17,7 @@
 #include <string.h>
 
 #include "../c_str.h"
-#include "../math.h"
+#include "../math_T.h"
 
 
 // Create & destroy

@@ -442,6 +442,15 @@ void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added) {
 }
 
 /**
+ * \brief Add a T at the end
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be added
+ */
+void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added) {
+  gho_vector_T_add(vector, &to_be_added);
+}
+
+/**
  * \brief Add a gho_vector_T at the end
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The gho_vector_T to be added
