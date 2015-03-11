@@ -485,7 +485,7 @@ void gho_vector_T_insert(gho_vector_T_t* vector,
       if (j != vector->size + 1) { gho_T_destroy(&vector->array[j - 1]); }
       vector->array[j - 1] = gho_T_copy(&vector->array[j - 2]);
     }
-    gho_T_destroy(&vector->array[i]);
+    if (i != vector->size) { gho_T_destroy(&vector->array[i]); }
     vector->array[i] = gho_T_copy(to_be_added);
     ++vector->size;
   } else {
