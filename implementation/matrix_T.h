@@ -324,6 +324,14 @@ void gho_matrix_T_set(gho_matrix_T_t* matrix, const size_t i, const size_t j,
 // Add & remove
 
 /**
+ * \brief Add a row at the end
+ * \param[in] matrix A gho_matrix_T
+ */
+void gho_matrix_T_add_row(gho_matrix_T_t* matrix) {
+  gho_matrix_T_add_row_after(matrix, matrix->nb_row - 1);
+}
+
+/**
  * \brief Add a row before the index
  * \param[in] matrix A gho_matrix_T
  * \param[in] i      Index of a row
@@ -356,6 +364,14 @@ void gho_matrix_T_add_row_before(gho_matrix_T_t* matrix, const size_t i) {
  */
 void gho_matrix_T_add_row_after(gho_matrix_T_t* matrix, const size_t i) {
   gho_matrix_T_add_row_before(matrix, i + 1);
+}
+
+/**
+ * \brief Add a column at the end
+ * \param[in] matrix A gho_matrix_T
+ */
+void gho_matrix_T_add_col(gho_matrix_T_t* matrix) {
+  gho_matrix_T_add_col_after(matrix, matrix->nb_col - 1);
 }
 
 /**

@@ -170,10 +170,14 @@ void gho_matrix_T_set(gho_matrix_T_t* matrix, const size_t i, const size_t j,
                       const T_t* const value);
 
 // Add & remove
+#define gho_matrix_T_add_row \
+  concat_name(gho_matrix_T COMMA add_row)
 #define gho_matrix_T_add_row_before \
   concat_name(gho_matrix_T COMMA add_row_before)
 #define gho_matrix_T_add_row_after \
   concat_name(gho_matrix_T COMMA add_row_after)
+#define gho_matrix_T_add_col \
+  concat_name(gho_matrix_T COMMA add_col)
 #define gho_matrix_T_add_col_before \
   concat_name(gho_matrix_T COMMA add_col_before)
 #define gho_matrix_T_add_col_after \
@@ -183,9 +187,13 @@ void gho_matrix_T_set(gho_matrix_T_t* matrix, const size_t i, const size_t j,
 #define gho_matrix_T_remove_col \
   concat_name(gho_matrix_T COMMA remove_col)
 static inline
+void gho_matrix_T_add_row(gho_matrix_T_t* matrix);
+static inline
 void gho_matrix_T_add_row_before(gho_matrix_T_t* matrix, const size_t i);
 static inline
 void gho_matrix_T_add_row_after(gho_matrix_T_t* matrix, const size_t i);
+static inline
+void gho_matrix_T_add_col(gho_matrix_T_t* matrix);
 static inline
 void gho_matrix_T_add_col_before(gho_matrix_T_t* matrix, const size_t j);
 static inline
