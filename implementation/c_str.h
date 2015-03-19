@@ -479,6 +479,8 @@ char* gho_c_str_peek_line_from_c_str_delimiter(const char** c_str,
 
 #if defined(__cplusplus)
 
+#include <string>
+
 namespace gho
 {
   /**
