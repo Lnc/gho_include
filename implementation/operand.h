@@ -77,8 +77,8 @@ void gho_operand_reset(gho_operand_t* op) {
 // gho_coperand_t
 
 /**
- * \brief Return a new gho_operand_t
- * \return a new gho_operand_t
+ * \brief Return a new gho_coperand_t
+ * \return a new gho_coperand_t
  */
 gho_coperand_t gho_coperand_create() {
   gho_coperand_t r;
@@ -88,19 +88,22 @@ gho_coperand_t gho_coperand_create() {
 }
 
 /**
- * \brief Destroy a gho_operand_t
- * \param[in] op A gho_operand_t
+ * \brief Destroy a gho_coperand_t
+ * \param[in] cop A gho_coperand_t
  */
-void gho_coperand_destroy(gho_coperand_t* op) {
-  op->type = GHO_TYPE_NULL;
-  op->p = NULL;
+void gho_coperand_destroy(gho_coperand_t* cop) {
+  cop->type = GHO_TYPE_NULL;
+  cop->p = NULL;
 }
 
 /**
- * \brief Reset a gho_operand_t
- * \param[in] op A gho_operand_t
+ * \brief Reset a gho_coperand_t
+ * \param[in] cop A gho_coperand_t
  */
-void gho_coperand_reset(gho_coperand_t* op);
+void gho_coperand_reset(gho_coperand_t* cop) {
+  gho_coperand_destroy(cop);
+  *cop = gho_coperand_create();
+}
 
 // Copy
 
