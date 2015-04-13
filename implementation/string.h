@@ -486,7 +486,7 @@ gho_string_t gho_string_get_line_from_c_str(const char** c_str) {
  * \return the first line in the C string
  */
 void gho_string_ignore_line_from_c_str(const char** c_str) {
-  gho_c_str_get_line_from_c_str(c_str);
+  gho_c_str_ignore_line_from_c_str(c_str);
 }
 
 /**
