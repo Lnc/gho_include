@@ -345,12 +345,14 @@ void gho_matrix_T_add_row_before(gho_matrix_T_t* matrix, const size_t i) {
     gho_matrix_T_create_n_m(matrix->nb_row + 1, matrix->nb_col);
   for (size_t n = 0; n < i; ++n) {
     for (size_t m = 0; m < matrix->nb_col; ++m) {
-      matrix_new.array[n][m] = matrix->array[n][m];
+      gho_T_destroy(&matrix_new.array[n][m]);
+      matrix_new.array[n][m] = gho_T_copy(&matrix->array[n][m]);
     }
   }
   for (size_t n = i + 1; n < matrix_new.nb_row; ++n) {
     for (size_t m = 0; m < matrix->nb_col; ++m) {
-      matrix_new.array[n][m] = matrix->array[n - 1][m];
+      gho_T_destroy(&matrix_new.array[n][m]);
+      matrix_new.array[n][m] = gho_T_copy(&matrix->array[n - 1][m]);
     }
   }
   gho_matrix_T_destroy(matrix);
@@ -388,10 +390,12 @@ void gho_matrix_T_add_col_before(gho_matrix_T_t* matrix, const size_t j) {
     gho_matrix_T_create_n_m(matrix->nb_row, matrix->nb_col + 1);
   for (size_t n = 0; n < matrix->nb_row; ++n) {
     for (size_t m = 0; m < j; ++m) {
-      matrix_new.array[n][m] = matrix->array[n][m];
+      gho_T_destroy(&matrix_new.array[n][m]);
+      matrix_new.array[n][m] = gho_T_copy(&matrix->array[n][m]);
     }
     for (size_t m = j + 1; m < matrix_new.nb_col; ++m) {
-      matrix_new.array[n][m] = matrix->array[n][m - 1];
+      gho_T_destroy(&matrix_new.array[n][m]);
+      matrix_new.array[n][m] = gho_T_copy(&matrix->array[n][m - 1]);
     }
   }
   gho_matrix_T_destroy(matrix);
