@@ -211,6 +211,7 @@ void gho_matrix_T_copy_(const gho_matrix_T_t* const matrix,
   *copy = gho_matrix_T_create_n_m(matrix->nb_row, matrix->nb_col);
   for (size_t i = 0; i < matrix->nb_row; ++i) {
     for (size_t j = 0; j < matrix->nb_col; ++j) {
+      gho_T_destroy(&copy->array[i][j]);
       copy->array[i][j] = gho_T_copy(&matrix->array[i][j]);
     }
   }
