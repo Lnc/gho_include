@@ -133,6 +133,12 @@ size_t gho_string_find_c_str(const gho_string_t* const string,
 static inline
 size_t gho_string_find_char(const gho_string_t* const string,
                             const char value);
+static inline
+bool gho_string_contains(const gho_string_t* const string,
+                         const gho_string_t* const value);
+static inline
+bool gho_string_contains_c_str(const gho_string_t* const string,
+                               const char* const value);
 
 // Get line
 static inline

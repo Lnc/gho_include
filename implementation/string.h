@@ -406,6 +406,28 @@ size_t gho_string_find_char(const gho_string_t* const string,
   return gho_c_str_find_char(string->c_str, value);
 }
 
+/**
+ * \brief Test if a value is in a gho_string_t
+ * \param[in] string A gho_string_t
+ * \param[in] value  The string to be found
+ * \return true if the value is in the gho_string_t, false otherwise
+ */
+bool gho_string_contains(const gho_string_t* const string,
+                         const gho_string_t* const value) {
+  return gho_string_contains_c_str(string, value->c_str);
+}
+
+/**
+ * \brief Test if a value is in a gho_string_t
+ * \param[in] string A gho_string_t
+ * \param[in] value  The C string to be found
+ * \return true if the value is in the gho_string_t, false otherwise
+ */
+bool gho_string_contains_c_str(const gho_string_t* const string,
+                               const char* const value) {
+  return gho_c_str_contains(string->c_str, value);
+}
+
 // Get line
 
 /**

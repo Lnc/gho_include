@@ -292,7 +292,7 @@ void gho_c_str_remove_last(char** c_str) {
 /**
  * \brief Find a value in a C string
  * \param[in] c_str A C string
- * \param[in] value  The C string to be found
+ * \param[in] value The C string to be found
  * \return the index of the value found, the size of the string if not found
  *         or if value is empty
  */
@@ -316,7 +316,7 @@ size_t gho_c_str_find(const char* const c_str, const char* const value) {
 /**
  * \brief Find a value in a C string
  * \param[in] c_str A C string
- * \param[in] value  The char to be found
+ * \param[in] value The char to be found
  * \return the index of the value found, the size of the string if not found
  */
 size_t gho_c_str_find_char(const char* const c_str, const char value) {
@@ -325,6 +325,16 @@ size_t gho_c_str_find_char(const char* const c_str, const char value) {
     if (c_str[i] == value) { return i; }
   }
   return size;
+}
+
+/**
+ * \brief Test if a value is in a C string
+ * \param[in] c_str A C string
+ * \param[in] value The C string to be found
+ * \return true if the value is in the C string, false otherwise
+ */
+bool gho_c_str_contains(const char* const c_str, const char* const value) {
+  return gho_c_str_find(c_str, value) != gho_c_str_size(c_str);
 }
 
 // Get line

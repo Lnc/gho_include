@@ -87,6 +87,8 @@ static inline
 size_t gho_c_str_find(const char* const c_str, const char* const value);
 static inline
 size_t gho_c_str_find_char(const char* const c_str, const char value);
+static inline
+bool gho_c_str_contains(const char* const c_str, const char* const value);
 
 // Get line
 static inline
