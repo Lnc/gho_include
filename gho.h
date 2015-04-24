@@ -32,7 +32,9 @@
  * @section section_system_requirement System Requirement
  * 
  * Required:
- * - C11 compiler @n
+ * - C99 compiler
+ * 
+ * Optional:
  * - CMake build system
  * 
  * @section section_installation Installation
