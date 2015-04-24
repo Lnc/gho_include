@@ -35,7 +35,9 @@ typedef bool (*gho_equal_fct_t)(const void* const, const void* const);
 typedef gho_string_t (*gho_to_string_fct_t)(const void* const);
 
 /**
- * \brief gho_any_t encapsulates any structure
+ * \brief Contains any structure
+ * 
+ * gho_any_t can hold any struct.
  */
 typedef struct {
   

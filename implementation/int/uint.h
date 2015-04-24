@@ -27,6 +27,7 @@
 /**
  * \brief Return a new unsigned int
  * \return a new unsigned int
+ * @relates gho_uint
  */
 gho_uint gho_uint_create() {
   return 0;
@@ -35,6 +36,7 @@ gho_uint gho_uint_create() {
 /**
  * \brief Destroy a unsigned int
  * \param[in] i A unsigned int
+ * @relates gho_uint
  */
 void gho_uint_destroy(gho_uint* i) {
   *i = 0;
@@ -43,6 +45,7 @@ void gho_uint_destroy(gho_uint* i) {
 /**
  * \brief Reset a unsigned int
  * \param[in] i A unsigned int
+ * @relates gho_uint
  */
 void gho_uint_reset(gho_uint* i) {
   *i = 0;
@@ -55,6 +58,7 @@ void gho_uint_reset(gho_uint* i) {
  * \param[in] file   A C file
  * \param[in] i      A unsigned int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_uint
  */
 void gho_uint_fprinti(FILE* file, const gho_uint* const i,
                       const unsigned int indent) {
@@ -66,6 +70,7 @@ void gho_uint_fprinti(FILE* file, const gho_uint* const i,
  * \brief Print a unsigned int in a file
  * \param[in] file   A C file
  * \param[in] i      A unsigned int
+ * @relates gho_uint
  */
 void gho_uint_fprint(FILE* file, const gho_uint* const i) {
   gho_uint_fprinti(file, i, 0);
@@ -74,6 +79,7 @@ void gho_uint_fprint(FILE* file, const gho_uint* const i) {
 /**
  * \brief Print a unsigned int in stdout
  * \param[in] i A unsigned int
+ * @relates gho_uint
  */
 void gho_uint_print(const gho_uint* const i) {
   gho_uint_fprint(stdout, i);
@@ -84,6 +90,7 @@ void gho_uint_print(const gho_uint* const i) {
  * \param[in] c_str  A C string
  * \param[in] i      A unsigned int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_uint
  */
 void gho_uint_sprinti(char** c_str, const gho_uint* const i,
                       const unsigned int indent) {
@@ -97,6 +104,7 @@ void gho_uint_sprinti(char** c_str, const gho_uint* const i,
  * \brief Print a unsigned int in a C string
  * \param[in] c_str  A C string
  * \param[in] i      A unsigned int
+ * @relates gho_uint
  */
 void gho_uint_sprint(char** c_str, const gho_uint* const i) {
   gho_uint_sprinti(c_str, i, 0);
@@ -108,6 +116,7 @@ void gho_uint_sprint(char** c_str, const gho_uint* const i) {
  * \brief Read a unsigned int from a file
  * \param[in] file A C file
  * \return the unsigned int read
+ * @relates gho_uint
  */
 gho_uint gho_uint_fread(FILE* file) {
   gho_read_whitespace(file);
@@ -120,6 +129,7 @@ gho_uint gho_uint_fread(FILE* file) {
  * \brief Read a unsigned int from a C string
  * \param[in] c_str A C string
  * \return the unsigned int read
+ * @relates gho_uint
  */
 gho_uint gho_uint_sread(const char** c_str) {
   gho_read_whitespace_from_c_str(c_str);
@@ -136,6 +146,7 @@ gho_uint gho_uint_sread(const char** c_str) {
  * \brief Copy a unsigned int
  * \param[in] i A unsigned int
  * \return the unsigned int copied
+ * @relates gho_uint
  */
 gho_uint gho_uint_copy(const gho_uint* const i) {
   return *i;
@@ -146,6 +157,7 @@ gho_uint gho_uint_copy(const gho_uint* const i) {
  * \param[in] i    A unsigned int
  * \param[in] copy A pointer on an not initialized unsigned int
  * \warning Do not use this function, use gho_llint_copy
+ * @relates gho_uint
  */
 void gho_uint_copy_(const gho_uint* const i, gho_uint* copy) {
   *copy = *i;
@@ -156,6 +168,7 @@ void gho_uint_copy_(const gho_uint* const i, gho_uint* copy) {
  * \param[in] a A unsigned int
  * \param[in] b A unsigned int
  * \return true if the unsigned int are equals, false otherwise
+ * @relates gho_uint
  */
 bool gho_uint_equal(const gho_uint* const a, const gho_uint* const b) {
   return *a == *b;
@@ -166,6 +179,7 @@ bool gho_uint_equal(const gho_uint* const a, const gho_uint* const b) {
  * \param[in] a A gho_uint
  * \param[in] b A gho_uint
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_uint
  */
 int gho_uint_compare(const gho_uint* const a, const gho_uint* const b) {
   if (*a < *b) { return -1; }
@@ -179,6 +193,7 @@ int gho_uint_compare(const gho_uint* const a, const gho_uint* const b) {
  * \brief Convert a unsigned int into a gho_string
  * \param[in] i A unsigned int
  * \return the gho_string from the unsigned int
+ * @relates gho_uint
  */
 gho_string_t gho_uint_to_string(const gho_uint* const i) {
   gho_string_t r = gho_string_create();
@@ -192,6 +207,7 @@ gho_string_t gho_uint_to_string(const gho_uint* const i) {
  * \brief Convert a unsigned int into a gho_any
  * \param[in] i A unsigned int
  * \return the gho_any from the unsigned int
+ * @relates gho_uint
  */
 gho_any_t gho_uint_to_any(const gho_uint* const i) {
   gho_any_t r = gho_any_create();

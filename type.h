@@ -19,7 +19,13 @@
 
 
 /**
+ * \defgroup gho_type gho_type
+ * \brief Dynamic type
+ */
+
+/**
  * \brief (Dynamic) types known
+ * @ingroup gho_type
  */
 typedef enum {
   

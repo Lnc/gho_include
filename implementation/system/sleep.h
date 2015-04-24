@@ -18,6 +18,7 @@
 /**
  * \brief Sleep s seconds
  * \param[in] s Number of seconds
+ * @ingroup gho_system
  */
 void gho_sleep(const unsigned int s) {
   gho_millisleep(s * 1000u);
@@ -25,6 +26,14 @@ void gho_sleep(const unsigned int s) {
 
 
 // gho_millisleep
+
+/**
+ * \brief Sleep ms milliseconds
+ * \param[in] ms Number of milliseconds
+ * @ingroup gho_system
+ */
+static inline
+void gho_millisleep(const unsigned int ms);
 
 #if gho_unix
 

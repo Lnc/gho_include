@@ -21,6 +21,7 @@
  * \brief Convert a gho_operand_t into a gho_llint
  * \param[in] i A gho_operand_t
  * \return the gho_llint from the gho_operand_t
+ * @relates gho_operand_t
  */
 gho_llint gho_operand_to_lli(gho_operand_t i) {
   const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
@@ -31,6 +32,7 @@ gho_llint gho_operand_to_lli(gho_operand_t i) {
  * \brief Convert a gho_operand_t into a gho_lint
  * \param[in] i A gho_operand_t
  * \return the gho_lint from the gho_operand_t
+ * @relates gho_operand_t
  */
 gho_lint gho_operand_to_li(gho_operand_t i) {
   const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
@@ -41,6 +43,7 @@ gho_lint gho_operand_to_li(gho_operand_t i) {
  * \brief Convert a gho_operand_t into a size_t
  * \param[in] i A gho_operand_t
  * \return the size_t from the gho_operand_t
+ * @relates gho_operand_t
  */
 size_t gho_operand_to_size_t(gho_operand_t i) {
   const gho_coperand_t cop = gho_coperand_type(i.p, i.type);
@@ -53,6 +56,7 @@ size_t gho_operand_to_size_t(gho_operand_t i) {
  * \brief Convert a gho_coperand_t into a gho_llint
  * \param[in] i A gho_coperand_t
  * \return the gho_llint from the gho_coperand_t
+ * @relates gho_coperand_t
  */
 gho_llint gho_coperand_to_lli(gho_coperand_t i) {
   
@@ -95,6 +99,7 @@ gho_llint gho_coperand_to_lli(gho_coperand_t i) {
  * \brief Convert a gho_coperand_t into a gho_lint
  * \param[in] i A gho_coperand_t
  * \return the gho_lint from the gho_coperand_t
+ * @relates gho_coperand_t
  */
 gho_lint gho_coperand_to_li(gho_coperand_t i) {
   
@@ -147,6 +152,7 @@ gho_lint gho_coperand_to_li(gho_coperand_t i) {
  * \brief Convert a gho_coperand_t into a size_t
  * \param[in] i A gho_coperand_t
  * \return the size_t from the gho_coperand_t
+ * @relates gho_coperand_t
  */
 size_t gho_coperand_to_size_t(gho_coperand_t i) {
   const gho_llint lli = gho_coperand_to_lli(i);

@@ -26,7 +26,7 @@
 
 
 /**
- * \brief gho_start_and_size_t encapsulates a C string
+ * \brief Contains a start position and a size
  */
 typedef struct {
   

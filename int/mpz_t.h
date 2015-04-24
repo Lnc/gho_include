@@ -31,7 +31,7 @@
 
 
 /**
- * \brief gho_mpz_t encapsulates a GMP mpz_t
+ * \brief Contains a GMP mpz_t
  */
 typedef struct {
   

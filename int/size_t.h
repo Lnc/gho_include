@@ -24,6 +24,20 @@
 #include "../any.h"
 
 
+// Consider size_t as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for size_t
+  struct gho_size_t { };
+
+#else
+
+  // Typedef for size_t
+  typedef size_t gho_size_t;
+
+#endif
+
+
 // Create & destroy
 static inline
 size_t gho_size_t_create();

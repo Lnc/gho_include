@@ -23,6 +23,20 @@
 #include "any.h"
 
 
+// Consider C char type as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief C char type (char)
+  struct gho_char_t { };
+
+#else
+
+  // C string type
+  typedef char gho_char_t;
+
+#endif
+
+
 // Create & destroy
 static inline
 char gho_char_create();

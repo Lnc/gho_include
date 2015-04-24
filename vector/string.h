@@ -62,4 +62,14 @@ void gho_vector_string_insert_c_str(gho_vector_string_t* vector,
 
 #include "../implementation/vector/string.h"
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Vector of gho_string_t
+ * 
+ * @see gho_vector_T_t for documentation
+ */
+struct gho_vector_string_t { };
+#endif
+
 #endif

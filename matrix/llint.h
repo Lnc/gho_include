@@ -46,4 +46,14 @@
 
 #include "../matrix_T.h"
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Matrix of gho_llint (long long int)
+ * 
+ * @see gho_matrix_T_t for documentation
+ */
+struct gho_matrix_llint_t { };
+#endif
+
 #endif

@@ -25,8 +25,9 @@
 // Create & destroy
 
 /**
- * \brief Return a new gho_start_and_size
- * \return a new gho_start_and_size
+ * \brief Return a new gho_start_and_size_t
+ * \return a new gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 gho_start_and_size_t gho_start_and_size_create() {
   gho_start_and_size_t r;
@@ -36,8 +37,9 @@ gho_start_and_size_t gho_start_and_size_create() {
 }
 
 /**
- * \brief Destroy a gho_start_and_size
- * \param[in] start_and_size A gho_start_and_size
+ * \brief Destroy a gho_start_and_size_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_destroy(gho_start_and_size_t* start_and_size) {
   start_and_size->start = 0u;
@@ -45,8 +47,9 @@ void gho_start_and_size_destroy(gho_start_and_size_t* start_and_size) {
 }
 
 /**
- * \brief Reset a gho_start_and_size
- * \param[in] start_and_size A gho_start_and_size
+ * \brief Reset a gho_start_and_size_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_reset(gho_start_and_size_t* start_and_size) {
   start_and_size->start = 0u;
@@ -56,10 +59,11 @@ void gho_start_and_size_reset(gho_start_and_size_t* start_and_size) {
 // Output
 
 /**
- * \brief Print a gho_start_and_size in a file with indentation
+ * \brief Print a gho_start_and_size_t in a file with indentation
  * \param[in] file           A C file
- * \param[in] start_and_size A gho_start_and_size
+ * \param[in] start_and_size A gho_start_and_size_t
  * \param[in] indent         Indentation (number of spaces)
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_fprinti(FILE* file,
                                const gho_start_and_size_t* const start_and_size,
@@ -73,9 +77,10 @@ void gho_start_and_size_fprinti(FILE* file,
 }
 
 /**
- * \brief Print a gho_start_and_size in a file
+ * \brief Print a gho_start_and_size_t in a file
  * \param[in] file           A C file
- * \param[in] start_and_size A gho_start_and_size
+ * \param[in] start_and_size A gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_fprint(FILE* file,
                              const gho_start_and_size_t* const start_and_size) {
@@ -83,8 +88,9 @@ void gho_start_and_size_fprint(FILE* file,
 }
 
 /**
- * \brief Print a gho_start_and_size in stdout
- * \param[in] start_and_size A gho_start_and_size
+ * \brief Print a gho_start_and_size_t in stdout
+ * \param[in] start_and_size A gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_print(
                              const gho_start_and_size_t* const start_and_size) {
@@ -92,10 +98,11 @@ void gho_start_and_size_print(
 }
 
 /**
- * \brief Print a gho_start_and_size in a C string with indentation
+ * \brief Print a v in a C string with indentation
  * \param[in] c_str          A C string
- * \param[in] start_and_size A gho_start_and_size
+ * \param[in] start_and_size A gho_start_and_size_t
  * \param[in] indent         Indentation (number of spaces)
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_sprinti(char** c_str,
                                const gho_start_and_size_t* const start_and_size,
@@ -109,9 +116,10 @@ void gho_start_and_size_sprinti(char** c_str,
 }
 
 /**
- * \brief Print a gho_start_and_size in a C string
+ * \brief Print a gho_start_and_size_t in a C string
  * \param[in] c_str          A C string
- * \param[in] start_and_size A gho_start_and_size
+ * \param[in] start_and_size A gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_sprint(char** c_str,
                              const gho_start_and_size_t* const start_and_size) {
@@ -121,9 +129,10 @@ void gho_start_and_size_sprint(char** c_str,
 // Input
 
 /**
- * \brief Read a gho_start_and_size from a file
+ * \brief Read a gho_start_and_size_t from a file
  * \param[in] file A C file
- * \return the gho_start_and_size read
+ * \return the gho_start_and_size_t read
+ * @relates gho_start_and_size_t
  */
 gho_start_and_size_t gho_start_and_size_fread(FILE* file) {
   gho_start_and_size_t r;
@@ -136,9 +145,10 @@ gho_start_and_size_t gho_start_and_size_fread(FILE* file) {
 }
 
 /**
- * \brief Read a gho_start_and_size from a C string
+ * \brief Read a gho_start_and_size_t from a C string
  * \param[in] c_str A C string
- * \return the gho_start_and_size read
+ * \return the gho_start_and_size_t read
+ * @relates gho_start_and_size_t
  */
 gho_start_and_size_t gho_start_and_size_sread(const char** c_str) {
   gho_start_and_size_t r;
@@ -153,9 +163,10 @@ gho_start_and_size_t gho_start_and_size_sread(const char** c_str) {
 // Copy & comparisons
 
 /**
- * \brief Copy a gho_start_and_size
- * \param[in] start_and_size A gho_start_and_size
- * \return the gho_start_and_size copied
+ * \brief Copy a gho_start_and_size_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * \return the gho_start_and_size_t copied
+ * @relates gho_start_and_size_t
  */
 gho_start_and_size_t gho_start_and_size_copy(
                              const gho_start_and_size_t* const start_and_size) {
@@ -165,10 +176,12 @@ gho_start_and_size_t gho_start_and_size_copy(
 }
 
 /**
- * \brief Copy a gho_start_and_size
- * \param[in] start_and_sizeA gho_start_and_size
- * \param[in] copy            A pointer on an not initialized gho_start_and_size
+ * \brief Copy a gho_start_and_size_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * \param[in] copy           A pointer on an not initialized
+ *                           gho_start_and_size_t
  * \warning Do not use this function, use gho_llint_copy
+ * @relates gho_start_and_size_t
  */
 void gho_start_and_size_copy_(const gho_start_and_size_t* const start_and_size,
                               gho_start_and_size_t* copy) {
@@ -177,10 +190,11 @@ void gho_start_and_size_copy_(const gho_start_and_size_t* const start_and_size,
 }
 
 /**
- * \brief Equality between two gho_start_and_size
- * \param[in] a A gho_start_and_size
- * \param[in] b A gho_start_and_size
- * \return true if the gho_start_and_size are equals, false otherwise
+ * \brief Equality between two gho_start_and_size_t
+ * \param[in] a A gho_start_and_size_t
+ * \param[in] b A gho_start_and_size_t
+ * \return true if the gho_start_and_size_t are equals, false otherwise
+ * @relates gho_start_and_size_t
  */
 bool gho_start_and_size_equal(const gho_start_and_size_t* const a,
                               const gho_start_and_size_t* const b) {
@@ -190,9 +204,10 @@ bool gho_start_and_size_equal(const gho_start_and_size_t* const a,
 // Conversion
 
 /**
- * \brief Convert a gho_start_and_size into a gho_string
- * \param[in] start_and_size A gho_start_and_size
- * \return the gho_string from the gho_start_and_size
+ * \brief Convert a gho_start_and_size_t into a gho_string_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * \return the gho_string_t from the gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 gho_string_t gho_start_and_size_to_string(
                              const gho_start_and_size_t* const start_and_size) {
@@ -202,9 +217,10 @@ gho_string_t gho_start_and_size_to_string(
 }
 
 /**
- * \brief Convert a gho_start_and_size into a gho_any
- * \param[in] start_and_size A gho_start_and_size
- * \return the gho_any from the gho_start_and_size
+ * \brief Convert a gho_start_and_size_t into a gho_any_t
+ * \param[in] start_and_size A gho_start_and_size_t
+ * \return the gho_any_t from the gho_start_and_size_t
+ * @relates gho_start_and_size_t
  */
 gho_any_t gho_start_and_size_to_any(
                              const gho_start_and_size_t* const start_and_size) {

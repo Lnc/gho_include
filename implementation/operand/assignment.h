@@ -17,26 +17,30 @@
 
 /**
  * \brief i = 0
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_set_0(gho_operand_t i) { gho_set_lli(i, 0); }
 
 /**
  * \brief i = 1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_set_1(gho_operand_t i) { gho_set_lli(i, 1); }
 
 /**
  * \brief i = -1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_set_minus_1(gho_operand_t i) { gho_set_lli(i, -1); }
 
 /**
  * \brief r = i
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_set(gho_operand_t r, const gho_operand_t i) {
   
@@ -185,8 +189,9 @@ void gho_set(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r = i
- * \param[in] r A gho_operand
+ * \param[in] r A gho_operand_t
  * \param[in] i A gho_llint
+ * @relates gho_operand_t
  */
 void gho_set_lli(gho_operand_t r, const gho_llint i) {
   gho_llint tmp = i;

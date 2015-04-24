@@ -55,4 +55,14 @@
 
 #include "../vector_T.h"
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Vector of size_t
+ * 
+ * @see gho_vector_T_t for documentation
+ */
+struct gho_vector_size_t_t { };
+#endif
+
 #endif

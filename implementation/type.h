@@ -15,7 +15,10 @@
 
 // Create
 
-// Struct to get gho_type_t
+/**
+ * @brief Struct to get gho_type_t
+ * @ingroup gho_type
+ */
 typedef struct {
   gho_type_t type;
 } gho_struct_with_type_field_t;
@@ -24,6 +27,7 @@ typedef struct {
  * \brief Return the gho type
  * \param[in] p A pointer on a structure which has the type as first field
  * \return the gho type
+ * @ingroup gho_type
  */
 gho_type_t gho_type(const void* const p) {
   return ((const gho_struct_with_type_field_t* const)p)->type;

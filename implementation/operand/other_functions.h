@@ -17,11 +17,11 @@
 
 // gho_operand_t
 
-
 /**
  * \brief Swap a and b
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_op_swap(const gho_operand_t a, const gho_operand_t b) {
   
@@ -58,6 +58,7 @@ void gho_op_swap(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a % b == 0
+ * @relates gho_operand_t
  */
 bool gho_op_is_divisible(const gho_operand_t a, const gho_operand_t b) {
   gho_operand_t copy = gho_operand_copy(&a);
@@ -71,6 +72,7 @@ bool gho_op_is_divisible(const gho_operand_t a, const gho_operand_t b) {
  * \brief Return the size in base 2 of i
  * \param[in] i A gho_operand_t
  * \return the size in base 2 of i
+ * @relates gho_operand_t
  */
 size_t gho_op_size_in_base_2(gho_operand_t i) {
   // TODO
@@ -81,6 +83,7 @@ size_t gho_op_size_in_base_2(gho_operand_t i) {
  * \brief Return the size in base 10 of i
  * \param[in] i A gho_operand_t
  * \return the size in base 10 of i
+ * @relates gho_operand_t
  */
 size_t gho_op_size_in_base_10(gho_operand_t i) {
   // TODO
@@ -94,6 +97,7 @@ size_t gho_op_size_in_base_10(gho_operand_t i) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a % b == 0
+ * @relates gho_coperand_t
  */
 bool gho_cop_is_divisible(const gho_coperand_t a, const gho_coperand_t b) {
   // TODO
@@ -104,6 +108,7 @@ bool gho_cop_is_divisible(const gho_coperand_t a, const gho_coperand_t b) {
  * \brief Return the size in base 2 of i
  * \param[in] i A gho_coperand_t
  * \return the size in base 2 of i
+ * @relates gho_coperand_t
  */
 size_t gho_cop_size_in_base_2(gho_coperand_t i) {
   // TODO
@@ -114,6 +119,7 @@ size_t gho_cop_size_in_base_2(gho_coperand_t i) {
  * \brief Return the size in base 10 of i
  * \param[in] i A gho_coperand_t
  * \return the size in base 10 of i
+ * @relates gho_coperand_t
  */
 size_t gho_cop_size_in_base_10(gho_coperand_t i) {
   // TODO

@@ -20,6 +20,7 @@
  * \brief Return the absolute value of a gho_mpz_t
  * \param[in] i A gho_mpz_t
  * \return the absolute value of i
+ * @relates gho_mpz_t
  */
 gho_mpz_t gho_mpz_abs(const gho_mpz_t i) {
   gho_mpz_t r = gho_mpz_create();
@@ -41,6 +42,7 @@ int gho_int_gcd_without_abs(const int a, const int b);
  * @param[in] a A int
  * @param[in] b A int
  * @return almost the greatest common divisor of int (result can be negative)
+ * @relates gho_int
  */
 int gho_int_gcd_without_abs(const int a, const int b) {
   return (b != 0) ? gho_int_gcd_without_abs(b, a % b) : a;
@@ -51,6 +53,7 @@ int gho_int_gcd_without_abs(const int a, const int b) {
  * @param[in] a A int
  * @param[in] b A int
  * @return Greatest common divisor of int
+ * @relates gho_int
  */
 int gho_int_gcd(const int a, const int b) {
   return (b != 0) ? gho_int_gcd_without_abs(b, a % b) : a;
@@ -64,6 +67,7 @@ gho_lint gho_lint_gcd_without_abs(const gho_lint a, const gho_lint b);
  * @param[in] a A gho_lint
  * @param[in] b A gho_lint
  * @return almost the greatest common divisor of gho_lint (result can be negative)
+ * @relates gho_lint
  */
 gho_lint gho_lint_gcd_without_abs(const gho_lint a, const gho_lint b) {
   return (b != 0) ? gho_lint_gcd_without_abs(b, a % b) : a;
@@ -74,6 +78,7 @@ gho_lint gho_lint_gcd_without_abs(const gho_lint a, const gho_lint b) {
  * @param[in] a A gho_lint
  * @param[in] b A gho_lint
  * @return Greatest common divisor of gho_lint
+ * @relates gho_lint
  */
 gho_lint gho_lint_gcd(const gho_lint a, const gho_lint b) {
   return (b != 0) ? gho_lint_gcd_without_abs(b, a % b) : a;
@@ -87,6 +92,7 @@ gho_llint gho_llint_gcd_without_abs(const gho_llint a, const gho_llint b);
  * @param[in] a A gho_llint
  * @param[in] b A gho_llint
  * @return almost the greatest common divisor of gho_llint (result can be negative)
+ * @relates gho_llint
  */
 gho_llint gho_llint_gcd_without_abs(const gho_llint a, const gho_llint b) {
   return (b != 0) ? gho_llint_gcd_without_abs(b, a % b) : a;
@@ -97,6 +103,7 @@ gho_llint gho_llint_gcd_without_abs(const gho_llint a, const gho_llint b) {
  * @param[in] a A gho_llint
  * @param[in] b A gho_llint
  * @return Greatest common divisor of gho_llint
+ * @relates gho_llint
  */
 gho_llint gho_llint_gcd(const gho_llint a, const gho_llint b) {
   return (b != 0) ? gho_llint_gcd_without_abs(b, a % b) : a;
@@ -108,6 +115,7 @@ gho_llint gho_llint_gcd(const gho_llint a, const gho_llint b) {
  * @param[in] a A gho_mpz_t
  * @param[in] b A gho_mpz_t
  * @return Greatest common divisor of gho_mpz_t
+ * @relates gho_mpz_t
  */
 gho_mpz_t gho_mpz_gcd(const gho_mpz_t a, const gho_mpz_t b) {
   gho_mpz_t r = gho_mpz_create();
@@ -122,6 +130,7 @@ gho_mpz_t gho_mpz_gcd(const gho_mpz_t a, const gho_mpz_t b) {
  * @param[in] a A gho_mpz_t
  * @param[in] b A gho_ulint
  * @return Greatest common divisor of gho_mpz_t and gho_ulint in a gho_ulint
+ * @relates gho_mpz_t
  */
 gho_ulint gho_mpz_gcd_uli(const gho_mpz_t a, const gho_ulint b) {
   gho_mpz_t tmp = gho_mpz_create();
@@ -137,6 +146,7 @@ gho_ulint gho_mpz_gcd_uli(const gho_mpz_t a, const gho_ulint b) {
  * @brief Return log2(i)
  * @param[in] i A int
  * @return log2(i)
+ * @relates gho_int
  */
 int gho_int_log2(const int i) {
   int n = 0;
@@ -150,6 +160,7 @@ int gho_int_log2(const int i) {
  * @brief Return log10(i)
  * @param[in] i A int
  * @return log10(i)
+ * @relates gho_int
  */
 int gho_int_log10(const int i) {
   int n = 0;
@@ -163,6 +174,7 @@ int gho_int_log10(const int i) {
  * @brief Return log2(i)
  * @param[in] i A gho_lint
  * @return log2(i)
+ * @relates gho_lint
  */
 gho_lint gho_lint_log2(const gho_lint i) {
   gho_lint n = 0;
@@ -176,6 +188,7 @@ gho_lint gho_lint_log2(const gho_lint i) {
  * @brief Return log10(i)
  * @param[in] i A gho_lint
  * @return log10(i)
+ * @relates gho_lint
  */
 gho_lint gho_lint_log10(const gho_lint i) {
   gho_lint n = 0;
@@ -189,6 +202,7 @@ gho_lint gho_lint_log10(const gho_lint i) {
  * @brief Return log2(i)
  * @param[in] i A gho_llint
  * @return log2(i)
+ * @relates gho_llint
  */
 gho_llint gho_llint_log2(const gho_llint i) {
   gho_llint n = 0;
@@ -202,6 +216,7 @@ gho_llint gho_llint_log2(const gho_llint i) {
  * @brief Return log10(i)
  * @param[in] i A gho_llint
  * @return log10(i)
+ * @relates gho_llint
  */
 gho_llint gho_llint_log10(const gho_llint i) {
   gho_llint n = 0;
@@ -216,6 +231,7 @@ gho_llint gho_llint_log10(const gho_llint i) {
  * @brief Return log2(i)
  * @param[in] i A gho_mpz_t
  * @return log2(i)
+ * @relates gho_mpz_t
  */
 gho_mpz_t gho_mpz_log2(const gho_mpz_t i) {
   gho_mpz_t n = gho_mpz_create();
@@ -243,6 +259,7 @@ gho_mpz_t gho_mpz_log2(const gho_mpz_t i) {
  * @brief Return log10(i)
  * @param[in] i A gho_mpz_t
  * @return log10(i)
+ * @relates gho_mpz_t
  */
 gho_mpz_t gho_mpz_log10(const gho_mpz_t i) {
   gho_mpz_t n = gho_mpz_create();

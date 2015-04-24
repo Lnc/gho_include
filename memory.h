@@ -20,19 +20,53 @@
 #include <stdlib.h>
 
 
+/**
+ * \defgroup gho_memory gho_memory
+ * \brief Memory macros (allocation, swap)
+ */
+
+
 // Alloc & array alloc
 
+/**
+ * \brief Allocate a type
+ * \param[in] type Type
+ * \return a allocated type*
+ * @ingroup gho_memory
+ */
 #define gho_alloc(type) \
   (type*)malloc(sizeof(type))
 
+/**
+ * \brief Allocate a array
+ * \param[in] type Type
+ * \param[in] n    Array size
+ * \return a allocated type [n]
+ * @ingroup gho_memory
+ */
 #define gho_array_alloc(type, n) \
   (type*)malloc(sizeof(type) * n)
 
+/**
+ * \brief Reallocate a array
+ * \param[in] pointer Previous array allocation
+ * \param[in] type    Type
+ * \param[in] n       Array new size
+ * \return a allocated type [n]
+ * @ingroup gho_memory
+ */
 #define gho_array_realloc(pointer, type, n) \
   pointer = (type*)realloc(pointer, sizeof(type) * n)
 
 // Swap
 
+/**
+ * \brief Swap
+ * \param[in] T Type of a and b
+ * \param[in] a A T
+ * \param[in] b A T
+ * @ingroup gho_memory
+ */
 #define gho_T_swap(T, a, b) \
   { \
     T tmp; \

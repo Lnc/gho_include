@@ -26,7 +26,7 @@
 
 
 /**
- * \brief gho_operand_t is a typed pointer on an existing object
+ * \brief Contains a type and a pointer on an existing object
  */
 typedef struct {
   
@@ -40,7 +40,7 @@ typedef struct {
 
 
 /**
- * \brief gho_coperand_t is a typed pointer on a const existing object
+ * \brief Contains a type andd a pointer on a const existing object
  */
 typedef struct {
   

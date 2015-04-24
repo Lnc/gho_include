@@ -23,6 +23,20 @@
 #include "../any.h"
 
 
+// Consider int as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for int
+  struct gho_int { };
+
+#else
+
+  // Typedef for int
+  typedef int gho_int;
+
+#endif
+
+
 // Create & destroy
 static inline
 int gho_int_create();

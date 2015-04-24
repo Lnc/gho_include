@@ -23,6 +23,7 @@
 /**
  * \brief Return a new gho_matrix_T
  * \return a new gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 gho_matrix_T_t gho_matrix_T_create() {
   gho_matrix_T_t matrix;
@@ -38,6 +39,7 @@ gho_matrix_T_t gho_matrix_T_create() {
  * \param[in] nb_row Number of rows
  * \param[in] nb_col Number of columns
  * \return a new gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 gho_matrix_T_t gho_matrix_T_create_n_m(const size_t nb_row,
                                        const size_t nb_col) {
@@ -62,6 +64,7 @@ gho_matrix_T_t gho_matrix_T_create_n_m(const size_t nb_row,
  * \param[in] nb_col        Number of columns
  * \param[in] default_value Default value for all elements
  * \return a new gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 gho_matrix_T_t gho_matrix_T_create_n_m_copy(
                                        const size_t nb_row, const size_t nb_col,
@@ -84,6 +87,7 @@ gho_matrix_T_t gho_matrix_T_create_n_m_copy(
 /**
  * \brief Destroy a gho_matrix_T
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_destroy(gho_matrix_T_t* matrix) {
   for (size_t i = 0; i < matrix->nb_row; ++i) {
@@ -101,6 +105,7 @@ void gho_matrix_T_destroy(gho_matrix_T_t* matrix) {
 /**
  * \brief Reset a gho_matrix_T
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_reset(gho_matrix_T_t* matrix) {
   gho_matrix_T_destroy(matrix);
@@ -114,6 +119,7 @@ void gho_matrix_T_reset(gho_matrix_T_t* matrix) {
  * \param[in] file   A C file
  * \param[in] matrix A gho_matrix_T
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_fprinti(FILE* file, const gho_matrix_T_t* const matrix,
                           const unsigned int indent) {
@@ -139,6 +145,7 @@ void gho_matrix_T_fprinti(FILE* file, const gho_matrix_T_t* const matrix,
  * \brief Print a gho_matrix_T in a file
  * \param[in] file   A C file
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_fprint(FILE* file, const gho_matrix_T_t* const matrix) {
   gho_matrix_T_fprinti(file, matrix, 0);
@@ -157,6 +164,7 @@ void gho_matrix_T_print(const gho_matrix_T_t* const matrix) {
  * \param[in] c_str  A C string
  * \param[in] matrix A gho_matrix_T
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_sprinti(char** c_str, const gho_matrix_T_t* const matrix,
                           const unsigned int indent) {
@@ -182,6 +190,7 @@ void gho_matrix_T_sprinti(char** c_str, const gho_matrix_T_t* const matrix,
  * \brief Print a gho_matrix_T in a C string
  * \param[in] c_str  A C string
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_sprint(char** c_str, const gho_matrix_T_t* const matrix) {
   gho_matrix_T_sprinti(c_str, matrix, 0);
@@ -191,8 +200,9 @@ void gho_matrix_T_sprint(char** c_str, const gho_matrix_T_t* const matrix) {
 
 /**
  * \brief Copy a gho_matrix_T
- * \param[in] vector A gho_matrix_T
+ * \param[in] matrix A gho_matrix_T
  * \return the gho_matrix_T copied
+ * @relates gho_matrix_T_t
  */
 gho_matrix_T_t gho_matrix_T_copy(const gho_matrix_T_t* const matrix) {
   gho_matrix_T_t r;
@@ -205,6 +215,7 @@ gho_matrix_T_t gho_matrix_T_copy(const gho_matrix_T_t* const matrix) {
  * \param[in] matrix A gho_matrix_T
  * \param[in] copy   A pointer on an not initialized gho_matrix_T
  * \warning Do not use this function, use gho_matrix_T_copy
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_copy_(const gho_matrix_T_t* const matrix,
                         gho_matrix_T_t* copy) {
@@ -222,6 +233,7 @@ void gho_matrix_T_copy_(const gho_matrix_T_t* const matrix,
  * \param[in] a A gho_matrix_T
  * \param[in] b A gho_matrix_T
  * \return true if the gho_matrix_T are equals, false otherwise
+ * @relates gho_matrix_T_t
  */
 bool gho_matrix_T_equal(const gho_matrix_T_t* const a,
                         const gho_matrix_T_t* const b) {
@@ -240,6 +252,7 @@ bool gho_matrix_T_equal(const gho_matrix_T_t* const a,
  * \brief Convert a gho_matrix_T into a gho_string
  * \param[in] matrix A gho_matrix_T
  * \return the gho_string from the gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 gho_string_t gho_matrix_T_to_string(const gho_matrix_T_t* const matrix) {
   gho_string_t r = gho_string_create();
@@ -251,6 +264,7 @@ gho_string_t gho_matrix_T_to_string(const gho_matrix_T_t* const matrix) {
  * \brief Convert a gho_matrix_T into a gho_any
  * \param[in] matrix A gho_matrix_T
  * \return the gho_any from the gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 gho_any_t gho_matrix_T_to_any(const gho_matrix_T_t* const matrix) {
   gho_any_t r = gho_any_create();
@@ -272,6 +286,7 @@ gho_any_t gho_matrix_T_to_any(const gho_matrix_T_t* const matrix) {
  * \brief Return the number of rows of a gho_matrix_T
  * \param[in] matrix A gho_matrix_T
  * \return the size
+ * @relates gho_matrix_T_t
  */
 size_t gho_matrix_T_nb_row(const gho_matrix_T_t* const matrix) {
   return matrix->nb_row;
@@ -281,6 +296,7 @@ size_t gho_matrix_T_nb_row(const gho_matrix_T_t* const matrix) {
  * \brief Return the number of columns of a gho_matrix_T
  * \param[in] matrix A gho_matrix_T
  * \return the size
+ * @relates gho_matrix_T_t
  */
 size_t gho_matrix_T_nb_col(const gho_matrix_T_t* const matrix) {
   return matrix->nb_col;
@@ -290,6 +306,7 @@ size_t gho_matrix_T_nb_col(const gho_matrix_T_t* const matrix) {
  * \brief Return true if the gho_matrix_T is empty, false otherwise
  * \param[in] matrix A gho_matrix_T
  * \return true if the gho_matrix_T is empty, false otherwise
+ * @relates gho_matrix_T_t
  */
 bool gho_matrix_T_empty(const gho_matrix_T_t* const matrix) {
   return (matrix->nb_row == 0 || matrix->nb_col == 0);
@@ -303,6 +320,7 @@ bool gho_matrix_T_empty(const gho_matrix_T_t* const matrix) {
  * \param[in] i      Index of the row
  * \param[in] j      Index of the column
  * \return the element at position (i, j)
+ * @relates gho_matrix_T_t
  */
 const T_t* gho_matrix_T_at(const gho_matrix_T_t* const matrix,
                                   const size_t i, const size_t j) {
@@ -315,6 +333,7 @@ const T_t* gho_matrix_T_at(const gho_matrix_T_t* const matrix,
  * \param[in] i      Index of the row
  * \param[in] j      Index of the column
  * \param[in] value  The value to be setted
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_set(gho_matrix_T_t* matrix, const size_t i, const size_t j,
                       const T_t* const value) {
@@ -327,6 +346,7 @@ void gho_matrix_T_set(gho_matrix_T_t* matrix, const size_t i, const size_t j,
 /**
  * \brief Add a row at the end
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_row(gho_matrix_T_t* matrix) {
   gho_matrix_T_add_row_after(matrix, matrix->nb_row - 1);
@@ -336,6 +356,7 @@ void gho_matrix_T_add_row(gho_matrix_T_t* matrix) {
  * \brief Add a row before the index
  * \param[in] matrix A gho_matrix_T
  * \param[in] i      Index of a row
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_row_before(gho_matrix_T_t* matrix, const size_t i) {
   if (i > matrix->nb_row) {
@@ -364,6 +385,7 @@ void gho_matrix_T_add_row_before(gho_matrix_T_t* matrix, const size_t i) {
  * \brief Add a row after the index
  * \param[in] matrix A gho_matrix_T
  * \param[in] i      Index of a row
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_row_after(gho_matrix_T_t* matrix, const size_t i) {
   gho_matrix_T_add_row_before(matrix, i + 1);
@@ -372,6 +394,7 @@ void gho_matrix_T_add_row_after(gho_matrix_T_t* matrix, const size_t i) {
 /**
  * \brief Add a column at the end
  * \param[in] matrix A gho_matrix_T
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_col(gho_matrix_T_t* matrix) {
   gho_matrix_T_add_col_after(matrix, matrix->nb_col - 1);
@@ -381,6 +404,7 @@ void gho_matrix_T_add_col(gho_matrix_T_t* matrix) {
  * \brief Add a column before the index
  * \param[in] matrix A gho_matrix_T
  * \param[in] j      Index of a column
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_col_before(gho_matrix_T_t* matrix, const size_t j) {
   if (j > matrix->nb_col) {
@@ -407,6 +431,7 @@ void gho_matrix_T_add_col_before(gho_matrix_T_t* matrix, const size_t j) {
  * \brief Add a column after the index
  * \param[in] matrix A gho_matrix_T
  * \param[in] j      Index of a column
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_add_col_after(gho_matrix_T_t* matrix, const size_t j) {
   gho_matrix_T_add_col_before(matrix, j + 1);
@@ -416,6 +441,7 @@ void gho_matrix_T_add_col_after(gho_matrix_T_t* matrix, const size_t j) {
  * \brief Remove a row
  * \param[in] matrix A gho_matrix_T
  * \param[in] i      Index of a row
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_remove_row(gho_matrix_T_t* matrix, const size_t i) {
   if (matrix->nb_row == 0) {
@@ -451,6 +477,7 @@ void gho_matrix_T_remove_row(gho_matrix_T_t* matrix, const size_t i) {
  * \brief Remove a column
  * \param[in] matrix A gho_matrix_T
  * \param[in] j      Index of a column
+ * @relates gho_matrix_T_t
  */
 void gho_matrix_T_remove_col(gho_matrix_T_t* matrix, const size_t j) {
   if (matrix->nb_col == 0) {

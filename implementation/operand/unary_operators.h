@@ -17,7 +17,8 @@
 
 /**
  * \brief i += 1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_increment(gho_operand_t i) {
   gho_add_lli(i, 1);
@@ -25,7 +26,8 @@ void gho_increment(gho_operand_t i) {
 
 /**
  * \brief i -= 1
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_decrement(gho_operand_t i) {
   gho_sub_lli(i, 1);
@@ -33,7 +35,8 @@ void gho_decrement(gho_operand_t i) {
 
 /**
  * \brief i = -i
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_oppose(gho_operand_t i) {
   

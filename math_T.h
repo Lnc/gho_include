@@ -19,6 +19,12 @@
 #include <math.h>
 
 
+/**
+ * \defgroup gho_math_T gho_math_T
+ * \brief Math macros
+ */
+
+
 // min & max
 
 /**
@@ -26,6 +32,7 @@
  * \param[in] a A value
  * \param[in] b A value
  * \return the smallest value
+ * @ingroup gho_math_T
  */
 #define gho_T_min(a, b) \
   (((a) < (b)) ? (a) : (b))
@@ -35,6 +42,7 @@
  * \param[in] a A value
  * \param[in] b A value
  * \return the largest value
+ * @ingroup gho_math_T
  */
 #define gho_T_max(a, b) \
   (((a) > (b)) ? (a) : (b))
@@ -46,6 +54,7 @@
  * \param[in] n Numerator
  * \param[in] d Denominator
  * \return ceil((double)n / (double)d)
+ * @ingroup gho_math_T
  */
 #define gho_T_ceil_div(n, d) \
   ceil(((double)(n)) / ((double)(d)))
@@ -55,6 +64,7 @@
  * \param[in] n Numerator
  * \param[in] d Denominator
  * \return floor((double)n / (double)d)
+ * @ingroup gho_math_T
  */
 #define gho_T_floor_div(n, d) \
   floor(((double)(n)) / ((double)(d)))
@@ -65,6 +75,7 @@
  * \brief Return the absolute value of a T
  * \param[in] i A value
  * \return the absolute value of i
+ * @ingroup gho_math_T
  */
 #define gho_T_abs(i) \
   (((i) < 0) ? (-i) : (i))

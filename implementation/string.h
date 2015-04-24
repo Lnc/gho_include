@@ -25,6 +25,7 @@
 /**
  * \brief Return a new gho_string_t
  * \return a new gho_string_t
+ * @relates gho_string_t
  */
 gho_string_t gho_string_create() {
   gho_string_t string;
@@ -36,6 +37,7 @@ gho_string_t gho_string_create() {
  * \brief Return a new gho_string_t from a C string
  * \param[in] c_str A C string
  * \return a new gho_string_t
+ * @relates gho_string_t
  */
 gho_string_t gho_string_create_from_c_str(const char* const c_str) {
   gho_string_t string = gho_string_create();
@@ -47,7 +49,9 @@ gho_string_t gho_string_create_from_c_str(const char* const c_str) {
  * \brief Move a gho_string_t in a gho_string_t
  * \param[in] string       A gho_string_t
  * \param[in] string_moved A gho_string_t
- * \warning The string_moved variable is moved, do not use it after this function
+ * \warning The string_moved variable is moved, do not use it
+ *          after this function
+ * @relates gho_string_t
  */
 void gho_string_absorb_(gho_string_t* string, gho_string_t* string_moved) {
   gho_string_destroy(string);
@@ -59,7 +63,9 @@ void gho_string_absorb_(gho_string_t* string, gho_string_t* string_moved) {
  * \brief Move a C string in a gho_string_t
  * \param[in] string      A gho_string_t
  * \param[in] c_str_moved A C string
- * \warning The string_moved variable is moved, do not use it after this function
+ * \warning The string_moved variable is moved, do not use it
+ *          after this function
+ * @relates gho_string_t
  */
 void gho_string_absorb_c_str_(gho_string_t* string, char** c_str_moved) {
   gho_string_destroy(string);
@@ -70,6 +76,7 @@ void gho_string_absorb_c_str_(gho_string_t* string, char** c_str_moved) {
 /**
  * \brief Destroy a gho_string_t
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_destroy(gho_string_t* string) {
   gho_c_str_destroy(&string->c_str);
@@ -78,6 +85,7 @@ void gho_string_destroy(gho_string_t* string) {
 /**
  * \brief Reset a gho_string_t
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_reset(gho_string_t* string) {
   gho_c_str_reset(&string->c_str);
@@ -90,6 +98,7 @@ void gho_string_reset(gho_string_t* string) {
  * \param[in] file   A C file
  * \param[in] string A gho_string_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_string_t
  */
 void gho_string_fprinti(FILE* file, const gho_string_t* const string,
                         const unsigned int indent) {
@@ -100,6 +109,7 @@ void gho_string_fprinti(FILE* file, const gho_string_t* const string,
  * \brief Print a gho_string_t in a file
  * \param[in] file   A C file
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_fprint(FILE* file, const gho_string_t* const string) {
   gho_c_str_fprinti(file, string->c_str, 0);
@@ -108,6 +118,7 @@ void gho_string_fprint(FILE* file, const gho_string_t* const string) {
 /**
  * \brief Print a gho_string_t in stdout
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_print(const gho_string_t* const string) {
   gho_c_str_fprint(stdout, string->c_str);
@@ -118,6 +129,7 @@ void gho_string_print(const gho_string_t* const string) {
  * \param[in] c_str  A C string
  * \param[in] string A v
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_string_t
  */
 void gho_string_sprinti(char** c_str, const gho_string_t* const string,
                         const unsigned int indent) {
@@ -128,6 +140,7 @@ void gho_string_sprinti(char** c_str, const gho_string_t* const string,
  * \brief Print a gho_string_t in a C string
  * \param[in] c_str  A C string
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_sprint(char** c_str, const gho_string_t* const string) {
   gho_c_str_sprint(c_str, string->c_str);
@@ -139,6 +152,7 @@ void gho_string_sprint(char** c_str, const gho_string_t* const string) {
  * \brief Read a gho_string_t from a file
  * \param[in] file A C file
  * \return the gho_string_t read
+ * @relates gho_string_t
  */
 gho_string_t gho_string_fread(FILE* file) {
   gho_string_t r = gho_string_create();
@@ -151,6 +165,7 @@ gho_string_t gho_string_fread(FILE* file) {
  * \brief Read a gho_string_t from a C string
  * \param[in] c_str A C string
  * \return the gho_string_t read
+ * @relates gho_string_t
  */
 gho_string_t gho_string_sread(const char** c_str) {
   gho_string_t r = gho_string_create();
@@ -165,6 +180,7 @@ gho_string_t gho_string_sread(const char** c_str) {
  * \brief Copy a gho_string_t
  * \param[in] string A gho_string_t
  * \return the gho_string_t copied
+ * @relates gho_string_t
  */
 gho_string_t gho_string_copy(const gho_string_t* const string) {
   gho_string_t r;
@@ -177,6 +193,7 @@ gho_string_t gho_string_copy(const gho_string_t* const string) {
  * \param[in] string A gho_string_t
  * \param[in] copy   A pointer on an not initialized gho_string_t
  * \warning Do not use this function, use gho_string_copy
+ * @relates gho_string_t
  */
 void gho_string_copy_(const gho_string_t* const string, gho_string_t* copy) {
   *copy = gho_string_create();;
@@ -188,6 +205,7 @@ void gho_string_copy_(const gho_string_t* const string, gho_string_t* copy) {
  * \param[in] a A gho_string_t
  * \param[in] b A gho_string_t
  * \return true if the gho_string_t are equals, false otherwise
+ * @relates gho_string_t
  */
 bool gho_string_equal(const gho_string_t* const a,
                       const gho_string_t* const b) {
@@ -199,6 +217,7 @@ bool gho_string_equal(const gho_string_t* const a,
  * \param[in] a A gho_string_t
  * \param[in] b A C string
  * \return true if the gho_string_t and the C string are equals, false otherwise
+ * @relates gho_string_t
  */
 bool gho_string_equal_c_str(const gho_string_t* const a, const char* const b) {
   return gho_c_str_equal(a->c_str, b);
@@ -209,6 +228,7 @@ bool gho_string_equal_c_str(const gho_string_t* const a, const char* const b) {
  * \param[in] a A gho_string_t
  * \param[in] b A gho_string_t
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_string_t
  */
 int gho_string_compare(const gho_string_t* const a,
                        const gho_string_t* const b) {
@@ -221,6 +241,7 @@ int gho_string_compare(const gho_string_t* const a,
  * \brief Convert a gho_string_t into a C string
  * \param[in] string A gho_string_t
  * \return the C string from the gho_string_t
+ * @relates gho_string_t
  */
 char* gho_string_to_c_str(const gho_string_t* const string) {
   return gho_c_str_copy(string->c_str);
@@ -230,6 +251,7 @@ char* gho_string_to_c_str(const gho_string_t* const string) {
  * \brief Convert a gho_string_t into a gho_string_t
  * \param[in] string A gho_string_t
  * \return the gho_string_t from the gho_string_t
+ * @relates gho_string_t
  */
 gho_string_t gho_string_to_string(const gho_string_t* const string) {
   return gho_string_copy(string);
@@ -241,6 +263,7 @@ gho_string_t gho_string_to_string(const gho_string_t* const string) {
  * \brief Return the size of a gho_string_t
  * \param[in] string A gho_string_t
  * \return the size
+ * @relates gho_string_t
  */
 size_t gho_string_size(const gho_string_t* const string) {
   return gho_c_str_size(string->c_str);
@@ -250,6 +273,7 @@ size_t gho_string_size(const gho_string_t* const string) {
  * \brief Return true if the gho_string_t is empty, false otherwise
  * \param[in] string A gho_string_t
  * \return true if the gho_string_t is empty, false otherwise
+ * @relates gho_string_t
  */
 bool gho_string_empty(const gho_string_t* const string) {
   return gho_c_str_empty(string->c_str);
@@ -262,6 +286,7 @@ bool gho_string_empty(const gho_string_t* const string) {
  * \param[in] string A gho_string_t
  * \param[in] i      Index
  * \return the element at position i
+ * @relates gho_string_t
  */
 char gho_string_at(const gho_string_t* const string, const size_t i) {
   return string->c_str[i];
@@ -272,6 +297,7 @@ char gho_string_at(const gho_string_t* const string, const size_t i) {
  * \param[in] string A gho_string_t
  * \param[in] i      Index
  * \param[in] c      A char
+ * @relates gho_string_t
  */
 void gho_string_set(gho_string_t* string, const size_t i, const char c) {
   string->c_str[i] = c;
@@ -283,6 +309,7 @@ void gho_string_set(gho_string_t* string, const size_t i, const char c) {
  * \brief Add a gho_string_t at the end
  * \param[in] string      A gho_string_t
  * \param[in] to_be_added The gho_string_t to be added
+ * @relates gho_string_t
  */
 void gho_string_add(gho_string_t* string,
                     const gho_string_t* const to_be_added) {
@@ -293,6 +320,7 @@ void gho_string_add(gho_string_t* string,
  * \brief Add a C string at the end
  * \param[in] string      A gho_string_t
  * \param[in] to_be_added The C string to be added
+ * @relates gho_string_t
  */
 void gho_string_add_c_str(gho_string_t* string, const char* const to_be_added) {
   gho_c_str_add(&string->c_str, to_be_added);
@@ -302,6 +330,7 @@ void gho_string_add_c_str(gho_string_t* string, const char* const to_be_added) {
  * \brief Add a char at the end
  * \param[in] string      A gho_string_t
  * \param[in] to_be_added The char to be added
+ * @relates gho_string_t
  */
 void gho_string_add_char(gho_string_t* string, const char to_be_added) {
   gho_c_str_add_char(&string->c_str, to_be_added);
@@ -311,6 +340,8 @@ void gho_string_add_char(gho_string_t* string, const char to_be_added) {
  * @brief Add a char at index i
  * @param[in] string      A gho_string_t
  * @param[in] to_be_added The char to be added
+ * @param[in] i           Index
+ * @relates gho_string_t
  */
 void gho_string_add_char_i(gho_string_t* string, const char to_be_added,
                            const size_t i) {
@@ -323,6 +354,7 @@ void gho_string_add_char_i(gho_string_t* string, const char to_be_added,
  * \brief Remove the char at index i
  * \param[in] string A gho_string_t
  * \param[in] i      Index
+ * @relates gho_string_t
  */
 void gho_string_remove(gho_string_t* string, const size_t i) {
   gho_c_str_remove(&string->c_str, i);
@@ -331,6 +363,7 @@ void gho_string_remove(gho_string_t* string, const size_t i) {
 /**
  * \brief Remove the last char
  * \param[in] string A gho_string_t
+ * @relates gho_string_t
  */
 void gho_string_remove_last(gho_string_t* string) {
   gho_c_str_remove_last(&string->c_str);
@@ -341,6 +374,7 @@ void gho_string_remove_last(gho_string_t* string) {
  * \param[in] string A gho_string_t
  * \param[in] first  First index
  * \param[in] last   Last index (not included)
+ * @relates gho_string_t
  */
 void gho_string_remove_between(gho_string_t* string,
                                const size_t first, const size_t last) {
@@ -356,6 +390,7 @@ void gho_string_remove_between(gho_string_t* string,
  * \brief Remove all char until a index (not included)
  * \param[in] string A gho_string_t
  * \param[in] i      Index (not included)
+ * @relates gho_string_t
  */
 void gho_string_remove_until(gho_string_t* string, const size_t i) {
   gho_string_remove_between(string, 0, i);
@@ -365,6 +400,7 @@ void gho_string_remove_until(gho_string_t* string, const size_t i) {
  * \brief Remove all char after a index
  * \param[in] string A gho_string_t
  * \param[in] i      Index
+ * @relates gho_string_t
  */
 void gho_string_remove_after(gho_string_t* string, const size_t i) {
   const size_t size = gho_string_size(string);
@@ -378,6 +414,7 @@ void gho_string_remove_after(gho_string_t* string, const size_t i) {
  * \param[in] string A gho_string_t
  * \param[in] value  The string to be found
  * \return the index of the value found, the size of the string if not found
+ * @relates gho_string_t
  */
 size_t gho_string_find(const gho_string_t* const string,
                        const gho_string_t* const value) {
@@ -389,6 +426,7 @@ size_t gho_string_find(const gho_string_t* const string,
  * \param[in] string A gho_string_t
  * \param[in] value  The C string to be found
  * \return the index of the value found, the size of the string if not found
+ * @relates gho_string_t
  */
 size_t gho_string_find_c_str(const gho_string_t* const string,
                              const char* const value) {
@@ -400,6 +438,7 @@ size_t gho_string_find_c_str(const gho_string_t* const string,
  * \param[in] string A gho_string_t
  * \param[in] value  The char to be found
  * \return the index of the value found, the size of the string if not found
+ * @relates gho_string_t
  */
 size_t gho_string_find_char(const gho_string_t* const string,
                             const char value) {
@@ -411,6 +450,7 @@ size_t gho_string_find_char(const gho_string_t* const string,
  * \param[in] string A gho_string_t
  * \param[in] value  The string to be found
  * \return true if the value is in the gho_string_t, false otherwise
+ * @relates gho_string_t
  */
 bool gho_string_contains(const gho_string_t* const string,
                          const gho_string_t* const value) {
@@ -422,6 +462,7 @@ bool gho_string_contains(const gho_string_t* const string,
  * \param[in] string A gho_string_t
  * \param[in] value  The C string to be found
  * \return true if the value is in the gho_string_t, false otherwise
+ * @relates gho_string_t
  */
 bool gho_string_contains_c_str(const gho_string_t* const string,
                                const char* const value) {
@@ -434,6 +475,7 @@ bool gho_string_contains_c_str(const gho_string_t* const string,
  * \brief Read a line from a file
  * \param[in] file A C file
  * \return the first line in the file
+ * @relates gho_string_t
  */
 gho_string_t gho_string_get_line(FILE* file) {
   return gho_string_get_line_delimiter(file, '\n');
@@ -443,6 +485,7 @@ gho_string_t gho_string_get_line(FILE* file) {
  * \brief Ignore a line from a file
  * \param[in] file A C file
  * \return the first line in the file
+ * @relates gho_string_t
  */
 void gho_string_ignore_line(FILE* file) {
   gho_c_str_ignore_line(file);
@@ -452,6 +495,7 @@ void gho_string_ignore_line(FILE* file) {
  * \brief Peek a line from a file
  * \param[in] file A C file
  * \return the first line in the file
+ * @relates gho_string_t
  */
 gho_string_t gho_string_peek_line(FILE* file) {
   return gho_string_peek_line_delimiter(file, '\n');
@@ -462,6 +506,7 @@ gho_string_t gho_string_peek_line(FILE* file) {
  * \param[in] file      A C file
  * \param[in] delimiter The delimiter
  * \return the first line in the file until the delimiter is found
+ * @relates gho_string_t
  */
 gho_string_t gho_string_get_line_delimiter(FILE* file, const char delimiter) {
   gho_string_t r = gho_string_create();
@@ -475,6 +520,7 @@ gho_string_t gho_string_get_line_delimiter(FILE* file, const char delimiter) {
  * \param[in] file      A C file
  * \param[in] delimiter The delimiter
  * \return the first line in the file until the delimiter is found
+ * @relates gho_string_t
  */
 void gho_string_ignore_line_delimiter(FILE* file, const char delimiter) {
   gho_c_str_ignore_line_delimiter(file, delimiter);
@@ -485,6 +531,7 @@ void gho_string_ignore_line_delimiter(FILE* file, const char delimiter) {
  * \param[in] file      A C file
  * \param[in] delimiter The delimiter
  * \return the first line in the file until the delimiter is found
+ * @relates gho_string_t
  */
 gho_string_t gho_string_peek_line_delimiter(FILE* file, const char delimiter) {
   gho_string_t r = gho_string_create();
@@ -497,6 +544,7 @@ gho_string_t gho_string_peek_line_delimiter(FILE* file, const char delimiter) {
  * \brief Read a line from a C string
  * \param[in] c_str A C string
  * \return the first line in the C string
+ * @relates gho_string_t
  */
 gho_string_t gho_string_get_line_from_c_str(const char** c_str) {
   return gho_string_get_line_from_c_str_delimiter(c_str, '\n');
@@ -506,6 +554,7 @@ gho_string_t gho_string_get_line_from_c_str(const char** c_str) {
  * \brief Ignore a line from a C string
  * \param[in] c_str A C string
  * \return the first line in the C string
+ * @relates gho_string_t
  */
 void gho_string_ignore_line_from_c_str(const char** c_str) {
   gho_c_str_ignore_line_from_c_str(c_str);
@@ -515,6 +564,7 @@ void gho_string_ignore_line_from_c_str(const char** c_str) {
  * \brief Peek a line from a C string
  * \param[in] c_str A C string
  * \return the first line in the C string
+ * @relates gho_string_t
  */
 gho_string_t gho_string_peek_line_from_c_str(const char** c_str) {
   return gho_string_peek_line_from_c_str_delimiter(c_str, '\n');
@@ -525,6 +575,7 @@ gho_string_t gho_string_peek_line_from_c_str(const char** c_str) {
  * \param[in] c_str     A C string
  * \param[in] delimiter The delimiter
  * \return the first line in the C string until the delimiter is found
+ * @relates gho_string_t
  */
 gho_string_t gho_string_get_line_from_c_str_delimiter(const char** c_str,
                                                       const char delimiter) {
@@ -539,6 +590,7 @@ gho_string_t gho_string_get_line_from_c_str_delimiter(const char** c_str,
  * \param[in] c_str     A C string
  * \param[in] delimiter The delimiter
  * \return the first line in the C string until the delimiter is found
+ * @relates gho_string_t
  */
 void gho_string_ignore_line_from_c_str_delimiter(const char** c_str,
                                                  const char delimiter) {
@@ -550,6 +602,7 @@ void gho_string_ignore_line_from_c_str_delimiter(const char** c_str,
  * \param[in] c_str     A C string
  * \param[in] delimiter The delimiter
  * \return the first line in the C string until the delimiter is found
+ * @relates gho_string_t
  */
 gho_string_t gho_string_peek_line_from_c_str_delimiter(const char** c_str,
                                                        const char delimiter) {

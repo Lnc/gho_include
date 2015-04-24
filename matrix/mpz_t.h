@@ -50,4 +50,14 @@
 
 #endif
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Matrix of gho_mpz_t
+ * 
+ * @see gho_matrix_T_t for documentation
+ */
+struct gho_matrix_mpz_t { };
+#endif
+
 #endif

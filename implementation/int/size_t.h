@@ -27,6 +27,7 @@
 /**
  * \brief Return a new size_t
  * \return a new size_t
+ * @relates gho_size_t
  */
 size_t gho_size_t_create() {
   return 0;
@@ -35,6 +36,7 @@ size_t gho_size_t_create() {
 /**
  * \brief Destroy a size_t
  * \param[in] i A size_t
+ * @relates gho_size_t
  */
 void gho_size_t_destroy(size_t* i) {
   *i = 0;
@@ -43,6 +45,7 @@ void gho_size_t_destroy(size_t* i) {
 /**
  * \brief Reset a size_t
  * \param[in] i A size_t
+ * @relates gho_size_t
  */
 void gho_size_t_reset(size_t* i) {
   *i = 0;
@@ -55,6 +58,7 @@ void gho_size_t_reset(size_t* i) {
  * \param[in] file   A C file
  * \param[in] i      A size_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_size_t
  */
 void gho_size_t_fprinti(FILE* file, const size_t* const i,
                         const unsigned int indent) {
@@ -66,6 +70,7 @@ void gho_size_t_fprinti(FILE* file, const size_t* const i,
  * \brief Print a size_t in a file
  * \param[in] file   A C file
  * \param[in] i      A size_t
+ * @relates gho_size_t
  */
 void gho_size_t_fprint(FILE* file, const size_t* const i) {
   gho_size_t_fprinti(file, i, 0);
@@ -74,6 +79,7 @@ void gho_size_t_fprint(FILE* file, const size_t* const i) {
 /**
  * \brief Print a size_t in stdout
  * \param[in] i A size_t
+ * @relates gho_size_t
  */
 void gho_size_t_print(const size_t* const i) {
   gho_size_t_fprint(stdout, i);
@@ -84,6 +90,7 @@ void gho_size_t_print(const size_t* const i) {
  * \param[in] c_str  A C string
  * \param[in] i      A size_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_size_t
  */
 void gho_size_t_sprinti(char** c_str, const size_t* const i,
                         const unsigned int indent) {
@@ -97,6 +104,7 @@ void gho_size_t_sprinti(char** c_str, const size_t* const i,
  * \brief Print a size_t in a C string
  * \param[in] c_str  A C string
  * \param[in] i      A size_t
+ * @relates gho_size_t
  */
 void gho_size_t_sprint(char** c_str, const size_t* const i) {
   gho_size_t_sprinti(c_str, i, 0);
@@ -108,6 +116,7 @@ void gho_size_t_sprint(char** c_str, const size_t* const i) {
  * \brief Read a size_t from a file
  * \param[in] file A C file
  * \return the size_t read
+ * @relates gho_size_t
  */
 size_t gho_size_t_fread(FILE* file) {
   gho_read_whitespace(file);
@@ -120,6 +129,7 @@ size_t gho_size_t_fread(FILE* file) {
  * \brief Read a size_t from a C string
  * \param[in] c_str A C string
  * \return the size_t read
+ * @relates gho_size_t
  */
 size_t gho_size_t_sread(const char** c_str) {
   gho_read_whitespace_from_c_str(c_str);
@@ -136,6 +146,7 @@ size_t gho_size_t_sread(const char** c_str) {
  * \brief Copy a size_t
  * \param[in] i A size_t
  * \return the size_t copied
+ * @relates gho_size_t
  */
 size_t gho_size_t_copy(const size_t* const i) {
   return *i;
@@ -146,6 +157,7 @@ size_t gho_size_t_copy(const size_t* const i) {
  * \param[in] i    A size_t
  * \param[in] copy A pointer on an not initialized size_t
  * \warning Do not use this function, use gho_llint_copy
+ * @relates gho_size_t
  */
 void gho_size_t_copy_(const size_t* const i, size_t* copy) {
   *copy = *i;
@@ -156,6 +168,7 @@ void gho_size_t_copy_(const size_t* const i, size_t* copy) {
  * \param[in] a A size_t
  * \param[in] b A size_t
  * \return true if the size_t are equals, false otherwise
+ * @relates gho_size_t
  */
 bool gho_size_t_equal(const size_t* const a, const size_t* const b) {
   return *a == *b;
@@ -166,6 +179,7 @@ bool gho_size_t_equal(const size_t* const a, const size_t* const b) {
  * \param[in] a A size_t
  * \param[in] b A size_t
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_size_t
  */
 int gho_size_t_compare(const size_t* const a, const size_t* const b) {
   if (*a < *b) { return -1; }
@@ -179,6 +193,7 @@ int gho_size_t_compare(const size_t* const a, const size_t* const b) {
  * \brief Convert a size_t into a gho_string
  * \param[in] i A size_t
  * \return the gho_string from the size_t
+ * @relates gho_size_t
  */
 gho_string_t gho_size_t_to_string(const size_t* const i) {
   gho_string_t r = gho_string_create();
@@ -192,6 +207,7 @@ gho_string_t gho_size_t_to_string(const size_t* const i) {
  * \brief Convert a size_t into a gho_any
  * \param[in] i A size_t
  * \return the gho_any from the size_t
+ * @relates gho_size_t
  */
 gho_any_t gho_size_t_to_any(const size_t* const i) {
   gho_any_t r = gho_any_create();

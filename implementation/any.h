@@ -16,8 +16,9 @@
 // Create & destroy
 
 /**
- * \brief Return a new gho_any
- * \return a new gho_any
+ * \brief Return a new gho_any_t
+ * \return a new gho_any_t
+ * @relates gho_any_t
  */
 gho_any_t gho_any_create() {
   gho_any_t any;
@@ -34,8 +35,9 @@ gho_any_t gho_any_create() {
 }
 
 /**
- * \brief Destroy a gho_any
- * \param[in] any A gho_any
+ * \brief Destroy a gho_any_t
+ * \param[in] any A gho_any_t
+ * @relates gho_any_t
  */
 void gho_any_destroy(gho_any_t* any) {
   any->destroy_fct(any->any);
@@ -52,8 +54,9 @@ void gho_any_destroy(gho_any_t* any) {
 }
 
 /**
- * \brief Erase a gho_any
- * \param[in] any A gho_any
+ * \brief Erase a gho_any_t
+ * \param[in] any A gho_any_t
+ * @relates gho_any_t
  */
 void gho_any_reset(gho_any_t* any) {
   gho_any_destroy(any);
@@ -63,10 +66,11 @@ void gho_any_reset(gho_any_t* any) {
 // Output
 
 /**
- * \brief Print a gho_any in a file with indentation
+ * \brief Print a gho_any_t in a file with indentation
  * \param[in] file   A C file
- * \param[in] any    A gho_any
- * \param[in] indent indentation (number of spaces)
+ * \param[in] any    A gho_any_t
+ * \param[in] indent Indentation (number of spaces)
+ * @relates gho_any_t
  */
 void gho_any_fprinti(FILE* file, const gho_any_t* const any,
                      const unsigned int indent) {
@@ -74,27 +78,30 @@ void gho_any_fprinti(FILE* file, const gho_any_t* const any,
 }
 
 /**
- * \brief Print a gho_any in a file
+ * \brief Print a gho_any_t in a file
  * \param[in] file A C file
- * \param[in] any  A gho_any
+ * \param[in] any  A gho_any_t
+ * @relates gho_any_t
  */
 void gho_any_fprint(FILE* file, const gho_any_t* const any) {
   gho_any_fprinti(file, any, 0);
 }
 
 /**
- * \brief Print a gho_any in stdout
- * \param[in] any A gho_any
+ * \brief Print a gho_any_t in stdout
+ * \param[in] any A gho_any_t
+ * @relates gho_any_t
  */
 void gho_any_print(const gho_any_t* const any) {
   gho_any_fprint(stdout, any);
 }
 
 /**
- * \brief Print a gho_any in a C string with indentation
+ * \brief Print a gho_any_t in a C string with indentation
  * \param[in] c_str  A C string
- * \param[in] any    A gho_any
- * \param[in] indent indentation (number of spaces)
+ * \param[in] any    A gho_any_t
+ * \param[in] indent Indentation (number of spaces)
+ * @relates gho_any_t
  */
 void gho_any_sprinti(char** c_str, const gho_any_t* const any,
                      const unsigned int indent) {
@@ -102,9 +109,10 @@ void gho_any_sprinti(char** c_str, const gho_any_t* const any,
 }
 
 /**
- * \brief Print a gho_any in a C string
+ * \brief Print a gho_any_t in a C string
  * \param[in] c_str A C string
- * \param[in] any   A gho_string
+ * \param[in] any   A gho_any_t
+ * @relates gho_any_t
  */
 void gho_any_sprint(char** c_str, const gho_any_t* const any) {
   gho_any_sprinti(c_str, any, 0);
@@ -113,9 +121,10 @@ void gho_any_sprint(char** c_str, const gho_any_t* const any) {
 // Copy & comparisons
 
 /**
- * \brief Copy a gho_any
- * \param[in] any A gho_any
- * \return the gho_any copied
+ * \brief Copy a gho_any_t
+ * \param[in] any A gho_any_t
+ * \return the gho_any_t copied
+ * @relates gho_any_t
  */
 gho_any_t gho_any_copy(const gho_any_t* const any) {
   gho_any_t r = gho_any_create();
@@ -124,10 +133,11 @@ gho_any_t gho_any_copy(const gho_any_t* const any) {
 }
 
 /**
- * \brief Copy a gho_any
- * \param[in] any  A gho_any
- * \param[in] copy A pointer on an not initialized gho_any
+ * \brief Copy a gho_any_t
+ * \param[in] any  A gho_any_t
+ * \param[in] copy A pointer on an not initialized gho_any_t
  * \warning Do not use this function, use gho_any_copy
+ * @relates gho_any_t
  */
 void gho_any_copy_(const gho_any_t* const any, gho_any_t* copy) {
   copy->any = malloc(any->size_of_struct);
@@ -143,10 +153,11 @@ void gho_any_copy_(const gho_any_t* const any, gho_any_t* copy) {
 }
 
 /**
- * \brief Equality between two gho_any
- * \param[in] a A gho_any
- * \param[in] b A gho_any
- * \return true if the gho_any are equals, false otherwise
+ * \brief Equality between two gho_any_t
+ * \param[in] a A gho_any_t
+ * \param[in] b A gho_any_t
+ * \return true if the gho_any_t are equals, false otherwise
+ * @relates gho_any_t
  */
 bool gho_any_equal(const gho_any_t* const a, const gho_any_t* const b) {
   if (a->equal_fct == NULL || b->equal_fct == NULL) {
@@ -163,20 +174,22 @@ bool gho_any_equal(const gho_any_t* const a, const gho_any_t* const b) {
 // Conversion
 
 /**
- * \brief Convert a gho_any into a gho_string
- * \param[in] any A gho_any
- * \return the gho_string from the gho_any
+ * \brief Convert a gho_any_t into a gho_string_t
+ * \param[in] any A gho_any_t
+ * \return the gho_string_t from the gho_any_t
+ * @relates gho_any_t
  */
 gho_string_t gho_any_to_string(const gho_any_t* const any) {
   return any->to_string_fct(any);
 }
 
-// Conversion for gho_string
+// Conversion for gho_string_t
 
 /**
- * \brief Convert a gho_string into a gho_any
- * \param[in] string A gho_string
- * \return the gho_any from the gho_string
+ * \brief Convert a gho_string_t into a gho_any_t
+ * \param[in] string A gho_string_t
+ * \return the gho_any_t from the gho_string_t
+ * @relates gho_any_t
  */
 gho_any_t gho_string_to_any(const gho_string_t* const string) {
   gho_any_t r = gho_any_create();

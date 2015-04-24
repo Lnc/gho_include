@@ -19,8 +19,15 @@
 
 
 /**
+ * \defgroup gho_input_output gho_input_output
+ * \brief Input / Output functions
+ */
+
+
+/**
  * @brief Read whitespace from a file
  * @param[in] file A C file
+ * @ingroup gho_input_output
  */
 void gho_read_whitespace(FILE* file) {
   while (true) {
@@ -32,6 +39,7 @@ void gho_read_whitespace(FILE* file) {
 /**
  * @brief Read whitespace from a C string
  * @param[in] c_str A C string
+ * @ingroup gho_input_output
  */
 void gho_read_whitespace_from_c_str(const char** c_str) {
   while (**c_str != '\0' && isspace(**c_str) != 0) {

@@ -27,6 +27,7 @@
 /**
  * \brief Return a new int
  * \return a new int
+ * @relates gho_int
  */
 int gho_int_create() {
   return 0;
@@ -35,6 +36,7 @@ int gho_int_create() {
 /**
  * \brief Destroy a int
  * \param[in] i A int
+ * @relates gho_int
  */
 void gho_int_destroy(int* i) {
   *i = 0;
@@ -43,6 +45,7 @@ void gho_int_destroy(int* i) {
 /**
  * \brief Reset a int
  * \param[in] i A int
+ * @relates gho_int
  */
 void gho_int_reset(int* i) {
   *i = 0;
@@ -55,6 +58,7 @@ void gho_int_reset(int* i) {
  * \param[in] file   A C file
  * \param[in] i      A int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_int
  */
 void gho_int_fprinti(FILE* file, const int* const i,
                      const unsigned int indent) {
@@ -66,6 +70,7 @@ void gho_int_fprinti(FILE* file, const int* const i,
  * \brief Print a int in a file
  * \param[in] file   A C file
  * \param[in] i      A int
+ * @relates gho_int
  */
 void gho_int_fprint(FILE* file, const int* const i) {
   gho_int_fprinti(file, i, 0);
@@ -74,6 +79,7 @@ void gho_int_fprint(FILE* file, const int* const i) {
 /**
  * \brief Print a int in stdout
  * \param[in] i A int
+ * @relates gho_int
  */
 void gho_int_print(const int* const i) {
   gho_int_fprint(stdout, i);
@@ -84,6 +90,7 @@ void gho_int_print(const int* const i) {
  * \param[in] c_str  A C string
  * \param[in] i      A int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_int
  */
 void gho_int_sprinti(char** c_str, const int* const i,
                      const unsigned int indent) {
@@ -97,6 +104,7 @@ void gho_int_sprinti(char** c_str, const int* const i,
  * \brief Print a int in a C string
  * \param[in] c_str  A C string
  * \param[in] i      A int
+ * @relates gho_int
  */
 void gho_int_sprint(char** c_str, const int* const i) {
   gho_int_sprinti(c_str, i, 0);
@@ -108,6 +116,7 @@ void gho_int_sprint(char** c_str, const int* const i) {
  * \brief Read a int from a file
  * \param[in] file A C file
  * \return the int read
+ * @relates gho_int
  */
 int gho_int_fread(FILE* file) {
   gho_read_whitespace(file);
@@ -120,6 +129,7 @@ int gho_int_fread(FILE* file) {
  * \brief Read a int from a C string
  * \param[in] c_str A C string
  * \return the int read
+ * @relates gho_int
  */
 int gho_int_sread(const char** c_str) {
   gho_read_whitespace_from_c_str(c_str);
@@ -140,6 +150,7 @@ int gho_int_sread(const char** c_str) {
  * \brief Copy a int
  * \param[in] i A int
  * \return the int copied
+ * @relates gho_int
  */
 int gho_int_copy(const int* const i) {
   return *i;
@@ -150,6 +161,7 @@ int gho_int_copy(const int* const i) {
  * \param[in] i    A int
  * \param[in] copy A pointer on an not initialized int
  * \warning Do not use this function, use gho_llint_copy
+ * @relates gho_int
  */
 void gho_int_copy_(const int* const i, int* copy) {
  *copy = *i;
@@ -160,6 +172,7 @@ void gho_int_copy_(const int* const i, int* copy) {
  * \param[in] a A int
  * \param[in] b A int
  * \return true if the int are equals, false otherwise
+ * @relates gho_int
  */
 bool gho_int_equal(const int* const a, const int* const b) {
   return *a == *b;
@@ -170,6 +183,7 @@ bool gho_int_equal(const int* const a, const int* const b) {
  * \param[in] a A int
  * \param[in] b A int
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_int
  */
 int gho_int_compare(const int* const a, const int* const b) {
   if (*a < *b) { return -1; }
@@ -183,6 +197,7 @@ int gho_int_compare(const int* const a, const int* const b) {
  * \brief Convert a int into a gho_string
  * \param[in] i A int
  * \return the gho_string from the int
+ * @relates gho_int
  */
 gho_string_t gho_int_to_string(const int* const i) {
   gho_string_t r = gho_string_create();
@@ -196,6 +211,7 @@ gho_string_t gho_int_to_string(const int* const i) {
  * \brief Convert a int into a gho_any
  * \param[in] i A int
  * \return the gho_any from the int
+ * @relates gho_int
  */
 gho_any_t gho_int_to_any(const int* const i) {
   gho_any_t r = gho_any_create();

@@ -26,6 +26,7 @@
  * \brief Create a gho_operand_t
  * \param[in] p A generic type which works with gho_type function
  * \return the gho_operand_t created
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand(void* p) {
   return gho_operand_type(p, gho_type(p));
@@ -36,6 +37,7 @@ gho_operand_t gho_operand(void* p) {
  * \param[in] p    A generic type
  * \param[in] type A gho_dynamic_type
  * \return the gho_operand_t created
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand_type(void* p, const gho_type_t type) {
   gho_operand_t r = { type, p };
@@ -47,6 +49,7 @@ gho_operand_t gho_operand_type(void* p, const gho_type_t type) {
  * \param[in] p A generic type which works with gho_type function
  * \param[in] i An index
  * \return the gho_operand_t created
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand_i(void* p, const size_t i) {
   
@@ -71,6 +74,7 @@ gho_operand_t gho_operand_i(void* p, const size_t i) {
  * \param[in] i An index
  * \param[in] j An index
  * \return the gho_operand_t created
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand_i_j(void* p, const size_t i, const size_t j) {
   
@@ -112,6 +116,7 @@ gho_operand_t gho_operand_i_j(void* p, const size_t i, const size_t j) {
  * \brief Create a gho_coperand_t
  * \param[in] p A generic type which works with gho_type function
  * \return the gho_coperand_t created
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand(const void* p) {
   return gho_coperand_type(p, gho_type(p));
@@ -122,6 +127,7 @@ gho_coperand_t gho_coperand(const void* p) {
  * \param[in] p    A generic type
  * \param[in] type A gho_dynamic_type
  * \return the gho_coperand_t created
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand_type(const void* p, const gho_type_t type) {
   gho_coperand_t r = { type, p };
@@ -133,6 +139,7 @@ gho_coperand_t gho_coperand_type(const void* p, const gho_type_t type) {
  * \param[in] p A generic type which works with gho_type function
  * \param[in] i An index
  * \return the gho_coperand_t created
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand_i(const void* p, const size_t i) {
   
@@ -157,6 +164,7 @@ gho_coperand_t gho_coperand_i(const void* p, const size_t i) {
  * \param[in] i An index
  * \param[in] j An index
  * \return the gho_coperand_t created
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand_i_j(const void* p, const size_t i, const size_t j) {
   

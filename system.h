@@ -1,4 +1,4 @@
-// Copyright © 2014-2015 Inria, Written by Lénaïc Bagnères, lenaic.bagneres@inria.fr
+// Copyright © 2015 Inria, Written by Lénaïc Bagnères, lenaic.bagneres@inria.fr
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,22 +13,16 @@
 // limitations under the License.
 
 
-#ifndef GHO_UNUSED_H
-#define GHO_UNUSED_H
+#ifndef GHO_SYSTEM_H
+#define GHO_H
+
+#include "system/now.h"
+#include "system/sleep.h"
 
 
 /**
- * \defgroup gho_compiler gho_compiler
- * \brief Compiler tricks
+ * \defgroup gho_system gho_system
+ * \brief System functions (time, random)
  */
-
-
-/**
- * @brief Remove warning about unused variable
- * @param[in] variable_name Name of unused variable
- * @ingroup gho_compiler
- */
-#define gho_unused(variable_name) ((void)(variable_name))
-
 
 #endif

@@ -22,8 +22,9 @@
 
 /**
  * \brief r += i
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_add(gho_operand_t r, const gho_operand_t i) {
   
@@ -278,8 +279,9 @@ void gho_add(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r -= i
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_sub(gho_operand_t r, const gho_operand_t i) {
   
@@ -534,8 +536,9 @@ void gho_sub(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r *= i
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_mul(gho_operand_t r, const gho_operand_t i) {
   
@@ -727,8 +730,9 @@ void gho_mul(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r /= i (exact division)
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_div_exact(gho_operand_t r, const gho_operand_t i) {
   
@@ -773,8 +777,9 @@ void gho_div_exact(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r /= i
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_floor_div_q(gho_operand_t r, const gho_operand_t i) {
   
@@ -919,8 +924,9 @@ void gho_floor_div_q(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r = r % i (remainder operator)
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_floor_div_r(gho_operand_t r, const gho_operand_t i) {
   
@@ -1065,8 +1071,9 @@ void gho_floor_div_r(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r = r % i (modulo operator)
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_mod(gho_operand_t r, const gho_operand_t i) {
   gho_floor_div_r(r, i);
@@ -1075,8 +1082,9 @@ void gho_mod(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r = r ^ i (power)
- * \param[in] r A gho_operand
- * \param[in] i A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_pow(gho_operand_t r, const gho_operand_t i) {
   
@@ -1130,9 +1138,9 @@ void gho_pow(gho_operand_t r, const gho_operand_t i) {
 
 /**
  * \brief r = greater_common_divisor(r, i)
- * \param[in] fonction_name Name of the function
- * \param[in] r             A gho_operand
- * \param[in] i             A gho_operand
+ * \param[in] r A gho_operand_t
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_gcd(gho_operand_t r, const gho_operand_t i) {
   

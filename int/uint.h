@@ -23,8 +23,18 @@
 #include "../any.h"
 
 
-// Typedef
-typedef unsigned int gho_uint;
+// Consider unsigned int as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for unsigned int
+  struct gho_uint { };
+
+#else
+
+  // Typedef for unsigned int
+  typedef unsigned int gho_uint;
+
+#endif
 
 
 // Create & destroy

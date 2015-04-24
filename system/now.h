@@ -13,17 +13,17 @@
 // limitations under the License.
 
 
-#ifndef GHO_SLEEP_H
-#define GHO_SLEEP_H
+#ifndef GHO_SYSTEM_NOW_H
+#define GHO_SYSTEM_NOW_H
 
 
 static inline
-void gho_sleep(const unsigned int s);
+long double gho_now_seconds();
 
 static inline
-void gho_millisleep(const unsigned int ms);
+long double gho_now_milliseconds();
 
 
-#include "implementation/sleep.h"
+#include "implementation/system/now.h"
 
 #endif

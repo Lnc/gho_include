@@ -23,8 +23,18 @@
 #include "../any.h"
 
 
-// Typedef
-typedef long long int gho_llint;
+// Consider long long int as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for long long int
+  struct gho_llint { };
+
+#else
+
+  // Typedef for long long int
+  typedef long long int gho_llint;
+
+#endif
 
 
 // Create & destroy

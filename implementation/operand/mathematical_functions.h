@@ -14,25 +14,11 @@
 
 
 // Mathematical functions: abs floor ceil log pow_10_floor pow_10_round
-// TODO
-static inline
-void gho_abs(gho_operand_t i);
-static inline
-void gho_floor(gho_operand_t i);
-static inline
-void gho_ceil(gho_operand_t i);
-static inline
-void gho_log2(gho_operand_t i);
-static inline
-void gho_log10(gho_operand_t i);
-static inline
-void gho_pow_10_floor(gho_operand_t i);
-static inline
-void gho_pow_10_round(gho_operand_t i);
 
 /**
  * \brief i = |i|
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_abs(gho_operand_t i) {
   
@@ -46,7 +32,8 @@ void gho_abs(gho_operand_t i) {
 
 /**
  * \brief i = floor(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_floor(gho_operand_t i) {
   
@@ -63,7 +50,8 @@ void gho_floor(gho_operand_t i) {
 
 /**
  * \brief i = ceil(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_ceil(gho_operand_t i) {
   
@@ -80,7 +68,8 @@ void gho_ceil(gho_operand_t i) {
 
 /**
  * \brief i = log2(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_log2(gho_operand_t i) {
   
@@ -116,7 +105,8 @@ void gho_log2(gho_operand_t i) {
 
 /**
  * \brief i = log10(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_log10(gho_operand_t i) {
   
@@ -152,7 +142,8 @@ void gho_log10(gho_operand_t i) {
 
 /**
  * \brief i = pow_10_floor(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_pow_10_floor(gho_operand_t i) {
   // http://ubuntuforums.org/showthread.php?t=816175&s=2917e9d0741387015eda91408727af19&p=5099702#post5099702
@@ -161,7 +152,8 @@ void gho_pow_10_floor(gho_operand_t i) {
 
 /**
  * \brief i = pow_10_round(i)
- * \param[in] i A gho_operand
+ * \param[in] i A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_pow_10_round(gho_operand_t i) {
   // http://ubuntuforums.org/showthread.php?t=816175&s=2917e9d0741387015eda91408727af19&p=5099702#post5099702

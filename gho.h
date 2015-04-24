@@ -19,8 +19,9 @@
 
 /*! @mainpage gho: Generic Header-Only C Library
  * 
- * https://github.com/Lnc/gho @n
- * https://github.com/Lnc/gho_include
+ * https://github.com/Lnc/gho/tree/master @n
+ * http://hnc.toile-libre.org/index.php?section=dev&page=gho @n
+ * https://www.lri.fr/~bagneres/index.php?section=dev&page=gho
  *
  * @section section_introduction Introduction
  *
@@ -28,69 +29,55 @@
  * 
  * License: Apache License, Version 2.0
  * 
- * @section section_system_requirement System requirement for gho
+ * @section section_system_requirement System Requirement
  * 
- * gho uses CMake build system.
+ * Required:
+ * - C11 compiler @n
+ * - CMake build system
  * 
- * The required packages are: @n
- * build-essential cmake git doxygen
+ * @section section_installation Installation
  * 
- * @section section_installation Installation of gho
+ * With CMake:
+ * - @code
+     mkdir build
+     cd build
+     cmake .. # -DCMAKE_INSTALL_PREFIX=/path/to/install # -DDEBUG=TRUE
+     make
+     # make doc
+     # make test
+     make install # su -c "make install" # sudo make install
+     @endcode
  * 
- * @subsection subsection_installation_with_cmake With CMake
+ * Without CMake:
+ * - This project is a header-only library, you can copy the include directory in /usr/local (for example) or in your project. (But you have to define some macros to enable optional parts.)
  * 
- * Your C compiler must support common features of C99
- * 
- * Use CMake to build gho:
- * @code
-   mkdir build
-   cd build
-   cmake .. #-DCMAKE_INSTALL_PREFIX=/path/to/install/gho
-   make
-   make doc
-   make test
-   make install # su -c "make install" # sudo make install
-   @endcode
- * 
- * @subsection subsection_installation_without_cmake Without CMake
- * 
- * gho is an header-only library, you can copy the include directory
- * in /usr/local or in your project.
- *
- * To use gho directly in your project, consider the use of git submodule:
- * https://github.com/Lnc/gho_include
- * 
- * @section section_use Use gho
+ * @section section_utilization Utilization
  * 
  * If you use CMake, add these lines in your CMakeLists.txt:
  * @code
    # gho
    message(STATUS "---")
    find_package(gho REQUIRED)
-   # See /gho/installation/path/lib/gho/gho-config.cmake for CMake variables
+   # See /installation/path/lib/gho/gho-config.cmake for CMake variables
    @endcode
- * 
- * If you have make the documentation, the doxygen is in: @n
- * /gho/installation/path/share/gho/doxygen/
- * 
+ */
+
+
+/**
+ * \defgroup gho gho
+ * \brief Some informations about gho (version, codename)
  */
 
 
 /**
  * @brief Version of gho
- * 
- * @code
-   #include <gho/gho.h>
-   @endcode
+ * @ingroup gho
  */
 #define gho_version "0.0.0"
 
 /**
- * @brief Codename of gho
- * 
- * @code
-   #include <gho/gho.h>
-   @endcode
+ * @brief Codename of gho (gho_codename macro)
+ * @ingroup gho
  */
 #define gho_codename "hope ;)"
 

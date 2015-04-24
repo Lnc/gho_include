@@ -17,7 +17,7 @@
 
 /**
  * \brief Add a C string at the end
- * \param[in] vector      A gho_vector_string
+ * \param[in] vector      A gho_vector_string_t
  * \param[in] to_be_added The C string to be added
  */
 void gho_vector_string_add_c_str(gho_vector_string_t* vector,
@@ -29,7 +29,7 @@ void gho_vector_string_add_c_str(gho_vector_string_t* vector,
 
 /**
  * \brief Insert a C string
- * \param[in] vector      A gho_vector_string
+ * \param[in] vector      A gho_vector_string_t
  * \param[in] to_be_added The C string to be inserted
  * \param[in] i           Index where the T will be inserted
  */

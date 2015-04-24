@@ -24,6 +24,7 @@
 /**
  * \brief Return a new char
  * \return a new char
+ * @relates gho_char_t
  */
 char gho_char_create() {
   return 'a';
@@ -32,6 +33,7 @@ char gho_char_create() {
 /**
  * \brief Destroy a char
  * \param[in] c A char
+ * @relates gho_char_t
  */
 void gho_char_destroy(char* c) {
   *c = 'a';
@@ -40,6 +42,7 @@ void gho_char_destroy(char* c) {
 /**
  * \brief Reset a char
  * \param[in] c A char
+ * @relates gho_char_t
  */
 void gho_char_reset(char* c) {
   *c = 'a';
@@ -52,6 +55,7 @@ void gho_char_reset(char* c) {
  * \param[in] file   A C file
  * \param[in] c      A char
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_char_t
  */
 void gho_char_fprinti(FILE* file, const char* const c,
                       const unsigned int indent) {
@@ -63,6 +67,7 @@ void gho_char_fprinti(FILE* file, const char* const c,
  * \brief Print a char in a file
  * \param[in] file A C file
  * \param[in] c    A char
+ * @relates gho_char_t
  */
 void gho_char_fprint(FILE* file, const char* const c) {
   gho_char_fprinti(file, c, 0);
@@ -71,6 +76,7 @@ void gho_char_fprint(FILE* file, const char* const c) {
 /**
  * \brief Print a char in stdout
  * \param[in] c A char
+ * @relates gho_char_t
  */
 void gho_char_print(const char* const c) {
   gho_char_fprint(stdout, c);
@@ -81,6 +87,7 @@ void gho_char_print(const char* const c) {
  * \param[in] c_str  A C string
  * \param[in] c      A char
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_char_t
  */
 void gho_char_sprinti(char** c_str, const char* const c,
                       const unsigned int indent) {
@@ -94,6 +101,7 @@ void gho_char_sprinti(char** c_str, const char* const c,
  * \brief Print a char in a C string
  * \param[in] c_str A C string
  * \param[in] c     A char
+ * @relates gho_char_t
  */
 void gho_char_sprint(char** c_str, const char* const c) {
   gho_char_sprinti(c_str, c, 0);
@@ -105,6 +113,7 @@ void gho_char_sprint(char** c_str, const char* const c) {
  * \brief Read a char from a file
  * \param[in] file A C file
  * \return the char read
+ * @relates gho_char_t
  */
 char gho_char_fread(FILE* file) {
   char r;
@@ -116,6 +125,7 @@ char gho_char_fread(FILE* file) {
  * \brief Read a char from a C string
  * \param[in] c_str A C string
  * \return the char read
+ * @relates gho_char_t
  */
 char gho_char_sread(const char** c_str) {
   char r = **c_str;
@@ -129,6 +139,7 @@ char gho_char_sread(const char** c_str) {
  * \brief Copy a char
  * \param[in] c A char
  * \return the char copied
+ * @relates gho_char_t
  */
 char gho_char_copy(const char* const c) {
   return *c;
@@ -139,6 +150,7 @@ char gho_char_copy(const char* const c) {
  * \param[in] c    A char
  * \param[in] copy A pointer on an not initialized char
  * \warning Do not use this function, use gho_char_copy
+ * @relates gho_char_t
  */
 void gho_char_copy_(const char* const c, char* copy) {
   *copy = *c;
@@ -149,6 +161,7 @@ void gho_char_copy_(const char* const c, char* copy) {
  * \param[in] a A char
  * \param[in] b A char
  * \return true if the char are equals, false otherwise
+ * @relates gho_char_t
  */
 bool gho_char_equal(const char* const a, const char* const b) {
   return *a == *b;
@@ -159,6 +172,7 @@ bool gho_char_equal(const char* const a, const char* const b) {
  * \param[in] a A char
  * \param[in] b A char
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_char_t
  */
 int gho_char_compare(const char* const a, const char* const b) {
   if (*a < *b) { return -1; }
@@ -172,6 +186,7 @@ int gho_char_compare(const char* const a, const char* const b) {
  * \brief Convert a char into a gho_string
  * \param[in] c A char
  * \return the gho_string from the char
+ * @relates gho_char_t
  */
 gho_string_t gho_char_to_string(const char* const c) {
   gho_string_t r = gho_string_create();
@@ -183,6 +198,7 @@ gho_string_t gho_char_to_string(const char* const c) {
  * \brief Convert a char into a gho_any
  * \param[in] c A char
  * \return the gho_any from the char
+ * @relates gho_char_t
  */
 gho_any_t gho_char_to_any(const char* const c) {
   gho_any_t r = gho_any_create();
@@ -205,6 +221,7 @@ gho_any_t gho_char_to_any(const char* const c) {
  * \brief Peek a char from a file
  * \param[in] file A C file
  * \return the char read
+ * @relates gho_char_t
  */
 char gho_char_fpeek(FILE* file) {
   int r = fgetc(file);
@@ -216,6 +233,7 @@ char gho_char_fpeek(FILE* file) {
  * \brief Peek a char from a C string
  * \param[in] c_str A C string
  * \return the char read
+ * @relates gho_char_t
  */
 char gho_char_speek(const char** c_str) {
   char r = **c_str;

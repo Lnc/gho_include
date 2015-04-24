@@ -23,8 +23,18 @@
 #include "../any.h"
 
 
-// Typedef
-typedef unsigned long int gho_ulint;
+// Consider unsigned long int as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for unsigned long int
+  struct gho_ulint { };
+
+#else
+
+  // Typedef for unsigned long int
+  typedef unsigned long int gho_ulint;
+
+#endif
 
 
 // Create & destroy

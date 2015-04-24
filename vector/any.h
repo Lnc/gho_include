@@ -49,4 +49,14 @@
 
 #include "../vector_T.h"
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Vector of gho_any_t
+ * 
+ * @see gho_vector_T_t for documentation
+ */
+struct gho_vector_any_t { };
+#endif
+
 #endif

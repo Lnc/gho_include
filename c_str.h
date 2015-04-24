@@ -20,8 +20,18 @@
 #include <stdbool.h>
 
 
-// Typedef
-typedef char* gho_c_str_t;
+// Consider C string type as a class in Doxygen
+#ifdef DOXYGEN
+
+  /// @brief Typedef for C string (char*)
+  struct gho_c_str_t { };
+
+#else
+
+  // Typedef for C string (char*)
+  typedef char* gho_c_str_t;
+
+#endif
 
 // Create & destroy
 static inline

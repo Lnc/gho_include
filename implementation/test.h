@@ -23,10 +23,17 @@
 
 
 /**
+ * \defgroup gho_test gho_test
+ * \brief For unit tests
+ */
+
+
+/**
  * @brief Display an error message if condition is false
  * @param[in] condition     A boolean
  * @param[in] error_message Error message
  * @return 1 if condition is true, 0 if condition is false
+ * @ingroup gho_test
  */
 int gho_test(const bool condition, const char* const error_message) {
   if (condition) {

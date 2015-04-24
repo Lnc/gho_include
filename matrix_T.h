@@ -69,7 +69,7 @@
 
 
 /**
- * \brief gho_matrix_T encapsulates an array of array of T
+ * \brief Contains an array of array of T
  */
 typedef struct {
   

@@ -27,6 +27,7 @@
 /**
  * \brief Return a new long int
  * \return a new long int
+ * @relates gho_lint
  */
 gho_lint gho_lint_create() {
   return 0;
@@ -35,6 +36,7 @@ gho_lint gho_lint_create() {
 /**
  * \brief Destroy a long int
  * \param[in] i A long int
+ * @relates gho_lint
  */
 void gho_lint_destroy(gho_lint* i) {
   *i = 0;
@@ -43,6 +45,7 @@ void gho_lint_destroy(gho_lint* i) {
 /**
  * \brief Reset a long int
  * \param[in] i A long int
+ * @relates gho_lint
  */
 void gho_lint_reset(gho_lint* i) {
   *i = 0;
@@ -55,6 +58,7 @@ void gho_lint_reset(gho_lint* i) {
  * \param[in] file   A C file
  * \param[in] i      A long int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_lint
  */
 void gho_lint_fprinti(FILE* file, const gho_lint* const i,
                       const unsigned int indent) {
@@ -66,6 +70,7 @@ void gho_lint_fprinti(FILE* file, const gho_lint* const i,
  * \brief Print a long int in a file
  * \param[in] file   A C file
  * \param[in] i      A long int
+ * @relates gho_lint
  */
 void gho_lint_fprint(FILE* file, const gho_lint* const i) {
   gho_lint_fprinti(file, i, 0);
@@ -74,6 +79,7 @@ void gho_lint_fprint(FILE* file, const gho_lint* const i) {
 /**
  * \brief Print a long int in stdout
  * \param[in] i A long int
+ * @relates gho_lint
  */
 void gho_lint_print(const gho_lint* const i) {
   gho_lint_fprint(stdout, i);
@@ -84,6 +90,7 @@ void gho_lint_print(const gho_lint* const i) {
  * \param[in] c_str  A C string
  * \param[in] i      A long int
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_lint
  */
 void gho_lint_sprinti(char** c_str, const gho_lint* const i,
                       const unsigned int indent) {
@@ -97,6 +104,7 @@ void gho_lint_sprinti(char** c_str, const gho_lint* const i,
  * \brief Print a long int in a C string
  * \param[in] c_str  A C string
  * \param[in] i      A long int
+ * @relates gho_lint
  */
 void gho_lint_sprint(char** c_str, const gho_lint* const i) {
   gho_lint_sprinti(c_str, i, 0);
@@ -108,6 +116,7 @@ void gho_lint_sprint(char** c_str, const gho_lint* const i) {
  * \brief Read a long int from a file
  * \param[in] file A C file
  * \return the long int read
+ * @relates gho_lint
  */
 gho_lint gho_lint_fread(FILE* file) {
   gho_read_whitespace(file);
@@ -120,6 +129,7 @@ gho_lint gho_lint_fread(FILE* file) {
  * \brief Read a long int from a C string
  * \param[in] c_str A C string
  * \return the long int read
+ * @relates gho_lint
  */
 gho_lint gho_lint_sread(const char** c_str) {
   gho_read_whitespace_from_c_str(c_str);
@@ -140,6 +150,7 @@ gho_lint gho_lint_sread(const char** c_str) {
  * \brief Copy a long int
  * \param[in] i A long int
  * \return the long int copied
+ * @relates gho_lint
  */
 gho_lint gho_lint_copy(const gho_lint* const i) {
   return *i;
@@ -150,6 +161,7 @@ gho_lint gho_lint_copy(const gho_lint* const i) {
  * \param[in] i    A long int
  * \param[in] copy A pointer on an not initialized long int
  * \warning Do not use this function, use gho_llint_copy
+ * @relates gho_lint
  */
 void gho_lint_copy_(const gho_lint* const i, gho_lint* copy) {
   *copy = *i;
@@ -160,6 +172,7 @@ void gho_lint_copy_(const gho_lint* const i, gho_lint* copy) {
  * \param[in] a A long int
  * \param[in] b A long int
  * \return true if the long int are equals, false otherwise
+ * @relates gho_lint
  */
 bool gho_lint_equal(const gho_lint* const a, const gho_lint* const b) {
   return *a == *b;
@@ -170,6 +183,7 @@ bool gho_lint_equal(const gho_lint* const a, const gho_lint* const b) {
  * \param[in] a A gho_lint
  * \param[in] b A gho_lint
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_lint
  */
 int gho_lint_compare(const gho_lint* const a, const gho_lint* const b) {
   if (*a < *b) { return -1; }
@@ -183,6 +197,7 @@ int gho_lint_compare(const gho_lint* const a, const gho_lint* const b) {
  * \brief Convert a long int into a gho_string
  * \param[in] i A long int
  * \return the gho_string from the long int
+ * @relates gho_lint
  */
 gho_string_t gho_lint_to_string(const gho_lint* const i) {
   gho_string_t r = gho_string_create();
@@ -196,6 +211,7 @@ gho_string_t gho_lint_to_string(const gho_lint* const i) {
  * \brief Convert a long int into a gho_any
  * \param[in] i A long int
  * \return the gho_any from the long int
+ * @relates gho_lint
  */
 gho_any_t gho_lint_to_any(const gho_lint* const i) {
   gho_any_t r = gho_any_create();

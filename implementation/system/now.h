@@ -20,6 +20,7 @@
 /**
  * \brief Time since 1970 in seconds
  * \return time since 1970 in seconds
+ * @ingroup gho_system
  */
 long double gho_now_seconds() {
   
@@ -43,6 +44,7 @@ long double gho_now_seconds() {
 
 /**
  * \brief Contains seconds and microseconds
+ * @ingroup gho_system
  */
 typedef struct {
   
@@ -58,6 +60,7 @@ typedef struct {
  * \brief Time since 1970
  * \param[in] sec_and_microsec A gho_seconds_and_microseconds_t
  * \return time since 1970
+ * @ingroup gho_system
  */
 static inline
 void gho_get_time_of_day(gho_seconds_and_microseconds_t* sec_and_microsec);
@@ -119,6 +122,7 @@ void gho_get_time_of_day(gho_seconds_and_microseconds_t* sec_and_microsec);
 /**
  * \brief Time since 1970 in milliseconds
  * \return time since 1970 in milliseconds
+ * @ingroup gho_system
  */
 long double gho_now_milliseconds() {
   gho_seconds_and_microseconds_t sec_and_microsec;

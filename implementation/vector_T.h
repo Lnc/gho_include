@@ -27,6 +27,7 @@
 /**
  * \brief Return a new gho_vector_T
  * \return a new gho_vector_T
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_create() {
   gho_vector_T_t vector;
@@ -41,6 +42,7 @@ gho_vector_T_t gho_vector_T_create() {
  * \brief Return a new gho_vector_T
  * \param[in] n Size of the vector
  * \return a new gho_vector_T
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_create_n(const size_t n) {
   gho_vector_T_t vector;
@@ -60,6 +62,7 @@ gho_vector_T_t gho_vector_T_create_n(const size_t n) {
  * \param[in] n             Size of the vector
  * \param[in] default_value Default value for all elements
  * \return a new gho_vector_T
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_create_n_copy(const size_t n,
                                           const T_t* const default_value) {
@@ -78,6 +81,7 @@ gho_vector_T_t gho_vector_T_create_n_copy(const size_t n,
 /**
  * \brief Destroy a gho_vector_T
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_destroy(gho_vector_T_t* vector) {
   for (size_t i = 0; i < vector->size; ++i) {
@@ -92,6 +96,7 @@ void gho_vector_T_destroy(gho_vector_T_t* vector) {
 /**
  * \brief Reset a gho_vector_T
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_reset(gho_vector_T_t* vector) {
   gho_vector_T_destroy(vector);
@@ -105,6 +110,7 @@ void gho_vector_T_reset(gho_vector_T_t* vector) {
  * \param[in] file   A C file
  * \param[in] vector A gho_vector_T
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_fprinti(FILE* file, const gho_vector_T_t* const vector,
                           const unsigned int indent) {
@@ -122,6 +128,7 @@ void gho_vector_T_fprinti(FILE* file, const gho_vector_T_t* const vector,
  * \brief Print a gho_vector_T in a file
  * \param[in] file   A C file
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_fprint(FILE* file, const gho_vector_T_t* const vector) {
   gho_vector_T_fprinti(file, vector, 0);
@@ -130,6 +137,7 @@ void gho_vector_T_fprint(FILE* file, const gho_vector_T_t* const vector) {
 /**
  * \brief Print a gho_vector_T in stdout
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_print(const gho_vector_T_t* const vector) {
   gho_vector_T_fprint(stdout, vector);
@@ -140,6 +148,7 @@ void gho_vector_T_print(const gho_vector_T_t* const vector) {
  * \param[in] c_str  A C string
  * \param[in] vector A gho_vector_T
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_sprinti(char** c_str, const gho_vector_T_t* const vector,
                           const unsigned int indent) {
@@ -157,6 +166,7 @@ void gho_vector_T_sprinti(char** c_str, const gho_vector_T_t* const vector,
  * \brief Print a gho_vector_T in a C string
  * \param[in] c_str  A C string
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_sprint(char** c_str, const gho_vector_T_t* const vector) {
   gho_vector_T_sprinti(c_str, vector, 0);
@@ -169,6 +179,7 @@ void gho_vector_T_sprint(char** c_str, const gho_vector_T_t* const vector) {
  * @brief Read a gho_vector_T from a file
  * @param[in] file A C file
  * @return the gho_vector_T read
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_fread(FILE* file) {
   gho_vector_T_t r = gho_vector_T_create();
@@ -198,6 +209,7 @@ gho_vector_T_t gho_vector_T_fread(FILE* file) {
  * @brief Read a gho_vector_T from a C string
  * @param[in] c_str A C string
  * @return the gho_vector_T read
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_sread(const char** c_str) {
   gho_vector_T_t r = gho_vector_T_create();
@@ -228,6 +240,7 @@ gho_vector_T_t gho_vector_T_sread(const char** c_str) {
  * \brief Copy a gho_vector_T
  * \param[in] vector A gho_vector_T
  * \return the gho_vector_T copied
+ * @relates gho_vector_T_t
  */
 gho_vector_T_t gho_vector_T_copy(const gho_vector_T_t* const vector) {
   gho_vector_T_t r;
@@ -240,6 +253,7 @@ gho_vector_T_t gho_vector_T_copy(const gho_vector_T_t* const vector) {
  * \param[in] vector A gho_vector_T
  * \param[in] copy   A pointer on an not initialized gho_vector_T
  * \warning Do not use this function, use gho_vector_T_copy
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_copy_(const gho_vector_T_t* const vector,
                         gho_vector_T_t* copy) {
@@ -252,6 +266,7 @@ void gho_vector_T_copy_(const gho_vector_T_t* const vector,
  * \param[in] a A gho_vector_T
  * \param[in] b A gho_vector_T
  * \return true if the gho_vector_T are equals, false otherwise
+ * @relates gho_vector_T_t
  */
 bool gho_vector_T_equal(const gho_vector_T_t* const a,
                         const gho_vector_T_t* const b) {
@@ -270,6 +285,7 @@ bool gho_vector_T_equal(const gho_vector_T_t* const a,
  * \param[in] b A gho_vector_T
  * \param[in] n Number of elements to be compared
  * \return true if the nth first elements are equals, false otherwise
+ * @relates gho_vector_T_t
  */
 bool gho_vector_T_equal_n(const gho_vector_T_t* const a,
                           const gho_vector_T_t* const b,
@@ -289,6 +305,7 @@ bool gho_vector_T_equal_n(const gho_vector_T_t* const a,
  * \param[in] a A gho_vector_T
  * \param[in] b A gho_vector_T
  * \return -1 if a < b, 0 if a == b, 1 if a > b
+ * @relates gho_vector_T_t
  */
 int gho_vector_T_compare(const gho_vector_T_t* const a,
                          const gho_vector_T_t* const b) {
@@ -312,6 +329,7 @@ int gho_vector_T_compare(const gho_vector_T_t* const a,
  * \brief Convert a gho_vector_T into a gho_string
  * \param[in] vector A gho_vector_T
  * \return the gho_string from the gho_vector_T
+ * @relates gho_vector_T_t
  */
 gho_string_t gho_vector_T_to_string(const gho_vector_T_t* const vector) {
   gho_string_t r = gho_string_create();
@@ -323,6 +341,7 @@ gho_string_t gho_vector_T_to_string(const gho_vector_T_t* const vector) {
  * \brief Convert a gho_vector_T into a gho_any
  * \param[in] vector A gho_vector_T
  * \return the gho_any from the gho_vector_T
+ * @relates gho_vector_T_t
  */
 gho_any_t gho_vector_T_to_any(const gho_vector_T_t* const vector) {
   gho_any_t r = gho_any_create();
@@ -344,6 +363,7 @@ gho_any_t gho_vector_T_to_any(const gho_vector_T_t* const vector) {
  * \brief Return the size of a gho_vector_T
  * \param[in] vector A gho_vector_T
  * \return the size
+ * @relates gho_vector_T_t
  */
 size_t gho_vector_T_size(const gho_vector_T_t* const vector) {
   return vector->size;
@@ -353,6 +373,7 @@ size_t gho_vector_T_size(const gho_vector_T_t* const vector) {
  * \brief Return the capacity of a gho_vector_T
  * \param[in] vector A gho_vector_T
  * \return the size
+ * @relates gho_vector_T_t
  */
 size_t gho_vector_T_capacity(const gho_vector_T_t* const vector) {
   return vector->capacity;
@@ -362,6 +383,7 @@ size_t gho_vector_T_capacity(const gho_vector_T_t* const vector) {
  * \brief Return true if the gho_vector_T is empty, false otherwise
  * \param[in] vector A gho_vector_T
  * \return true if the gho_vector_T is empty, false otherwise
+ * @relates gho_vector_T_t
  */
 bool gho_vector_T_empty(const gho_vector_T_t* const vector) {
   return (vector->size == 0);
@@ -371,6 +393,7 @@ bool gho_vector_T_empty(const gho_vector_T_t* const vector) {
  * \brief Update the capacity of a gho_vector_T
  * \param[in] vector A gho_vector_T
  * \param[in] n      Size of the vector
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_reserve(gho_vector_T_t* vector, const size_t n) {
   if (vector->capacity < n) {
@@ -383,6 +406,7 @@ void gho_vector_T_reserve(gho_vector_T_t* vector, const size_t n) {
  * \brief Update the size of a gho_vector_T
  * \param[in] vector A gho_vector_T
  * \param[in] n      Size of the vector
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_resize(gho_vector_T_t* vector, const size_t n) {
   if (vector->size < n) {
@@ -407,6 +431,7 @@ void gho_vector_T_resize(gho_vector_T_t* vector, const size_t n) {
  * \param[in] vector A gho_vector_T
  * \param[in] i      Index
  * \return the element at position i
+ * @relates gho_vector_T_t
  */
 const T_t* gho_vector_T_at(const gho_vector_T_t* const vector, const size_t i) {
   return &vector->array[i];
@@ -417,6 +442,7 @@ const T_t* gho_vector_T_at(const gho_vector_T_t* const vector, const size_t i) {
  * \param[in] vector A gho_vector_T
  * \param[in] i      Index
  * \param[in] value  The value to be setted
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_set(gho_vector_T_t* vector, const size_t i,
                       const T_t* const value) {
@@ -430,6 +456,7 @@ void gho_vector_T_set(gho_vector_T_t* vector, const size_t i,
  * \brief Add a T at the end
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The T to be added
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added) {
   if (vector->size + 1 <= vector->capacity) {
@@ -445,6 +472,7 @@ void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added) {
  * \brief Add a T at the end
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The T to be added
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added) {
   gho_vector_T_add(vector, &to_be_added);
@@ -454,6 +482,7 @@ void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added) {
  * \brief Add a gho_vector_T at the end
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The gho_vector_T to be added
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_add_vector(gho_vector_T_t* vector,
                              const gho_vector_T_t* const to_be_added) {
@@ -473,6 +502,7 @@ void gho_vector_T_add_vector(gho_vector_T_t* vector,
  * \param[in] vector      A gho_vector_T
  * \param[in] to_be_added The T to be inserted
  * \param[in] i           Index where the T will be inserted
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_insert(gho_vector_T_t* vector,
                          const T_t* const to_be_added, const size_t i) {
@@ -498,6 +528,7 @@ void gho_vector_T_insert(gho_vector_T_t* vector,
  * \brief Remove the element at index i
  * \param[in] vector A gho_vector_T
  * \param[in] i      Index
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_remove(gho_vector_T_t* vector, const size_t i) {
   if (gho_vector_T_size(vector) == 0) {
@@ -519,6 +550,7 @@ void gho_vector_T_remove(gho_vector_T_t* vector, const size_t i) {
 /**
  * \brief Remove last element if exists
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_remove_last(gho_vector_T_t* vector) {
   if (gho_vector_T_size(vector) == 0) {
@@ -535,6 +567,7 @@ void gho_vector_T_remove_last(gho_vector_T_t* vector) {
  * \param[in] vector A gho_vector_T
  * \param[in] v      The T to be found
  * \return the index of the value found, the size of the vector if not found
+ * @relates gho_vector_T_t
  */
 size_t gho_vector_T_find(gho_vector_T_t* vector, const T_t* const v) {
   for (size_t i = 0; i < vector->size; ++i) {
@@ -547,6 +580,7 @@ size_t gho_vector_T_find(gho_vector_T_t* vector, const T_t* const v) {
 /**
  * \brief Sort a gho_vector_T
  * \param[in] vector A gho_vector_T
+ * @relates gho_vector_T_t
  */
 void gho_vector_T_sort(gho_vector_T_t* vector) {
   typedef int (*compare_fct_t)(const void*, const void*);

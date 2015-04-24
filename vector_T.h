@@ -71,7 +71,7 @@
 
 
 /**
- * \brief gho_vector_T encapsulates an vector of T
+ * \brief Contains a vector (dynamic array) of T
  */
 typedef struct {
   

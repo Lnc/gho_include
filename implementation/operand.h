@@ -23,6 +23,7 @@
 /**
  * \brief Return a new gho_operand_t
  * \return a new gho_operand_t
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand_create() {
   gho_operand_t r;
@@ -34,6 +35,7 @@ gho_operand_t gho_operand_create() {
 /**
  * \brief Destroy a gho_operand_t
  * \param[in] op A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_operand_destroy(gho_operand_t* op) {
   
@@ -68,6 +70,7 @@ void gho_operand_destroy(gho_operand_t* op) {
 /**
  * \brief Reset a gho_operand_t
  * \param[in] op A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_operand_reset(gho_operand_t* op) {
   gho_operand_destroy(op);
@@ -79,6 +82,7 @@ void gho_operand_reset(gho_operand_t* op) {
 /**
  * \brief Return a new gho_coperand_t
  * \return a new gho_coperand_t
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand_create() {
   gho_coperand_t r;
@@ -90,6 +94,7 @@ gho_coperand_t gho_coperand_create() {
 /**
  * \brief Destroy a gho_coperand_t
  * \param[in] cop A gho_coperand_t
+ * @relates gho_coperand_t
  */
 void gho_coperand_destroy(gho_coperand_t* cop) {
   cop->type = GHO_TYPE_NULL;
@@ -99,6 +104,7 @@ void gho_coperand_destroy(gho_coperand_t* cop) {
 /**
  * \brief Reset a gho_coperand_t
  * \param[in] cop A gho_coperand_t
+ * @relates gho_coperand_t
  */
 void gho_coperand_reset(gho_coperand_t* cop) {
   gho_coperand_destroy(cop);
@@ -113,6 +119,7 @@ void gho_coperand_reset(gho_coperand_t* cop) {
  * \brief Copy a gho_operand_t
  * \param[in] op A gho_operand_t
  * \return the gho_operand_t copied
+ * @relates gho_operand_t
  */
 gho_operand_t gho_operand_copy(const gho_operand_t* const op) {
   gho_operand_t r;
@@ -125,6 +132,7 @@ gho_operand_t gho_operand_copy(const gho_operand_t* const op) {
  * \param[in] op   A gho_operand_t
  * \param[in] copy A pointer on an not initialized gho_operand_t
  * \warning Do not use this function, use gho_char_copy
+ * @relates gho_operand_t
  */
 void gho_operand_copy_(const gho_operand_t* const op, gho_operand_t* copy) {
   
@@ -164,6 +172,7 @@ void gho_operand_copy_(const gho_operand_t* const op, gho_operand_t* copy) {
  * \brief Copy a gho_coperand_t
  * \param[in] cop A gho_coperand_t
  * \return the gho_coperand_t copied
+ * @relates gho_coperand_t
  */
 gho_coperand_t gho_coperand_copy(const gho_coperand_t* const cop) {
   gho_coperand_t r;
@@ -176,6 +185,7 @@ gho_coperand_t gho_coperand_copy(const gho_coperand_t* const cop) {
  * \param[in] cop  A gho_coperand_t
  * \param[in] copy A pointer on an not initialized gho_coperand_t
  * \warning Do not use this function, use gho_char_copy
+ * @relates gho_coperand_t
  */
 void gho_coperand_copy_(const gho_coperand_t* const cop, gho_coperand_t* copy) {
   copy->type = cop->type;
@@ -190,6 +200,7 @@ void gho_coperand_copy_(const gho_coperand_t* const cop, gho_coperand_t* copy) {
  * \brief Convert a gho_operand_t into a gho_string_t
  * \param[in] i A gho_operand_t
  * \return the gho_string_t from the gho_operand_t
+ * @relates gho_operand_t
  */
 gho_string_t gho_operand_to_string(const gho_operand_t* const i) {
   gho_string_t r = gho_string_create();
@@ -203,6 +214,7 @@ gho_string_t gho_operand_to_string(const gho_operand_t* const i) {
  * \brief Convert a gho_coperand_t into a gho_string_t
  * \param[in] i A gho_coperand_t
  * \return the gho_string_t from the gho_coperand_t
+ * @relates gho_coperand_t
  */
 gho_string_t gho_coperand_to_string(const gho_coperand_t* const i) {
   gho_string_t r = gho_string_create();

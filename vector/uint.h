@@ -55,4 +55,14 @@
 
 #include "../vector_T.h"
 
+
+#ifdef DOXYGEN
+/**
+ * @brief Vector of gho_uint (unsigned int)
+ * 
+ * @see gho_vector_T_t for documentation
+ */
+struct gho_vector_uint_t { };
+#endif
+
 #endif

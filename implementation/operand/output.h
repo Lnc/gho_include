@@ -23,6 +23,7 @@
  * \param[in] file   A C file
  * \param[in] op     A gho_operand_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_operand_t
  */
 void gho_operand_fprinti(FILE* file, const gho_operand_t* const op,
                          const unsigned int indent) {
@@ -34,6 +35,7 @@ void gho_operand_fprinti(FILE* file, const gho_operand_t* const op,
  * \brief Print a gho_operand_t in a file
  * \param[in] file A C file
  * \param[in] op   A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_operand_fprint(FILE* file, const gho_operand_t* const op) {
   gho_operand_fprinti(file, op, 0);
@@ -41,7 +43,8 @@ void gho_operand_fprint(FILE* file, const gho_operand_t* const op) {
 
 /**
  * \brief Print a gho_operand_t in stdout
- * \param[in] cop A gho_operand_t
+ * \param[in] op A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_operand_print(const gho_operand_t* const op) {
   gho_operand_fprint(stdout, op);
@@ -52,6 +55,7 @@ void gho_operand_print(const gho_operand_t* const op) {
  * \param[in] c_str  A C string
  * \param[in] op     A gho_operand_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_operand_t
  */
 void gho_operand_sprinti(char** c_str, const gho_operand_t* const op,
                         const unsigned int indent) {
@@ -63,6 +67,7 @@ void gho_operand_sprinti(char** c_str, const gho_operand_t* const op,
  * \brief Print a gho_operand_t in a C string
  * \param[in] c_str A C string
  * \param[in] op    A gho_operand_t
+ * @relates gho_operand_t
  */
 void gho_operand_sprint(char** c_str, const gho_operand_t* const op) {
   gho_operand_sprinti(c_str, op, 0);
@@ -75,6 +80,7 @@ void gho_operand_sprint(char** c_str, const gho_operand_t* const op) {
  * \param[in] file   A C file
  * \param[in] cop    A gho_coperand_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_coperand_t
  */
 void gho_coperand_fprinti(FILE* file, const gho_coperand_t* const cop,
                           const unsigned int indent) {
@@ -110,6 +116,7 @@ void gho_coperand_fprinti(FILE* file, const gho_coperand_t* const cop,
  * \brief Print a gho_coperand_t in a file
  * \param[in] file A C file
  * \param[in] cop  A gho_coperand_t
+ * @relates gho_coperand_t
  */
 void gho_coperand_fprint(FILE* file, const gho_coperand_t* const cop) {
   gho_coperand_fprinti(file, cop, 0);
@@ -118,6 +125,7 @@ void gho_coperand_fprint(FILE* file, const gho_coperand_t* const cop) {
 /**
  * \brief Print a gho_coperand_t in stdout
  * \param[in] cop A gho_coperand_t
+ * @relates gho_coperand_t
  */
 void gho_coperand_print(const gho_coperand_t* const cop) {
   gho_coperand_fprint(stdout, cop);
@@ -128,6 +136,7 @@ void gho_coperand_print(const gho_coperand_t* const cop) {
  * \param[in] c_str  A C string
  * \param[in] cop    A gho_coperand_t
  * \param[in] indent Indentation (number of spaces)
+ * @relates gho_coperand_t
  */
 void gho_coperand_sprinti(char** c_str, const gho_coperand_t* const cop,
                           const unsigned int indent) {
@@ -163,6 +172,7 @@ void gho_coperand_sprinti(char** c_str, const gho_coperand_t* const cop,
  * \brief Print a gho_coperand_t in a C string
  * \param[in] c_str A C string
  * \param[in] cop   A gho_coperand_t
+ * @relates gho_coperand_t
  */
 void gho_coperand_sprint(char** c_str, const gho_coperand_t* const cop) {
   gho_coperand_sprinti(c_str, cop, 0);

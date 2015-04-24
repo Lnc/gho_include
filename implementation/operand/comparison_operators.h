@@ -22,6 +22,7 @@
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a == b
+ * @relates gho_operand_t
  */
 bool gho_op_equal(const gho_operand_t a, const gho_operand_t b) {
   const gho_coperand_t a_cop = gho_coperand_type(a.p, a.type);
@@ -34,6 +35,7 @@ bool gho_op_equal(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a != b
+ * @relates gho_operand_t
  */
 bool gho_op_not_equal(const gho_operand_t a, const gho_operand_t b) {
   return (gho_op_equal(a, b) == false);
@@ -44,6 +46,7 @@ bool gho_op_not_equal(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a < b
+ * @relates gho_operand_t
  */
 bool gho_op_lesser(const gho_operand_t a, const gho_operand_t b) {
   const gho_coperand_t a_cop = gho_coperand_type(a.p, a.type);
@@ -56,6 +59,7 @@ bool gho_op_lesser(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a <= b
+ * @relates gho_operand_t
  */
 bool gho_op_lesser_or_equal(const gho_operand_t a, const gho_operand_t b) {
   return gho_op_lesser(a, b) || gho_op_equal(a, b);
@@ -66,6 +70,7 @@ bool gho_op_lesser_or_equal(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a > b
+ * @relates gho_operand_t
  */
 bool gho_op_greater(const gho_operand_t a, const gho_operand_t b) {
   return (gho_op_lesser_or_equal(a, b) == false);
@@ -76,6 +81,7 @@ bool gho_op_greater(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_operand_t
  * \param[in] b A gho_operand_t
  * \return a <= b
+ * @relates gho_operand_t
  */
 bool gho_op_greater_or_equal(const gho_operand_t a, const gho_operand_t b) {
   return (gho_op_lesser(a, b) == false);
@@ -88,6 +94,7 @@ bool gho_op_greater_or_equal(const gho_operand_t a, const gho_operand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a == b
+ * @relates gho_coperand_t
  */
 bool gho_cop_equal(const gho_coperand_t a, const gho_coperand_t b) {
   
@@ -181,6 +188,7 @@ bool gho_cop_equal(const gho_coperand_t a, const gho_coperand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a != b
+ * @relates gho_coperand_t
  */
 bool gho_cop_not_equal(const gho_coperand_t a, const gho_coperand_t b) {
   return (gho_cop_equal(a, b) == false);
@@ -191,6 +199,7 @@ bool gho_cop_not_equal(const gho_coperand_t a, const gho_coperand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a < b
+ * @relates gho_coperand_t
  */
 bool gho_cop_lesser(const gho_coperand_t a, const gho_coperand_t b) {
   
@@ -284,6 +293,7 @@ bool gho_cop_lesser(const gho_coperand_t a, const gho_coperand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a <= b
+ * @relates gho_coperand_t
  */
 bool gho_cop_lesser_or_equal(const gho_coperand_t a, const gho_coperand_t b) {
   return gho_cop_lesser(a, b) || gho_cop_equal(a, b);
@@ -294,6 +304,7 @@ bool gho_cop_lesser_or_equal(const gho_coperand_t a, const gho_coperand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a > b
+ * @relates gho_coperand_t
  */
 bool gho_cop_greater(const gho_coperand_t a, const gho_coperand_t b) {
   return (gho_cop_lesser_or_equal(a, b) == false);
@@ -304,6 +315,7 @@ bool gho_cop_greater(const gho_coperand_t a, const gho_coperand_t b) {
  * \param[in] a A gho_coperand_t
  * \param[in] b A gho_coperand_t
  * \return a <= b
+ * @relates gho_coperand_t
  */
 bool gho_cop_greater_or_equal(const gho_coperand_t a, const gho_coperand_t b) {
   return (gho_cop_lesser(a, b) == false);

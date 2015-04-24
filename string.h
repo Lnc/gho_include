@@ -22,7 +22,7 @@
 
 
 /**
- * \brief gho_string_t encapsulates a C string
+ * \brief Contains a C string
  */
 typedef struct {
   
