@@ -474,8 +474,37 @@ void gho_vector_T_add(gho_vector_T_t* vector, const T_t* const to_be_added) {
  * \param[in] to_be_added The T to be added
  * @relates gho_vector_T_t
  */
-void gho_vector_T_add_(gho_vector_T_t* vector, const T_t to_be_added) {
+void gho_vector_T_add_T(gho_vector_T_t* vector, const T_t to_be_added) {
   gho_vector_T_add(vector, &to_be_added);
+}
+
+/**
+ * \brief Add a T at the end (same as gho_vector_T_add)
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be added
+ * @relates gho_vector_T_t
+ */
+void gho_vector_T_add_ptr(gho_vector_T_t* vector,
+                          const T_t* const to_be_added) {
+  gho_vector_T_add(vector, to_be_added);
+}
+
+/**
+ * \brief Move a T at the end
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be moved and added
+ * \warning The to_be_added variable is moved, do not use it
+ *          after this function
+ * @relates gho_vector_T_t
+ */
+void gho_vector_T_add_absorb(gho_vector_T_t* vector, T_t* to_be_added) {
+  if (vector->size + 1 <= vector->capacity) {
+    vector->array[vector->size] = *to_be_added;
+    ++vector->size;
+  } else {
+    gho_vector_T_reserve(vector, vector->capacity + 10);
+    gho_vector_T_add_absorb(vector, to_be_added);
+  }
 }
 
 /**
@@ -517,6 +546,59 @@ void gho_vector_T_insert(gho_vector_T_t* vector,
     }
     if (i != vector->size) { gho_T_destroy(&vector->array[i]); }
     vector->array[i] = gho_T_copy(to_be_added);
+    ++vector->size;
+  } else {
+    gho_vector_T_reserve(vector, vector->capacity + 10);
+    gho_vector_T_insert(vector, to_be_added, i);
+  }
+}
+
+/**
+ * \brief Insert a T
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be inserted
+ * \param[in] i           Index where the T will be inserted
+ * @relates gho_vector_T_t
+ */
+void gho_vector_T_insert_T(gho_vector_T_t* vector,
+                          const T_t to_be_added, const size_t i) {
+  gho_vector_T_insert(vector, &to_be_added, i);
+}
+
+/**
+ * \brief Insert a T (same as gho_vector_T_insert)
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be inserted
+ * \param[in] i           Index where the T will be inserted
+ * @relates gho_vector_T_t
+ */
+void gho_vector_T_insert_ptr(gho_vector_T_t* vector,
+                             const T_t* const to_be_added, const size_t i) {
+  gho_vector_T_insert(vector, to_be_added, i);
+}
+
+/**
+ * \brief Move and insert a T
+ * \param[in] vector      A gho_vector_T
+ * \param[in] to_be_added The T to be moved and inserted
+ * \param[in] i           Index where the T will be inserted
+ * \warning The to_be_added variable is moved, do not use it
+ *          after this function
+ * @relates gho_vector_T_t
+ */
+void gho_vector_T_insert_absorb(gho_vector_T_t* vector,
+                                T_t* to_be_added, const size_t i) {
+  if (i > vector->size) {
+    fprintf(stderr, "ERROR: gho_vector_T_insert: invalid index!\n");
+    exit(1);
+  }
+  if (vector->size + 1 <= vector->capacity) {
+    for (size_t j = vector->size + 1; j > i + 1; --j) {
+      if (j != vector->size + 1) { gho_T_destroy(&vector->array[j - 1]); }
+      vector->array[j - 1] = gho_T_copy(&vector->array[j - 2]);
+    }
+    if (i != vector->size) { gho_T_destroy(&vector->array[i]); }
+    vector->array[i] = *to_be_added;
     ++vector->size;
   } else {
     gho_vector_T_reserve(vector, vector->capacity + 10);
@@ -574,6 +656,17 @@ size_t gho_vector_T_find(gho_vector_T_t* vector, const T_t* const v) {
     if (gho_T_equal(&vector->array[i], v)) { return i; }
   }
   return vector->size;
+}
+
+/**
+ * \brief Find a value in a gho_vector_T
+ * \param[in] vector A gho_vector_T
+ * \param[in] v      The T to be found
+ * \return the index of the value found, the size of the vector if not found
+ * @relates gho_vector_T_t
+ */
+size_t gho_vector_T_find_T(gho_vector_T_t* vector, const T_t v) {
+  return gho_vector_T_find(vector, &v);
 }
 
 #ifdef gho_T_compare

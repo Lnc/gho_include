@@ -53,7 +53,7 @@ gho_string_t gho_string_create_from_c_str(const char* const c_str) {
  *          after this function
  * @relates gho_string_t
  */
-void gho_string_absorb_(gho_string_t* string, gho_string_t* string_moved) {
+void gho_string_absorb(gho_string_t* string, gho_string_t* string_moved) {
   gho_string_destroy(string);
   string->c_str = string_moved->c_str;
   string_moved->c_str = NULL;
@@ -67,7 +67,7 @@ void gho_string_absorb_(gho_string_t* string, gho_string_t* string_moved) {
  *          after this function
  * @relates gho_string_t
  */
-void gho_string_absorb_c_str_(gho_string_t* string, char** c_str_moved) {
+void gho_string_absorb_c_str(gho_string_t* string, char** c_str_moved) {
   gho_string_destroy(string);
   string->c_str = *c_str_moved;
   *c_str_moved = NULL;
@@ -157,7 +157,7 @@ void gho_string_sprint(char** c_str, const gho_string_t* const string) {
 gho_string_t gho_string_fread(FILE* file) {
   gho_string_t r = gho_string_create();
   char* c_str_read = gho_c_str_fread(file);
-  gho_string_absorb_c_str_(&r, &c_str_read);
+  gho_string_absorb_c_str(&r, &c_str_read);
   return r;
 }
 
@@ -170,7 +170,7 @@ gho_string_t gho_string_fread(FILE* file) {
 gho_string_t gho_string_sread(const char** c_str) {
   gho_string_t r = gho_string_create();
   char* c_str_read = gho_c_str_sread(c_str);
-  gho_string_absorb_c_str_(&r, &c_str_read);
+  gho_string_absorb_c_str(&r, &c_str_read);
   return r;
 }
 
@@ -511,7 +511,7 @@ gho_string_t gho_string_peek_line(FILE* file) {
 gho_string_t gho_string_get_line_delimiter(FILE* file, const char delimiter) {
   gho_string_t r = gho_string_create();
   char* c_str_line = gho_c_str_get_line_delimiter(file, delimiter);
-  gho_string_absorb_c_str_(&r, &c_str_line);
+  gho_string_absorb_c_str(&r, &c_str_line);
   return r;
 }
 
@@ -536,7 +536,7 @@ void gho_string_ignore_line_delimiter(FILE* file, const char delimiter) {
 gho_string_t gho_string_peek_line_delimiter(FILE* file, const char delimiter) {
   gho_string_t r = gho_string_create();
   char* c_str_line = gho_c_str_peek_line_delimiter(file, delimiter);
-  gho_string_absorb_c_str_(&r, &c_str_line);
+  gho_string_absorb_c_str(&r, &c_str_line);
   return r;
 }
 
@@ -581,7 +581,7 @@ gho_string_t gho_string_get_line_from_c_str_delimiter(const char** c_str,
                                                       const char delimiter) {
   gho_string_t r = gho_string_create();
   char* c_str_line = gho_c_str_get_line_from_c_str_delimiter(c_str, delimiter);
-  gho_string_absorb_c_str_(&r, &c_str_line);
+  gho_string_absorb_c_str(&r, &c_str_line);
   return r;
 }
 
@@ -608,7 +608,7 @@ gho_string_t gho_string_peek_line_from_c_str_delimiter(const char** c_str,
                                                        const char delimiter) {
   gho_string_t r = gho_string_create();
   char* c_str_line = gho_c_str_peek_line_from_c_str_delimiter(c_str, delimiter);
-  gho_string_absorb_c_str_(&r, &c_str_line);
+  gho_string_absorb_c_str(&r, &c_str_line);
   return r;
 }
 

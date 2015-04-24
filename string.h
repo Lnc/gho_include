@@ -38,9 +38,9 @@ gho_string_t gho_string_create();
 static inline
 gho_string_t gho_string_create_from_c_str(const char* const c_str);
 static inline
-void gho_string_absorb_(gho_string_t* string, gho_string_t* string_moved);
+void gho_string_absorb(gho_string_t* string, gho_string_t* string_moved);
 static inline
-void gho_string_absorb_c_str_(gho_string_t* string, char** c_str_moved);
+void gho_string_absorb_c_str(gho_string_t* string, char** c_str_moved);
 static inline
 void gho_string_destroy(gho_string_t* string);
 static inline
