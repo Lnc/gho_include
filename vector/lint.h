@@ -13,56 +13,56 @@
 // limitations under the License.
 
 
-#ifndef GHO_VECTOR_LLINT_H
-#define GHO_VECTOR_LLINT_H
+#ifndef GHO_VECTOR_LINT_H
+#define GHO_VECTOR_LINT_H
 
-#include "../int/llint.h"
+#include "../int/lint.h"
 
 
-#define gho_vector_T gho_vector_llint
-#define gho_vector_T_t gho_vector_llint_t
+#define gho_vector_T gho_vector_lint
+#define gho_vector_T_t gho_vector_lint_t
 
-#define T_t gho_llint
+#define T_t gho_lint
 
-#define gho_type_vector_T GHO_TYPE_VECTOR_LLINT
+#define gho_type_vector_T GHO_TYPE_VECTOR_LINT
 
 // T gho_T_create();
-#define gho_T_create gho_llint_create
+#define gho_T_create gho_lint_create
 
 /// void gho_T_destroy(T* t);
-#define gho_T_destroy gho_llint_destroy
+#define gho_T_destroy gho_lint_destroy
 
 // void gho_T_fprint(FILE* file, const T* const t);
-#define gho_T_fprint gho_llint_fprint
+#define gho_T_fprint gho_lint_fprint
 
 // void gho_T_sprint(char** c_str, const T* const t);
-#define gho_T_sprint gho_llint_sprint
+#define gho_T_sprint gho_lint_sprint
 
 // T gho_T_fread(FILE* file);
-#define gho_T_fread gho_llint_fread
+#define gho_T_fread gho_lint_fread
 
 // T gho_T_sread(char**);
-#define gho_T_sread gho_llint_sread
+#define gho_T_sread gho_lint_sread
 
 // T gho_T_copy(const T* const t);
-#define gho_T_copy gho_llint_copy
+#define gho_T_copy gho_lint_copy
 
 // bool gho_T_equal(const T* const a, const T* const b);
-#define gho_T_equal gho_llint_equal
+#define gho_T_equal gho_lint_equal
 
 // int gho_T_compare(const T* const a, const T* const b);
-#define gho_T_compare gho_llint_compare
+#define gho_T_compare gho_lint_compare
 
 #include "../vector_T.h"
 
 
 #ifdef DOXYGEN
 /**
- * @brief Vector of gho_llint (long long int)
+ * @brief Vector of gho_lint (long int)
  * 
  * @see gho_vector_T_t for documentation
  */
-struct gho_vector_llint_t { };
+struct gho_vector_lint_t { };
 #endif
 
 #endif

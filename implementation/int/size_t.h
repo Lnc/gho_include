@@ -63,7 +63,7 @@ void gho_size_t_reset(size_t* i) {
 void gho_size_t_fprinti(FILE* file, const size_t* const i,
                         const unsigned int indent) {
   gho_fprinti(file, indent);
-  fprintf(file, "%lu", *i);
+  fprintf(file, "%zu", *i);
 }
 
 /**
@@ -121,7 +121,7 @@ void gho_size_t_sprint(char** c_str, const size_t* const i) {
 size_t gho_size_t_fread(FILE* file) {
   gho_read_whitespace(file);
   size_t r;
-  fscanf(file, "%lu", &r);
+  fscanf(file, "%zu", &r);
   return r;
 }
 
@@ -198,7 +198,7 @@ int gho_size_t_compare(const size_t* const a, const size_t* const b) {
 gho_string_t gho_size_t_to_string(const size_t* const i) {
   gho_string_t r = gho_string_create();
   char tmp[sizeof(size_t) * CHAR_BIT + 1] = { '\0' };
-  sprintf(tmp, "%lu", *i);
+  sprintf(tmp, "%zu", *i);
   gho_string_add_c_str(&r, tmp);
   return r;
 }

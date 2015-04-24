@@ -13,56 +13,47 @@
 // limitations under the License.
 
 
-#ifndef GHO_VECTOR_UINT_H
-#define GHO_VECTOR_UINT_H
+#ifndef GHO_MATRIX_ULLINT_H
+#define GHO_MATRIX_ULLINT_H
 
-#include "../int/uint.h"
+#include "../int/ullint.h"
 
 
-#define gho_vector_T gho_vector_uint
-#define gho_vector_T_t gho_vector_uint_t
+#define gho_matrix_T gho_matrix_ullint
+#define gho_matrix_T_t gho_matrix_ullint_t
 
-#define T_t gho_uint
+#define T_t gho_ullint
 
-#define gho_type_vector_T GHO_TYPE_VECTOR_UINT
+#define gho_type_matrix_T GHO_TYPE_MATRIX_ULLINT
 
 // T gho_T_create();
-#define gho_T_create gho_uint_create
+#define gho_T_create gho_ullint_create
 
 /// void gho_T_destroy(T* t);
-#define gho_T_destroy gho_uint_destroy
+#define gho_T_destroy gho_ullint_destroy
 
 // void gho_T_fprint(FILE* file, const T* const t);
-#define gho_T_fprint gho_uint_fprint
+#define gho_T_fprint gho_ullint_fprint
 
 // void gho_T_sprint(char** c_str, const T* const t);
-#define gho_T_sprint gho_uint_sprint
-
-// T gho_T_fread(FILE* file);
-#define gho_T_fread gho_uint_fread
-
-// T gho_T_sread(char**);
-#define gho_T_sread gho_uint_sread
+#define gho_T_sprint gho_ullint_sprint
 
 // T gho_T_copy(const T* const t);
-#define gho_T_copy gho_uint_copy
+#define gho_T_copy gho_ullint_copy
 
 // bool gho_T_equal(const T* const a, const T* const b);
-#define gho_T_equal gho_uint_equal
+#define gho_T_equal gho_ullint_equal
 
-// int gho_T_compare(const T* const a, const T* const b);
-#define gho_T_compare gho_uint_compare
-
-#include "../vector_T.h"
+#include "../matrix_T.h"
 
 
 #ifdef DOXYGEN
 /**
- * @brief Vector of gho_uint (unsigned int)
+ * @brief Matrix of gho_ullint (unsigned long long int)
  * 
- * @see gho_vector_T_t for documentation
+ * @see gho_matrix_T_t for documentation
  */
-struct gho_vector_uint_t { };
+struct gho_matrix_ullint_t { };
 #endif
 
 #endif
